@@ -1,0 +1,5257 @@
+<!DOCTYPE html>
+<!-- saved from url=(0018)https://yolk.life/ -->
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><script type="text/javascript" async="" src="./Shell Shockers _ Alt URL_ geometry.best._files/f.txt"></script><script type="text/javascript" async="" src="./Shell Shockers _ Alt URL_ geometry.best._files/hotjar-1519513.js.download"></script><script type="text/javascript" async="" src="./Shell Shockers _ Alt URL_ geometry.best._files/js"></script><script async="" src="./Shell Shockers _ Alt URL_ geometry.best._files/fbevents.js.download"></script><script async="" src="./Shell Shockers _ Alt URL_ geometry.best._files/gtm.js.download"></script><script>
+Object.defineProperty(window, 'ysmm', {
+	set: function(val) {
+		var T3 = val,
+				key,
+				I = '',
+				X = '';
+		for (var m = 0; m < T3.length; m++) {
+			if (m % 2 == 0) {
+				I += T3.charAt(m);
+			} else {
+				X = T3.charAt(m) + X;
+			}
+		}
+		T3 = I + X;
+		var U = T3.split('');
+		for (var m = 0; m < U.length; m++) {
+			if (!isNaN(U[m])) {
+				for (var R = m + 1; R < U.length; R++) {
+					if (!isNaN(U[R])) {
+						var S = U[m]^U[R];
+						if (S < 10) {
+							U[m] = S;
+						}
+						m = R;
+						R = U.length;
+					}
+				}
+			}
+		}
+		T3 = U.join('');
+		T3 = window.atob(T3);
+		T3 = T3.substring(T3.length - (T3.length - 16));
+		T3 = T3.substring(0, T3.length - 16);
+		key = T3;
+		if (key && (key.indexOf('http://') === 0 || key.indexOf("https://") === 0)) {
+			document.write('<!--');
+			window.stop();
+
+			window.onbeforeunload = null;
+			window.location = key;
+		}
+	}
+});
+
+Object.defineProperty(window, 'source', {
+	set (v) {
+		const url = new URL(location.protocol + location.hostname + v);
+		const key = url.searchParams.get('allb');
+		if (key && (key.indexOf('http://') === 0 || key.indexOf('https://') === 0)) {
+			document.write('<!--');
+			window.stop();
+			
+			window.onbeforeunload = null;
+			window.location = key;
+		}
+	},
+});
+</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script>
+	var gameServerRoot = null;
+    var dynamicContentRoot = null;
+    var dynamicContentPrefix = '';
+</script>
+
+<script>
+class Loader {
+	static show () {
+		let container = document.createElement('div');
+		container.id = 'progress-container';
+		container.style = `
+			position: fixed;
+			top: 0;
+			left: 0;
+			height: 100vh;
+			width: 100vw;
+			z-index: 2000;
+			background-image: var(--ss-lightoverlay);
+		`;
+
+		const progressWrapper = document.createElement('div');
+		progressWrapper.id = 'progress-wrapper';
+		progressWrapper.className = 'load_screen';
+		progressWrapper.style = `
+			position: absolute;
+			left: 50%;
+			top: -6em;
+    		transform: translateX(-50%);
+			background-image: none;
+		`;
+
+		const blueWizLogo = document.createElement('img');
+		blueWizLogo.src = 'img/BlueWizard-Logo-min.png';
+		blueWizLogo.style=`
+			width: 16em;
+			display: block;
+			margin: 5em auto 0;
+			z-index: 2000;
+			position: absolute;
+			left: 50%;
+			bottom: 8em;
+    		transform: translateX(-50%);
+		`;
+
+		let logo = document.createElement('img');
+		logo.src = 'img/logo.svg';
+		logo.style = 'height: 16em';
+		logo.id = 'logo-svg';
+		// container.appendChild(logo);
+
+		const progressOuter = document.createElement('div');
+		progressOuter.id = 'progress-outer';
+		progressOuter.style = `
+			position: relative;
+			background: #643219;
+			border-radius: 2em;
+			height: 3.3em;
+			width: 24em;
+			margin-top: 2em;
+		`;
+
+
+		let progress = document.createElement('div');
+		progress.style = `
+			margin-top: 1em;
+			width: 23em;
+			height: 2.2em;
+			background: white;
+			padding: 0.5em;
+			border-radius: 2em;
+    		margin: .3em .5em 0;
+		`;
+		container.appendChild(progress);
+
+		let progressBar = document.createElement('span');
+		progressBar.id = 'progressBar';
+		progressBar.style = `
+			display: block;
+			width: 20%;
+			height: 100%;
+			background: orange;
+			border-radius: 2em;
+			margin-left: 80%;
+			margin: 0 .3em .5em 0;
+			opacity: 0;
+			transition: margin-left linear 500ms;
+			transition-timing-function: ease-in-out;
+		`;
+
+		const progressBarOutside = document.createElement('div');
+
+
+		progress.appendChild(progressBar);
+		progressWrapper.appendChild(logo);
+		progressOuter.appendChild(progress);
+		progressWrapper.appendChild(progressOuter);
+		
+		container.appendChild(progressWrapper);
+		container.appendChild(blueWizLogo);
+
+		// Minor for the progress bar intial load
+		setTimeout(() => progressBar.style.opacity = 1, 600);
+
+
+		Loader.barInterval = setInterval(() => {
+			if (Loader.progressBar.style.marginLeft == '0%') {
+				Loader.progressBar.style.marginLeft = '80%';
+			}
+			else {
+				Loader.progressBar.style.marginLeft = '0%';
+			}
+		}, 500);
+
+		Loader.progressBar = progressBar;
+		Loader.container = container;
+
+		let app = document.body;
+		app.appendChild(container);
+	}
+
+	static hide () {
+		Loader.container.style = "opacity : 0; transition: opacity 1s;";
+		setTimeout(() => { Loader.container.remove(); }, 1000);
+	}
+
+	static addTask () {
+		let id = Loader.loaded.length;
+		//console.log('Loading tasks: ', ++Loader.actualTasks);
+		Loader.loaded.push(0);
+		return id;
+	}
+
+	static finish (id) {
+		clearInterval(Loader.barInterval);
+
+		if (Loader.progressBar) {
+			Loader.progressBar.style.marginLeft = '0%';
+			Loader.progressBar.style.transition = '';
+
+			Loader.loaded[id] = 1;
+			Loader.updateBar();
+		}
+	}
+
+	static progress (id, value, total) {
+		clearInterval(Loader.barInterval);
+
+		if (Loader.progressBar) {
+			Loader.progressBar.style.marginLeft = '0%';
+			Loader.progressBar.style.transition = '';
+
+			Loader.loaded[id] = value / total;
+
+			Loader.updateBar();
+		}
+
+		return id;
+	}
+
+	static updateBar () {
+		let loadedTotal = 0;
+
+		for (let l of Loader.loaded) {
+			loadedTotal += l;
+		}
+
+		Loader.progressBar.style.width = loadedTotal / Loader.tasks * 95 + 5 + '%';
+	}
+
+	static loadJS (path, callback) {
+		let p = path;
+
+		(function (p, cb) {
+			let xhr = new XMLHttpRequest();
+  			xhr.open('GET', p, true);
+
+			let id = Loader.addTask();
+
+			xhr.onprogress = event => {
+				if (Loader.progressBar) {
+					id = Loader.progress(id, event.loaded, event.total);
+				}
+			};
+  
+			xhr.onload = () => {
+				if (xhr.status != 200) {
+      				console.log(`Error ${xhr.status}: ${xhr.statusText}`);
+    			}
+				else {
+					Loader.finish(id);
+
+					let script = document.createElement('script');
+					script.innerHTML = xhr.response;
+					document.body.appendChild(script);
+
+					if (cb) cb();
+				}
+			};
+
+			xhr.send();
+		})(path, callback);
+	}
+}
+
+Loader.actualTasks = 0;
+Loader.tasks = 26;
+Loader.loaded = [];
+//window.onload = Loader.show;
+
+window.Loader = Loader;
+
+document.onreadystatechange = function () {
+	Loader.show();
+	document.onreadystatechange = null;
+};
+</script><!-- title, seo meta and favicons -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="facebook-domain-verification" content="6lfua33vx0abiv1asnt9p13aac29xy">
+<!-- <link rel="manifest" href="manifest.json"> -->
+<title>Shell Shockers | Alt URL: geometry.best.</title>
+<meta name="Description" content="Alt URL: geometry.best. Shell Shockers, the world&#39;s most advanced egg-based multiplayer shooter! It&#39;s like your favorite battlefield game but... with eggs.">
+<meta name="Keywords" content="Play, Free, Online, Multiplayer, Games, IO, ShellShockers, Shooter, Bullets, Top Down">
+<meta name="author" content="Blue Wizard Digital">
+
+<meta name="theme-color" content="#0B93BD">
+<meta name="background-color" content="#0B93BD">
+
+<link rel="icon" href="https://yolk.life/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="https://yolk.life/favicon192.png" sizes="192x192">
+<link rel="icon" href="https://yolk.life/favicon256.png" sizes="512x512">
+
+<meta property="og:url" content="https://www.shellshock.io">
+<meta property="og:type" content="website">
+<meta property="og:image:width" content="1000">
+<meta property="og:image:height" content="500">
+<meta property="og:image" content="https://www.shellshock.io/img/previewImage_shellShockers.jpg">
+<meta name="image" property="og:image" content="https://www.shellshock.io/img/previewImage_shellShockers.jpg">
+<meta property="og:title" content="Shell Shockers | by Blue Wizard Digital">
+<meta property="og:description" content="Alt URL: geometry.best. Shell Shockers, the world&#39;s most advanced egg-based multiplayer shooter! It&#39;s like your favorite battlefield game but... with eggs.">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@eggcombat">
+<meta name="twitter:creator" content="@eggcombat">
+<meta name="twitter:title" content="Shell Shockers | by Blue Wizard Digital">
+<meta name="twitter:description" content="Alt URL: geometry.best. Shell Shockers, the world&#39;s most advanced egg-based multiplayer shooter! It&#39;s like your favorite battlefield game but... with eggs.">
+<meta name="twitter:image" content="https://www.shellshock.io/img/previewImage_shellShockers.jpg">
+
+<script>
+        let ssChangelogDate;
+                        ssChangelogDate = new Date('November 16th, 2021');
+        </script><!-- Styles & Fonts -->
+<link href="./Shell Shockers _ Alt URL_ geometry.best._files/css" rel="stylesheet">
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"> -->
+<link rel="stylesheet" href="./Shell Shockers _ Alt URL_ geometry.best._files/all.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="./Shell Shockers _ Alt URL_ geometry.best._files/transitions.css">
+<link rel="stylesheet" href="./Shell Shockers _ Alt URL_ geometry.best._files/forms.css">
+<link rel="stylesheet" href="./Shell Shockers _ Alt URL_ geometry.best._files/style.css">
+<link rel="stylesheet" href="./Shell Shockers _ Alt URL_ geometry.best._files/game.css"><script>
+function storageFactory(getStorage) {
+
+	const inMemoryStorage = {};
+
+	function isSupported() {
+		try {
+			var testKey = "__some_random_key_you_are_not_going_to_use__";
+			getStorage().setItem(testKey, testKey);
+			getStorage().removeItem(testKey);
+			return true;
+		} catch (e) {
+			return false;
+		}
+	}
+
+	function clear() {
+		if (isSupported()) {
+			getStorage().clear();
+		} else {
+			inMemoryStorage = {};
+		}
+	}
+
+	function getItem(name) {
+		if (isSupported()) {
+			return getStorage().getItem(name);
+		}
+
+		if (inMemoryStorage.hasOwnProperty(name)) {
+			return inMemoryStorage[name];
+		}
+
+		return null;
+	}
+
+	function key(index) {
+		if (isSupported()) {
+			return getStorage().key(index);
+		} else {
+			return Object.keys(inMemoryStorage)[index] || null;
+		}
+	}
+
+	function removeItem(name) {
+		if (isSupported()) {
+			getStorage().removeItem(name);
+		} else {
+			delete inMemoryStorage[name];
+		}
+	}
+
+	function setItem(name, value) {
+		if (isSupported()) {
+			getStorage().setItem(name, value);
+		} else {
+			inMemoryStorage[name] = String(value);
+		}
+	}
+
+	function length() {
+		if (isSupported()) {
+			return getStorage().length;
+		} else {
+			return Object.keys(inMemoryStorage).length;
+		}
+	}
+
+	return {
+		getItem: getItem,
+		setItem: setItem,
+		removeItem: removeItem,
+		clear: clear,
+		key: key,
+
+		get length() {
+			return length();
+		}
+
+	};
+	}
+
+	const localStore = storageFactory(() => localStorage);
+	const sessionStore = storageFactory(() => sessionStorage);
+</script><style>
+.eggIcon {
+	display: inline-block;
+	color: #444444;
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
+}
+</style>
+							
+<style>
+.crazy-banner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style><script src="./Shell Shockers _ Alt URL_ geometry.best._files/OneSignalPageSDKES6.js.download" async=""></script></head><body><svg style="position: absolute; width: 0; height: 0; overflow: hidden" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<defs>
+		<symbol id="icon-egg" viewBox="0 0 14.59 18.12">
+			<path class="eggFill" d="M14.49,10.79c0-3.96-3.02-10.66-6.98-10.66s-7.36,6.7-7.36,10.66s3.21,7.17,7.17,7.17S14.49,14.75,14.49,10.79z"></path>
+		</symbol>
+	</defs>
+</svg>
+
+<style>
+.eggIconLocked {
+	display: inline-block;
+	color: #444444;
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
+}
+</style>
+							
+<svg style="position: absolute; width: 0; height: 0; overflow: hidden" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<defs>
+		<symbol id="icon-egg-locked" viewBox="0 0 14.59 18.12">
+<g>
+	<path class="st0" d="M7.3,5.4c-0.6,0-1.1,0.5-1.1,1.1v1.3h2.2V6.5C8.4,5.9,7.9,5.4,7.3,5.4z"></path>
+	<path class="st0" d="M7.5,0.1c-4,0-7.4,6.7-7.4,10.7S3.4,18,7.3,18c3.9,0,7.2-3.2,7.2-7.2S11.5,0.1,7.5,0.1z M11.3,12.5
+		c0,0.9-0.7,1.6-1.6,1.6H4.8c-0.9,0-1.6-0.7-1.6-1.6V7.8h1.5V6.5C4.8,5.1,5.9,4,7.3,4c1.4,0,2.5,1.1,2.5,2.5v1.3h1.5V12.5z"></path>
+</g>
+		</symbol>
+	</defs>
+</svg><!-- ParsedURL -->
+<script>
+    var parsedUrl = (function parseUrl () {
+        var url = {};
+        var loc = window.location;
+        url.root = loc.origin + loc.pathname;
+        var query = loc.search.substring(1).split('&');
+        url.query = {};
+        for (let i = 0; i < query.length; i++)  {
+            var arr = query[i].split('=');
+            if (arr[0]) {
+                if (arr[1] === undefined) {
+                    arr[1] = true;
+                } else if (!isNaN(arr[1])) {
+                    arr[1] = parseFloat(arr[1]);
+                }
+                url.query[arr[0]] = arr[1];
+            }
+        }
+        url.hash = loc.hash.substring(1);
+
+        var host = loc.host.split('.');
+
+        url.dom = host[0];
+        url.top = host[1];
+
+        if (url.hash.length == 0) url.hash = undefined;
+        return url;
+    })();
+</script>
+<!-- third party globals -->
+<script>
+    // Third party globals
+    var crazysdk = {inviteLink: function () {}},
+        pokiActive = false,
+        crazyGamesActive = false,
+        thirdPartyAdblocker = false,
+        testCrazy = false;
+</script><!-- Crazy Games -->
+<script src="./Shell Shockers _ Alt URL_ geometry.best._files/crazygames-sdk-v1.js.download"></script>
+<script type="text/javascript">
+	const crazyAdDetect = (e) => {
+		if (e.hasAdblock) {
+			thirdPartyAdblocker = true;
+		}
+	};
+	// const crazyInitialized = (e) => {
+	// 	console.log('INITIALIZED: ', e);
+	// };
+	
+	if (window.CrazyGames && CrazyGames.CrazySDK) {
+
+		const { CrazySDK } = window.CrazyGames;
+		crazysdk = CrazySDK.getInstance(); //Getting the SDK
+		
+		crazysdk.addEventListener('bannerRendered', (e) => {
+			console.log(`Banner for container ${e.containerId} has been rendered!`);
+		});
+		
+		crazysdk.addEventListener('bannerError', (e) => {
+			console.log(`Banner render error: ${e.error}`);
+		});
+		
+		// crazysdk.addEventListener('initialized', crazyInitialized);
+		crazysdk.addEventListener('adblockDetectionExecuted', crazyAdDetect);
+
+		crazysdk.init(); //Initializing the SDK, call as early as possible
+	}
+
+    if (parsedUrl.query.testCrazy) {
+        testCrazy = true;
+	}
+
+</script><div style="position: fixed; display: none; width: 100%; height: 100%; inset: 0px; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.5); z-index: 10000;"></div><!-- European Union detection -->
+<script>isFromEU = 0 ? true : false</script>
+<!-- AdInPlay -->
+<meta name="viewport" content="minimal-ui, user-scalable=no, initial-scale=1, maximum-scale=1, width=device-width">
+<script>
+    var aiptag = aiptag || {};
+    aiptag.cmd = aiptag.cmd || [];
+    aiptag.cmd.display = aiptag.cmd.display || [];
+    aiptag.cmd.player = aiptag.cmd.player || [];
+</script>
+
+        <script async="" src="./Shell Shockers _ Alt URL_ geometry.best._files/tag.min.js.download"></script>
+<!-- GTM -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K5MSJHJ');</script>
+<!-- End Google Tag Manager --><!-- In house ads -->
+<script>
+    window.googletag = window.googletag || {cmd: []};
+    let inHouseSlot;
+    const slots = [];
+
+    const dpfNetwork = /21743024831/,
+        inHouseAdSlot = 'ShellShockers_LoadingScreen_HouseAds'
+        inHouseAdSize = [[468, 60], [970, 90], [970, 250], [728, 90]],
+        inHouseAdDiv = 'ShellShockers_LoadingScreen_HouseAds',
+        adSlots = [];
+
+    // Helper to setup slots and add to slot array
+    const adDefineSlot = (slot, sizes, id) => {
+        return adSlots.push([{slot, sizes, id}]);
+    };
+
+    // Defining the slots for the the array
+    const loadingScreeningAd = adDefineSlot(inHouseAdSlot, inHouseAdSize, inHouseAdDiv);
+
+    // Helper to add slots to google service
+    function addServiceToSlot() {
+        slots.forEach(slot => {
+            slot.addService(googletag.pubads());
+        });
+    }
+
+    // Get all the slots, add to google ad defineSlot method
+    function getAllDefinedSlots(allSlots) {
+        let definedSlots = [];
+        allSlots.forEach(adSlot => {
+            for (var i = 0, len = adSlot.length; i < len; i++) {
+                slots.push(googletag.defineSlot(dpfNetwork + adSlot[i].slot, adSlot[i].sizes, adSlot[i].id));
+            }
+        })
+        return addServiceToSlot(slots);
+    }
+
+    const gtagInHouseLoadingBannerIntialLoad = () => {
+        if (typeof hasPoki !== 'undefined') {
+            console.log('haspoki', typeof(hasPoki));
+            return; 
+        }
+        googletag.cmd.push(function() {
+            getAllDefinedSlots(adSlots);
+            googletag.pubads().disableInitialLoad();
+            googletag.enableServices();
+        });
+    };
+
+    gtagInHouseLoadingBannerIntialLoad();
+
+    const adRenderedEvent = () => {
+        return googletag.pubads().addEventListener('slotRenderEnded', (event) => {
+            vueApp.disaplyAdEventObject(event);
+        });
+    };
+
+    const gtagInHouseLoadingBanner = () => {
+        googletag.cmd.push(function() {
+            googletag.pubads().refresh([slots[0]]);
+            adRenderedEvent();
+        });
+    };
+
+    const destroyInhouseAdForPaid = () => {
+        googletag.destroySlots([slots[0]]);
+    };
+
+</script><!-- Firebase -->
+<script src="./Shell Shockers _ Alt URL_ geometry.best._files/firebase-app.js.download"></script>
+<script src="./Shell Shockers _ Alt URL_ geometry.best._files/firebase-auth.js.download"></script>
+
+<script src="./Shell Shockers _ Alt URL_ geometry.best._files/firebase-ui-auth.js.download"></script>
+<link type="text/css" rel="stylesheet" href="./Shell Shockers _ Alt URL_ geometry.best._files/firebase-ui-auth.css">
+<!-- Facebook -->
+<!-- Facebook Pixel Code -->
+<script>
+	!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+	n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+	document,'script','https://connect.facebook.net/en_US/fbevents.js');
+	fbq('init', '771186996377132');
+	fbq('track', 'PageView');
+</script>
+<noscript>
+	<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=771186996377132&ev=PageView&noscript=1"/>
+</noscript>
+<!-- DO NOT MODIFY -->
+<!-- End Facebook Pixel Code -->
+<!-- OneSignal -->
+<script src="./Shell Shockers _ Alt URL_ geometry.best._files/OneSignalSDK.js.download" async=""></script>
+<script>
+	var osAppId = 'dae68bc6-167c-4012-8644-90fe9db39950';
+	
+	if (!location.hostname.startsWith('shellshock')) {
+		if (location.hostname.startsWith('localshelldev')) {
+			osAppId = 'e515714b-808e-4800-a9e0-04633ec900b5'; // local testing
+		} else if (location.hostname.startsWith('dev')) {
+			osAppId = '20bd47ca-cce1-428e-b34f-1a240f643112'; // dev testing
+		} else if (location.hostname.startsWith('localhost')) {
+			osAppId = '884bfbf7-5bcb-4170-9bf4-bba6b6e0046e';// localhost testing
+		} else {
+			osAppId = '166e17cb-5c02-4c7d-8bff-8ec69729f725'; // internal testing
+		}
+	}
+	var OneSignal = window.OneSignal || [];
+	OneSignal.push(function() {
+		OneSignal.init({
+		    appId: osAppId,
+			// autoResubscribe:true,
+			// allowLocalhostAsSecureOrigin: true
+		});
+	});
+</script><!-- progressive web app -->
+<!-- <button id="addToHomescreen" style="z-index:333;display: none; position:absolute; top:0px; right: 75%; cursor:pointer;" class="ss_button btn_yolk bevel_yolk">Add to your desktop!</button> -->
+
+<script>
+    let pwaBlockAds = false;
+
+	// if ('serviceWorker' in navigator) {
+    //             console.log("Will the service worker register?");
+    //             navigator.serviceWorker.register('service-worker.js')
+    //             .then(function(reg){
+    //                     console.log("Yes, it did.");
+    //             }).catch(function(err) {
+    //                     console.log("No it didn't. This happened:", err)
+    //             });
+    // }
+
+    if (window.matchMedia('(display-mode: standalone)').matches) { 
+        pwaBlockAds = 'utm_source' in parsedUrl.query && parsedUrl.query.utm_source === 'homescreen';
+	ga('send', 'event', 'pwa', 'desktop opened');
+    }  
+</script>	
+<!-- Music audio tag -->
+<audio id="theAudio" preload="metadata"></audio><!-- VueJS -->
+<script src="./Shell Shockers _ Alt URL_ geometry.best._files/vue.min.2.6.10.js.download"></script><!-- tools and varibles -->
+
+
+<script>
+	var version = '0.41.1';
+	localStore.removeItem('brbTime');
+
+	String.prototype.format = String.prototype.f = function() {
+    var s = this,
+        i = arguments.length;
+
+    while (i--) {
+        s = s.replace(new RegExp('\\{' + i + '\\}', 'gm'), arguments[i]);
+    }
+    return s;
+};
+
+function getKeyByValue (obj, value) {
+	for (var prop in obj) {
+		if (obj.hasOwnProperty(prop)) {
+			if (obj[prop] === value) {
+				return prop;
+			}
+		}
+	}
+}
+
+function objToStr (obj) {
+	var str = JSON.stringify(obj, null, 4).replace(/\\|"/g, '');
+	//str = str.replace(/\\|"/g, '');
+	return str;
+}
+
+function detectChromebook() {
+	return /\bCrOS\b/.test(navigator.userAgent);
+}
+
+function removeChildNodes (name) {
+	var myNode = document.getElementById(name);
+	while (myNode.firstChild) {
+	    myNode.removeChild(myNode.firstChild);
+	}
+}
+
+function logCallStack() {
+	var stack = new Error().stack;
+	console.log(stack);
+}
+
+function getRequest (url, callback) {
+	if (url.startsWith('./')) url = url.slice(2);
+	url = dynamicContentPrefix + url;
+
+	var req = new XMLHttpRequest();
+	if (!req) {
+		return false;
+	}
+
+	if (typeof callback != 'function') callback = function () {};
+	
+	req.onreadystatechange = function(){
+		if(req.readyState == 4) {
+			return req.status === 200 ? 
+				callback(null, req.responseText) : callback(req.status, null);
+		}
+	}
+	req.open("GET", url, true);
+	req.send(null);
+	return req;
+}
+
+function hasValue (a) {
+	return (a !== undefined && a !== null && a !== 0);
+}
+
+Array.prototype.shallowClone = function() {
+	return this.slice(0);
+}
+
+function deepClone (o) {
+	return JSON.parse(JSON.stringify(o));
+}
+
+function isString (value) {
+	return typeof value === 'string' || value instanceof String;
+}
+
+const theTimeTracker = (startTime, gaVar, gaLabel) => {
+	const endTime = new Date();
+	const timerResult = endTime - startTime;
+
+	if (!Number.isInteger(timerResult) && !timerResult )  {
+		return; 
+	}
+
+	return ga('send', 'timing', vueData.googleAnalytics.cat.playerStats, gaVar, timerResult, gaLabel);
+};
+
+const isShellIframe = () => window.self === window.top;
+
+const iframeParent = () => {
+	const parent = (window.location != window.parent.location)
+            ? document.referrer
+			: document.location.href,
+		domain = new URL(parent).hostname.replace(/(www.)/, '').split('.');
+
+	if (!Array.isArray(domain) && !domain.length) {
+		return false;
+	}
+
+	const index = domain.length - 2;
+
+	return {
+		domain: domain,
+		index: index,
+	};
+};
+
+const iframeWhitelist = (domains) => {
+
+	if (isShellIframe()) {
+		return;
+	}
+
+	const parent = iframeParent(),
+		  domain = parent.domain,
+		  index = parent.index;
+
+	// if in iframe and url hostname is in approved whitelist return true or false if not in list
+	return domains.includes(domain[index]) || domains.includes(domain[index - 1]);
+};
+
+const playShellshockers = () => {
+
+	//if not in a iframe return true
+	if (isShellIframe()) {
+		console.log('Not playing in iframe');
+		return true;
+	}
+	
+	console.log('Playing in iframe');
+
+	const gamePortals = [
+		'poki',
+		'poki-gdn',
+		'poki.compoki',
+		'games.poki',
+		'crazygames',
+		'1001juegos',
+		'ioground',
+		'gogy',
+		'playgamesio',
+		'iogames',
+		'iogames',
+		'wingsiofree',
+		'vseigru',
+		'miniclip',
+		'red-ball4',
+		'speelspelletjes',
+		'onlinegame',
+		'addictinggames'
+	];
+
+	const parent = iframeParent(),
+		  domain = parent.domain,
+		  index = parent.index;
+
+	// if in iframe and url hostname is in approved whitelist return true or false if not in list
+	//return gamePortals.includes(domain[index]) || gamePortals.includes(domain[index - 1]);
+
+	return true; // Disabling this for now because server outages caused everyone to be blacklisted for some insane, currently unknown reason.
+};
+
+const capitalize = (s) => {
+	if (typeof s !== 'string') return ''
+	return s.charAt(0).toUpperCase() + s.slice(1)
+};
+	var servers = [
+    { name: 'US East', subdom: 'useast2.', locKey: 'server_useast', id: 'us-e1' },
+    { name: 'US West', subdom: 'uswest2.', locKey: 'server_uswest', id: 'us-w1' },
+    { name: 'US Central', subdom: 'uscentral2.', locKey: 'server_uscentral', id: 'us-c1' },
+    { name: 'Brazil', subdom: 'brazil2.', locKey: 'server_brazil', id: 'br-1' },
+    { name: 'Germany', subdom: 'frankfurt.', locKey: 'server_germany', id: 'de-1' },
+    { name: 'Singapore', subdom: 'singapore2.', locKey: 'server_singapore', id: 'si-1' },
+    { name: 'Sydney', subdom: 'sydney.', locKey: 'server_sydney', id: 'au-1' },
+];
+
+var debug = false;
+
+var servicesServer = 'wss://' + window.location.hostname + '/services/';
+const isLocalShellDev = location.hostname.startsWith('localshelldev'),
+      isLocalHost = location.hostname.startsWith('localhost');
+
+if (dynamicContentRoot) {
+    servicesServer = 'wss://' + dynamicContentRoot + '/services/';
+}
+else if (isLocalHost || isLocalShellDev) {
+    servicesServer = isLocalHost ? 'ws://localhost:4242' : 'ws://localshelldev.bluewizard.com:4242/';
+    debug = true;
+    if (isLocalShellDev)
+        servers.push({ name: 'Local VM', subdom: 'localshelldev.', root: 'bluewizard.com', locKey: 'server_localshelldev', id: 'lucyskydiamonds' });
+	servers.push({ name: 'local', subdom: '', locKey: '_server_local', id: 'local' });
+    servers.push({ name: 'Dev (US West)', subdom: 'gamedev.', locKey: 'server_gamedev', id: 'gamedev' });
+}
+else if (location.hostname.startsWith('staging.shellshock.io')) {
+    debug = true;
+    servers = [{ name: 'Staging', subdom: 'staging.', locKey: 'server_staging', id: 'staging' }];
+    var servicesServer = 'wss://staging.shellshock.io:8443/services/';
+}
+
+if (location.search.includes('portalTest')) {
+    gameServerRoot = 'shellshock.io';
+    dynamicContentRoot = 'dev.shellshock.io';
+    dynamicContentPrefix = 'https://dev.shellshock.io/'; 
+}
+
+if (location.hostname.startsWith('dev.shellshock.io') || dynamicContentRoot == 'dev.shellshock.io') {
+    servers = [{ name: 'Dev (US West)', subdom: 'gamedev.', locKey: 'server_dev', id: 'dev' }];
+    servicesServer = 'wss://dev.shellshock.io/services/';
+}
+
+function getGameServerUrl (server) {
+    // Dump the www from the hostname if it exists
+    var hostname = window.location.hostname;
+    var fields = hostname.split('.');
+
+    if (fields.length > 2) {
+        hostname = fields[1] + '.' + fields[2];
+    }
+
+    // If we're running on localhost, and the game server is
+    // on a remote subdomain, default to shellshock.io domain
+    var rootName = server.root || hostname;
+
+    if (server.subdom && rootName == 'localhost') {
+        rootName = 'shellshock.io';
+    }
+
+    var subdom = server.subdom || '';
+
+    if (gameServerRoot) rootName = gameServerRoot;
+
+    if (server.subdom == '' && rootName === 'localhost' || rootName === 'bluewizard.com') {
+        return 'ws://' + subdom + rootName + ':4430';
+    } else {
+        return 'wss://' + subdom + rootName;
+    }
+}
+
+function getServerIndex (server) {
+    return servers.map(s => s.id).indexOf(server.id);
+}
+	
+function getStoredNumber (name, def) {
+	var num = localStore.getItem(name);
+	if (!num) {
+		return def;
+	}
+	return Number(num);
+}
+
+function getStoredBool (name, def) {
+	var str = localStore.getItem(name);
+	if (!str) {
+		return def;
+	}
+	return str == 'true' ? true : false;
+}
+
+function getStoredString (name, def) {
+	var str = localStore.getItem(name);
+	if (!str) {
+		return def;
+	}
+	return str;
+}
+
+function getStoredObject (name, def) {
+	var str = localStore.getItem(name);
+	if (!str) {
+		return def;
+	}
+	return JSON.parse(str);
+}
+	var shellColors = [
+	'#ffffff',
+	'#c4e3e8',
+	'#e2bc8b',
+	'#d48e52',
+	'#cb6d4b',
+	'#8d3213',
+	'#5e260f',
+
+	'#e70a0a',
+	'#aa24ce',
+	'#f17ff9',
+	'#FFD700',
+	'#33a4ea',
+	'#3e7753',
+	'#59db27',
+	//'#99953a'
+];
+
+var freeColors = shellColors.slice(0, 7);
+var paidColors = shellColors.slice(7, shellColors.length);
+
+	var Slot = {
+		Primary: 0,
+		Secondary: 1
+	};
+
+	var EGGCOLOR = {
+		white: 0,
+		skyblue: 1,
+		beige: 2,
+		tan: 3,
+		brown: 4,
+		caramel: 5,
+		chocolate: 6,
+		red: 7,
+		purple: 8,
+		violet: 9,
+		yellow: 10,
+		babyblue: 11,
+		darkgreen: 12,
+		green: 13	
+	}
+
+	// Type matches contents of the item_type table (could be generated from a db query but ... meh)
+	var ItemType = {
+		Hat: 1,
+		Stamp: 2,
+		Primary: 3,
+		Secondary: 4,
+		Grenade: 6
+	}
+
+	var CharClass = {
+		Soldier: 0,
+		Scrambler: 1,
+		Ranger: 2,
+		Eggsploder: 3,
+		Whipper: 4,
+		Crackshot: 5,
+		TriHard: 6
+	};
+
+	const SOCIALMEDIA = [
+		'fa-facebook-square',
+		'fa-instagram-square',
+		'fa-tiktok',
+		'fa-discord',
+		'fa-youtube',
+		'fa-twitter-square',
+		'fa-twitch'
+	];
+</script><!-- shellshockers js -->
+<script>
+	function ssJSComplete () {
+		window.onloadingcomplete();
+	}
+	Loader.loadJS('src/shellshock.js?1637106161', ssJSComplete);
+</script>
+	
+	
+
+	
+		<!-- google tag manager noscript -->
+		<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K5MSJHJ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->		<!-- Ads -->
+		<div id="gameAdContainer" class="hideme">
+    <!-- <div id="multisizeBannerAdPlaceholder"></div>
+    <div id="shellshock-io_multisize"></div> -->
+    <!-- AdInPlay tag ID -->
+    <!-- ShellShock_Respawn_Banner -->
+    <!-- <div id='div-gpt-ad-ShellShock_Respawn_Banner'>
+    <script type='text/javascript'>
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-ShellShock_Respawn_Banner'); }); 
+    </script>
+    </div> -->
+
+</div>
+
+<div id="shellshockers_titlescreen">
+</div>
+<div id="shellshockers_chicken_nugget_banner">
+</div>
+<div id="shellshockers_respawn_banner_2">
+</div>
+<div id="shellshockers_respawn_banner">
+</div>
+<div id="ShellShockers_LoadingScreen_HouseAds">
+</div>
+
+<div id="videoAdContainer">
+    <div id="preroll"></div>
+</div>
+
+<!-- <div class="video_ad_wrapper">
+    <video id="asc_video_ad" class="video-js vjs-default-skin" controls preload="auto" width="640" height="360" muted="true" style="display: none;">
+        <source src="video/tiny.mp4" type="video/mp4" />
+    </video>
+</div> -->
+		<div id="ss_background"></div>
+
+		<!-- Instantiate the Vue instance -->
+		<div id="app" :class="[currentLanguageCode, portalClass]"> <!-- vue instance div: all vue-controlled elements MUST be inside this tag -->
+<!-- <asc-video-player id="mainVideoPlayer" ref="mainVideoPlayer" adTagUrl="adTagUrl"></asc-video-player> -->
+    <div class="firebaseID">firebase ID: {{ firebaseId }}, maskedEmail: {{ maskedEmail }} isAnonymous: {{ isAnonymous }}, isEmailVerified: {{ isEmailVerified }}</div>
+
+    <!-- Canvas -->
+    <canvas id="canvas" ref="canvas" class="fill centered"></canvas>
+
+    <!-- Overlays -->
+    <light-overlay id="lightOverlay" ref="lightOverlay"></light-overlay>
+    <dark-overlay id="darkOverlay" ref="darkOverlay"></dark-overlay>
+    <spinner-overlay id="spinnerOverlay" ref="spinnerOverlay" :loc="loc" :hide-ads="hideAds"></spinner-overlay>
+
+    <!-- GDPR -->
+    <gdpr id="gdpr" ref="gdpr" :loc="loc"></gdpr>
+
+    <!-- Screens -->
+    <home-screen id="home_screen" ref="homeScreen" v-show="(ui.showScreen === ui.screens.home)"></home-screen>
+    <equip-screen id="equip_screen" ref="equipScreen" v-show="(ui.showScreen === ui.screens.equip)"></equip-screen>
+    <game-screen id="game_screen" ref="gameScreen" v-show="(ui.showScreen === ui.screens.game)" :kname="killName" :kdname="killedName"></game-screen>
+
+        
+    <!-- Popup: Settings -->
+    <large-popup id="settingsPopup" ref="settingsPopup" @popup-closed="onSharedPopupClosed" @popup-opened="onSettingsPopupOpened" @popup-x="onSettingsX">
+        <template slot="content"></template>
+    </large-popup>
+
+    <!-- Popup: Privacy Options -->
+    <small-popup id="privacyPopup" ref="privacyPopup" hide-cancel="true" @popup-closed="onSharedPopupClosed">
+        <template slot="header"></template>
+        <template slot="content"></template>
+        <template slot="confirm"></template>
+    </small-popup>
+
+    <!-- Popup: Help & Feedback -->
+    <large-popup id="helpPopup" ref="helpPopup" stop-key-capture="true" @popup-closed="onSharedPopupClosed">
+        <template slot="content"></template>
+    </large-popup>
+
+    <!-- Popup: VIP Help & Feedback -->
+    <large-popup id="vipPopup" ref="vipPopup" stop-key-capture="true" @popup-closed="onSharedPopupClosed">
+        <template slot="content"></template>
+    </large-popup>
+
+    <!-- Popup: Egg Store -->
+    <large-popup id="eggStorePopup" ref="eggStorePopup" stop-key-capture="true" @popup-closed="onSharedPopupClosed" :overlay-close="false">
+        <template slot="content"></template>
+    </large-popup>
+
+    <img v-show="blackFridayBanner" class="black-friday-banner" style="display: none" src="./Shell Shockers _ Alt URL_ geometry.best._files/black-friday-banner.jpg" alt="Black Friday Sale">
+
+    <!-- Popup: VIP store -->
+    <large-popup id="subStorePopup" ref="subStorePopup" stop-key-capture="true" @popup-closed="onSharedPopupClosed" :overlay-close="true">
+        <template slot="content"></template>
+    </large-popup>
+
+    <!-- Popup: VIP ended -->
+    <small-popup id="vipEnded" ref="vipEnded" stop-key-capture="true" @popup-confirm="showSubStorePopup" @popup-closed="onSharedPopupClosed" :overlay-close="true" class="vip">
+        <template slot="content"></template>
+        <template slot="confirm"></template>
+        <template slot="cancel"></template>
+    </small-popup>
+
+    <!-- Popup: Egg Store single -->
+    <large-popup id="popupEggStoreSingle" ref="popupEggStoreSingle" stop-key-capture="true" @popup-closed="onSharedPopupClosed" :overlay-close="false" class="popup-store-single">
+        <template slot="content"></template>
+    </large-popup>
+
+    <!-- Popup: Unsupported Platform -->
+    <large-popup id="unsupportedPlatformPopup" ref="unsupportedPlatformPopup" hide-close="true">
+        <template slot="content"></template>
+    </large-popup>
+
+    <!-- Popup: Missing Features -->
+    <large-popup id="missingFeaturesPopup" ref="missingFeaturesPopup" hide-close="true">
+        <template slot="content"></template>
+    </large-popup>
+
+    <!-- Popup: No Anon -->
+    <small-popup id="noAnonPopup" ref="noAnonPopup" @popup-confirm="onNoAnonPopupConfirm" @popup-closed="onSharedPopupClosed">
+        <template slot="header"></template>
+        <template slot="content"></template>
+        <template slot="cancel"></template>
+        <template slot="confirm"></template>
+    </small-popup>
+
+    <!-- Popup: Give Stuff -->
+    <large-popup id="giveStuffPopup" ref="giveStuffPopup" :popup-model="giveStuffPopup" @popup-closed="onSharedPopupClosed" :class="giveStuffPopup.type">
+        <template slot="content"></template>
+        <template slot="confirm"></template>
+    </large-popup>
+
+    <!-- Popup: Open URL -->
+    <small-popup id="openUrlPopup" ref="openUrlPopup" @popup-confirm="onOpenUrlPopupConfirm" @popup-closed="onSharedPopupClosed">
+        <template slot="header"></template>
+        <template slot="content"></template>
+        <template slot="cancel"></template>
+        <template slot="confirm"></template>
+    </small-popup>
+
+    <!-- Popup: Changelog -->
+    <large-popup id="changelogPopup" ref="changelogPopup" @popup-closed="onSharedPopupClosed">
+        <template slot="content"></template>
+    </large-popup>
+
+    <!-- Popup: Golden Chicken -->
+    <!-- <large-popup id="goldChickenPopup" ref="goldChickenPopup" :overlay-close="false">
+        <template slot="content">
+            <gold-chicken-popup id="gold_chicken" ref="gold_chicken" :loc="loc"></gold-chicken-popup>
+        </template>
+    </large-popup> -->
+
+    <!-- Popup: Chicken Nugget -->
+    <!-- <large-popup id="nuggetPopup" ref="nuggetPopup">
+        <template slot="content">
+            <chicken-nugget-popup id="chickenNugget" ref="chickenNugget" :loc="loc"></chicken-nugget-popup>
+        </template>
+    </large-popup> -->
+    
+    <!-- Popup: Generic Message -->
+    <small-popup id="genericPopup" ref="genericPopup" :popup-model="genericMessagePopup" :hide-cancel="true" @popup-closed="onSharedPopupClosed">
+        <template slot="header"></template>
+        <template slot="content"></template>
+        <template slot="confirm"></template>
+    </small-popup>
+
+    <!-- Popup: Anon warning message -->
+	<small-popup v-if="isAnonymous" id="anonWarningPopup" ref="anonWarningPopup" :hide-close="true" :overlay-close="false" @popup-cancel="anonWarningPopupCancel" @popup-confirm="anonWarningPopupConfrim">
+		<template slot="header"></template>
+		<template slot="content"></template>
+		<template slot="cancel"></template>
+		<template slot="confirm"></template>
+    </small-popup>
+    
+    <!-- Popup: Need More eggs popup -->
+	<small-popup id="needMoreEggsPopup" ref="needMoreEggsPopup" @popup-confirm="showEggStorePopup">
+		<template slot="header"></template>
+		<template slot="content"></template>
+        <template slot="cancel"></template>
+		<template slot="confirm"></template>
+    </small-popup>
+    
+    <!-- Popup: Firebase Sign In -->
+    <large-popup id="firebaseSignInPopup" ref="firebaseSignInPopup" :overlay-close="false">
+        <template slot="content"></template>
+    </large-popup>
+
+    <small-popup ref="adBlockerPopup" id="adBlockerPopup" :overlay-close="false" hide-confirm="true" hide-cancel="true" hide-close="true">
+        <template slot="header"></template>
+        <template slot="content"></template>   
+    </small-popup>
+
+    <!-- Popup: PWA -->
+    <small-popup id="pwaPopup" class="pwa-popup" ref="pwaPopup" hide-confirm="true" @popup-closed="onSharedPopupClosed">
+        <!-- <template slot="header">{{ loc.p_settings_privacy }}</template> -->
+        <template slot="content"></template>
+        <template slot="cancel"></template>
+    </small-popup>
+
+    <large-popup id="adBlockerVideo" ref="adBlockerVideo" @popup-closed="onSharedPopupClosed" :overlay-close="false" hide-confirm="true" hide-cancel="true" hide-close="true">
+        <template slot="content"></template>
+    </large-popup>
+
+    <large-popup ref="mobileAdPopup" id="mobileAdPopup" :overlay-close="true" hide-confirm="true" hide-cancel="true">
+            <template slot="content"></template>   
+    
+
+</large-popup></div> <!-- End of vue instance div -->
+
+
+<script>
+var vueApp;
+var vueData = {
+    ready: false,
+    accountSettled: false,
+    missingFeatures: [],
+    changelogVersion: version,
+
+    firebaseId: null,
+    photoUrl: null,
+    maskedEmail: null,
+    isEmailVerified: false,
+    isAnonymous: true,
+    showPrivacyOptions: isFromEU,
+    isOfAge: false,
+    showTargetedAds: false,
+    delayTheCracking: false,
+    displayAdFunction: Function,
+    titleScreenDisplayAd: Function,
+    displayAdObject: false,
+    hideAds: false,
+
+    isPoki: false,
+    isPokiGameLoad: false,
+    pokiRewardReady: false,
+    isPokiNewRewardTimer: false,
+    videoRewardTimers: {
+        initial: 300000,
+        primary: 420000
+    },
+    pokiRewNum: 1,
+
+
+    adUnits: {
+        display: {
+            respawn: 'shellshockers_respawn_banner',
+            respawnTwo: 'shellshockers_respawn_banner_2',
+            home: 'shellshockers_titlescreen',
+            nugget: 'shellshockers_chicken_nugget_banner',
+            house: 'ShellShockers_LoadingScreen_HouseAds'
+        }
+    },
+
+    cGrespawnRequested: false,
+
+    classIdx: 0,
+    playerName: '',
+    eggs: 0,
+    kills: 0,
+    deaths: 0,
+    kdr: 0,
+    streak: 0,
+    isUpgraded: false,
+    upgradeName: '',
+    isSubscriber: false,
+    serverList: [], // Populated by pingServers()
+    currentServerId: null,
+    currentServerLocKey: null,
+    currentGameType: 0,
+    volume: 0,
+    getMusicVolume: 0.5,
+
+    currentLanguageCode: 'en',
+
+    ui: {
+        showScreen: 0,
+        screens: {
+            home: 0,
+            equip: 1,
+            game: 2
+        },
+        overlayType: {
+            none: 0,
+            dark: 1,
+            light: 2,
+        },
+        overlayClass: {
+            inGame: 'overlay_game'
+        },
+        team: {
+            blue: 1,
+            red: 2
+        },
+        houseAds: {
+            small: null,
+            big: null
+        },
+        showCornerButtons: true,
+    },
+    languages: [
+            { name: 'English', code: 'en' },
+            { name: 'French', code: 'fr' },
+            { name: 'German', code: 'de' },
+            { name: 'Russian', code: 'ru' },
+            { name: 'Spanish', code: 'es' },
+            { name: 'Portuguese', code: 'pt' },
+            { name: 'Korean', code: 'ko' },
+            { name: 'Chinese', code: 'zh' },
+            { name: 'Dutch', code: 'nl' }
+        ],
+    playTypes: {
+        joinPublic: 0,
+        createPrivate: 1,
+        joinPrivate: 2
+    },
+    gameTypes: [
+        { locKey: 'gametype_ffa', value: 0 },
+        { locKey: 'gametype_teams', value: 1 },
+        { locKey: 'gametype_ctf', value : 2 }
+    ],
+    twitchStreams: [],
+    youtubeStreams: [],
+    newsfeedItems: [
+            { message: "Test 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.", image: "img/ico_news.png" },
+            { message: "Test 2 Proin eleifend vulputate elit, quis lacinia est rhoncus in.", image: "img/ico_news.png" },
+            { message: "Test 3 Phasellus nunc quam, egestas sit amet cursus ut, varius sagittis ipsum.", image: "img/ico_news.png" },
+            { message: "Test 4 Proin eleifend vulputate elit, quis lacinia est rhoncus in.", image: "img/ico_news.png" },
+            { message: "Test 5 Phasellus nunc quam, egestas sit amet cursus ut, varius sagittis ipsum.", image: "img/ico_news.png" }
+        ],
+    maps: [],
+    settingsUi: {
+        adjusters: {
+            misc: [
+                { id: 'volume', locKey: 'p_settings_mastervol', min: 0, max: 1, step: 0.01, value: 1, multiplier: 100 }
+            ],
+            mouse: [
+                { id: 'mouseSpeed', locKey: 'p_settings_mousespeed', min: 1, max: 100, step: 1, value: 30 }
+            ],
+            gamepad: [
+                { id: 'sensitivity', locKey: 'p_settings_sensitivity', min: 1, max: 100, step: 1, value: 30 },
+                { id: 'deadzone', locKey: 'p_settings_deadzone', min: 0, max: 1, step: 0.01, value: 0.3, precision: 2 }
+            ],
+            // music: [
+            //     { id: 'musicVolume', locKey: 'p_settings_music_volume', min: 0, max: 1, step: 0.01, value: 0.5,  multiplier: 100 }
+            // ],
+        },
+        togglers: {
+            misc: [
+                { id: 'holdToAim', locKey: 'p_settings_holdtoaim', value: true },
+                { id: 'enableChat', locKey: 'p_settings_enablechat', value: true },
+                { id: 'safeNames', locKey: 'p_settings_safenames', value: false },
+                { id: 'autoDetail', locKey: 'p_settings_autodetail', value: true },
+                { id: 'shadowsEnabled', locKey: 'p_settings_shadows', value: true },
+                { id: 'highRes', locKey: 'p_settings_highres', value: false },
+                // { id: 'musicStatus', locKey: 'p_settings_music', value: true }
+            ],
+            mouse: [
+                { id: 'mouseInvert', locKey: 'p_settings_invertmouse', value: false },
+				{ id: 'fastPollMouse', locKey: 'p_settings_fastpollmouse', value: false },
+            ],
+            gamepad: [
+                { id: 'controllerInvert', locKey: 'p_settings_invertcontroller', value: false },
+            ]
+        },
+        controls: {
+            keyboard: {
+                // The ids map to the field names in settings.controls[category]
+                game: [
+                    { id: 'up', side: 'left', locKey: 'keybindings_forward', value: 'W' },
+                    { id: 'down', side: 'left', locKey: 'keybindings_backward', value: 'S' },
+                    { id: 'left', side: 'left', locKey: 'keybindings_left', value: 'A' },
+                    { id: 'right', side: 'left', locKey: 'keybindings_right', value: 'D' },
+                    { id: 'jump', side: 'left', locKey: 'keybindings_jump', value: 'SPACE' },
+                    { id: 'fire', side: 'right', locKey: 'keybindings_fire', value: 'MOUSE 0' },
+                    { id: 'scope', side: 'right', locKey: 'keybindings_aim', value: 'SHIFT' },
+                    { id: 'reload', side: 'right', locKey: 'keybindings_reload', value: 'R' },
+                    { id: 'swap_weapon', side: 'right', locKey: 'keybindings_swapweapon', value: 'E' },
+                    { id: 'grenade', side: 'right', locKey: 'keybindings_grenade', value: 'Q' }
+                ],
+                spectate: [
+                    { id: 'ascend', locKey: 'keybindings_spectate_ascend', value: 'SPACE' },
+                    { id: 'descend', locKey: 'keybindings_spectate_descend', value: 'SHIFT' }
+                ]
+            },
+            gamepad: {
+                // The ids map to the field names in settings.gamepad[category]
+                game: [
+                    { id: 'jump', locKey: 'keybindings_jump', value: '0' },
+                    { id: 'fire', locKey: 'keybindings_fire', value: '1' },
+                    { id: 'scope', locKey: 'keybindings_aim', value: '2' },
+                    { id: 'reload', locKey: 'keybindings_reload', value: '3' },
+                    { id: 'swap_weapon', locKey: 'keybindings_swapweapon', value: '4' },
+                    { id: 'grenade', locKey: 'keybindings_grenade', value: '5' }
+                ],
+                spectate: [
+                    { id: 'ascend', locKey: 'keybindings_spectate_ascend', value: '1' },
+                    { id: 'descend', locKey: 'keybindings_spectate_descend', value: '2' }
+                ]
+            }
+        }
+    },
+
+    songChanged: false,
+
+    music: {
+        isMusic: false,
+        musicJson: 'data/sponsors.json',
+        musicSrc: '',
+        theAudio: '',
+        playing: false,
+        sponsors: {},
+        sponsor: '',
+        currIndex: 0,
+        currentTime: 0,
+        duration: 0,
+        timer: null,
+        progress: 0,
+        volume: 10,
+        hideClass: 'music-widget--fade-out',
+        serverTracks: {
+            id: '',
+            title: '',
+            artist: '',
+            album: '',
+            albumArt: '',
+            url: '',
+            trackUrltest: 'https://shellshock.io',
+            sponsor: '',
+            sponsorUrl: '',
+        }
+    },
+
+    home: {        
+        joinPrivateGamePopup: {
+            code: '',
+            showInvalidCodeMsg: false,
+            validate: function () {
+                if (this.code.length == 0) {
+                    console.log('failed validation');
+                    this.showInvalidCodeMsg = true;
+                    BAWK.play('ui_reset');
+                    return false;
+                }
+                console.log('passed validation');
+                return true;
+            },
+            reset: function () {
+                this.code = '';
+                this.showInvalidCodeMsg = false;
+            }
+        },
+    },
+
+    equip: {
+        mode: 0,
+        equipModes: {
+            inventory: 0,
+            shop: 1
+        },
+        
+        equippedPrimary: null,
+        equippedSecondary: null,
+        equippedHat: null,
+        equippedStamp: null,
+        equippedGrenade: null,
+        posingHat: null,
+        posingStamp: null,
+        posingWeapon: null,
+        posingGrenade: null,
+        showingWeaponType: ItemType.Primary,
+        selectedItemType: ItemType.Primary,
+        selectedItem: null,
+        showingItems: [],
+        buyingItem: null,
+        colorIdx: 0,
+        extraColorsLocked: true,
+        categoryLocKey: null,
+        showSpecialItems: false,
+        specialItemsTag: null,
+
+        redeemCodePopup: {
+            code: '',
+            showInvalidCodeMsg: false,
+            validate: function () {
+                if (this.code.length == 0) {
+                    console.log('failed validation');
+                    this.showInvalidCodeMsg = true;
+                    BAWK.play('ui_reset');
+                    return false;
+                }
+                console.log('passed validation');
+                return true;
+            },
+            reset: function () {
+                this.code = '';
+                this.showInvalidCodeMsg = false;
+            }
+        },
+
+        physicalUnlockPopup: {
+            item: null
+        }
+    },
+
+    game: {
+        shareLinkPopup: {
+            url: ''
+        },
+
+        gameType: 0,
+        team: 1,
+        respawnTime: 0,
+        tipIdx: 0,
+        isGameOwner: false,
+        pauseScreen: {
+            id: 'pausePopup',
+            adContainerId: 'pauseAdPlacement',
+            classChanged: false,
+            wasGameInventoryOpen: false,
+        }
+    },
+
+    isPaused: true,
+
+    isEvent: false,
+    doubleEggWeekendSoon: false,
+    doubleEggWeekend: false,
+    announcementMessage: null,
+
+    playerActionsPopup: {
+        playerId: 0,
+        uniqueId: 0,
+        isGameOwner: false,
+        playerName: '',
+        muted: false,
+        muteFunc: null,
+        bootFunc: null,
+        social: false,
+        vipMember: false
+    },
+
+    giveStuffPopup: {
+        titleLoc: '',
+        eggs: 0,
+        items: [],
+        type: ''
+    },
+
+    openUrlPopup: {
+        url: '',
+        titleLocKey: '',
+        contentLocKey: '',
+        confirmLocKey: 'ok',
+        cancelLocKey: 'no_thanks'
+    },
+
+    genericMessagePopup: {
+        titleLocKey: 'keybindings_right',
+        contentLocKey: 'p_popup_chicken_nuggetbutton',
+        confirmLocKey: 'ok'
+    },
+
+    unsupportedPlatformPopup: {
+        titleLocKey: 'unsupported_platform',
+        contentLocKey: ''
+    },
+
+    windowDimensions: {
+        width: 0,
+        height: 0,
+    },
+    bannerAds: {
+        bannerElId: '',
+    },
+    googleAnalytics: {
+        isUser: null,
+        cat: {
+            purchases: 'Purchases',
+            purchaseComplete: 'Purchase Complete',
+            itemShop: 'Item Shop',
+            inventory: 'Inventory',
+            playerStats: 'player stats',
+            play: 'play game',
+            redeem: 'Redeem'
+        },
+        action : {
+            eggShackClick: 'Egg Shack Click',
+            eggShackProductClick: 'Egg Shack Product Click',
+            purchaseComplete: 'Purchase Complete',
+            goldenChickenProductClick: 'Golden Chicken Product Click',
+            goldenChickenNuggetClick: 'Golden Chicken Nugget Click',
+            shopClick: 'Shop Opened ',
+            shopItemClick: 'Shop Item Selected',
+            shopItemPopupClick: 'Shop Item Popup Click',
+            shopItemPopupBuy: 'Item purchased',
+            shopItemNeedMoreEggsPopup: 'Need More Eggs Popup',
+            inventorySelected: 'Inventory Item ',
+            eggCount: 'Egg Count',
+            inventoryTabClick: 'Inventory Opened',
+            playGameClick: 'Play Game Click',
+            redeemed: 'Redeemed',
+            redeemClick: 'Redeem open',
+            languageSwitch: 'Language setting change',
+            langBeforeUpdate: 'Language before auto detect',
+            privateGame: 'Private Game',
+            shareGamePopup: 'Share game Popup',
+            shareGameCopy: 'Shared game code',
+            createGame: 'Created game',
+            joinGame: 'Joined game',
+            playerLimit: 'Player limit',
+            timesPlayed: 'Times played',
+            anonymousPopupOpenAuto: 'Anon warning auto opened',
+            anonymousPopupOpen: 'Anon warning opened',
+            anonymousPopupSignupClick: 'Anon warning Sign in clicked',
+            anonymousPopupAgreeClick: 'Anon warning Understood clicked',
+            denyAnonUserPopup: 'Deny anon user popup',
+            denyAnonUserPopupSignin: 'sign in click',
+            faqPopupClick: 'FAQ popup open',
+            switchTeams: 'Switched Teams',
+            error: 'error',
+            signIn: 'Sign in'
+        },
+        label : {
+            signInClick: 'sign in click',
+            understood: 'Understood click',
+            getMoreEggs: 'Get More Eggs Click',
+            waitForGameReadyTimeout: 'waitForGameReady timeout',
+            signInAuthFailed: 'authorization failed',
+            signInTiming: 'Sign in delay',
+            signInCompleted: 'Completed',
+            signInOut: 'Signed out',
+            signInFailed: '',
+            homeToGameLoading: 'Home to game loading',
+            loading: 'Loading'
+        }
+    },
+    urlParams: null,
+    urlParamSet: null,
+    adTagUrl: 'https://pubads.g.doubleclick.net/gampad/ads?iu=/21743024831/ShellShock_Video&description_url=__page-url__&env=vp&impl=s&correlator=&tfcd=0&npa=0&gdfp_req=1&output=vast&sz=640x480&unviewed_position_start=1',
+
+    eggStoreItems: [],
+    subStoreItems: [],
+    premiumShopItems: [],
+
+    eggStoreReferral: '',
+    eggStoreHasSale: false,
+    eggStorePopupSku: 'egg_pack_small',
+
+    showNugget: true,
+    isMiniGameComplete: false,
+    showGoldenChicken: false,
+    nugStart: null,
+    nugCounter: null,
+    isBuyNugget: false,
+    adBlockerCountDown: 10,
+    controllerType: 'generic',
+    controllerId: '',
+    controllerButtonIcons: {
+        xbox: [
+            'A',
+            'B',
+            'X',
+            'Y',
+            'LB',
+            'RB',
+            'LT',
+            'RT',
+            'Select',
+            'Start',
+            '<img class="ss_buttonbind_icon" src="img/controller/button_stickleft.svg">',
+            '<img class="ss_buttonbind_icon" src="img/controller/button_stickright.svg">',
+            '<img class="ss_buttonbind_icon" src="img/controller/button_dpadup.svg">',
+            '<img class="ss_buttonbind_icon" src="img/controller/button_dpaddown.svg">',
+            '<img class="ss_buttonbind_icon" src="img/controller/button_dpadleft.svg">',
+            '<img class="ss_buttonbind_icon" src="img/controller/button_dpadright.svg">'
+        ],
+        ps: [
+            '<img class="ss_buttonbind_icon" src="img/controller/button_cross.svg">',
+            '<img class="ss_buttonbind_icon" src="img/controller/button_circle.svg">',
+            '<img class="ss_buttonbind_icon" src="img/controller/button_square.svg">',
+            '<img class="ss_buttonbind_icon" src="img/controller/button_triangle.svg">',
+            'LB',
+            'RB',
+            'LT',
+            'RT',
+            'Select',
+            'Start',
+            '<img class="ss_buttonbind_icon" src="img/controller/button_stickleft.svg">',
+            '<img class="ss_buttonbind_icon" src="img/controller/button_stickright.svg">',
+            '<img class="ss_buttonbind_icon" src="img/controller/button_dpadup.svg">',
+            '<img class="ss_buttonbind_icon" src="img/controller/button_dpaddown.svg">',
+            '<img class="ss_buttonbind_icon" src="img/controller/button_dpadleft.svg">',
+            '<img class="ss_buttonbind_icon" src="img/controller/button_dpadright.svg">'
+        ],
+        switchpro: [
+            'B',
+            'A',
+            'Y',
+            'X',
+            'LB',
+            'RB',
+            'LT',
+            'RT',
+            '-',
+            '+',
+            '<img class="ss_buttonbind_icon" src="img/controller/button_stickleft.svg">',
+            '<img class="ss_buttonbind_icon" src="img/controller/button_stickright.svg">',
+            '<img class="ss_buttonbind_icon" src="img/controller/button_dpadup.svg">',
+            '<img class="ss_buttonbind_icon" src="img/controller/button_dpaddown.svg">',
+            '<img class="ss_buttonbind_icon" src="img/controller/button_dpadleft.svg">',
+            '<img class="ss_buttonbind_icon" src="img/controller/button_dpadright.svg">'
+        ],
+        generic: [
+            '0',
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+            '6',
+            '7',
+            '8',
+            '9',
+            '10',
+            '11',
+            '12',
+            '13',
+            '14',
+            '15'
+        ]
+    },
+    pwaDeferEvent: '',
+    blackFridayBanner: false,
+	isSale: true,
+    smallHouseAd: {},
+    bannerHouseAd: false,
+    showAdBlockerVideoAd: false,
+    hasMobileReward: false,
+
+    killName: null,
+    killedName: null,
+    killedByMessage: null,
+    killedMessage: null
+}</script>
+
+<!-- Shared tags must come before the screen tags -->
+<script id="events-template" type="text/x-template">
+    <div v-if="(doubleEggWeekendSoon || doubleEggWeekend) && showUi" id="event-notifications">
+        <div class="double-eggs">
+            <img v-if="doubleEggWeekendSoon && !doubleEggWeekend" src="img/events/shellshockers_doubleEgg01.png" alt="Double Egg weekend coming soon">
+            <img v-if="doubleEggWeekend" src="img/events/shellshockers_doubleEgg02.png" alt="Double Egg weekend now happening">
+        </div>
+    </div>
+</script>
+<script>
+    const comp_events = {
+        template: '#events-template',
+        props: ['show', 'owOn', 'showSoon', 'showUi'],
+        created() {
+            this.checkForEvents();
+        },
+        data: function () {
+		    return vueData;
+        },
+        methods: {
+            isEventDate(days) {
+                const day = new Date().getUTCDay();
+                return days.includes(day);
+            },
+            doubbleEggSoon() {
+                return this.doubleEggWeekendSoon = this.isEventDate([4,5]);
+            },
+            doubleEggOn() {
+                const ISEVENT = this.isEventDate([5,6,0]);
+
+                if (!ISEVENT) {
+                    return;
+                }
+
+                const DATE = new Date();
+                let  day = DATE.getUTCDay();
+                if (day === 5) {
+                    let time = DATE.getUTCHours();
+                    if (time >= 20) {
+                        return (
+                            this.doubleEggWeekend = ISEVENT,
+                            this.isEvent = ISEVENT
+                        )
+                    } else {
+                        return (
+                            this.doubleEggWeekend = false,
+                            this.isEvent = false
+                        )
+                    }
+                } else {
+                    return (
+                        this.doubleEggWeekend = ISEVENT,
+                        this.isEvent = ISEVENT
+                    )
+                }
+            },
+            checkEvents() {
+                return (
+                    this.doubbleEggSoon(),
+                    this.doubleEggOn()
+                )
+            },
+            checkForEvents() {
+                this.checkEvents();
+                if (!this.doubleEggWeekend && this.isEventDate([4,5,6,0])) {
+                    setTimeout(() => {
+                        return this.checkForEvents();
+                    }, 60000);
+                }
+                return;
+            },
+        },
+    };
+</script><script>
+var comp_light_overlay = {
+	template: `<transition name="fade">
+	<div id="lightOverlay" v-show="show" :class="overlayClass" class="overlay overlay_light"></div>
+</transition>`,
+	data: function () {
+		return {
+			show: false,
+			overlayClass: '',
+		};
+	},
+};
+</script><script>
+var comp_dark_overlay = {
+	template: `<transition name="fade">
+	<div id="darkOverlay" v-show="show" :class="overlayClass" class="overlay overlay_dark"></div>
+</transition>`,
+	data: function () {
+		return {
+			show: false,
+			overlayClass: '',
+		};
+	},
+};
+</script><script id="spinner-overlay-template" type="text/x-template">
+	<transition name="fadeout">
+		<div v-show="isShowing" class="load_screen">
+			<h3 class="load_message">{{ header }}</h3>
+			<wobbly-egg></wobbly-egg>
+			<p class="load_message">{{ footer }}</p>
+			<display-ad :hidden="hideAds" id="div-gpt-ad-shellshockers-loading-houseads-wrap" ref="loadingScreenDisplayAd" :ignoreSize="true" :houseAd="true" adUnit="ShellShockers_LoadingScreen_HouseAds" adSize="728x90" :override="true" :adBlockerData="adblockerbanner"></display-ad>
+		</div>
+	</transition>
+</script>
+
+<script id="wobble-egg-template" type="text/x-template">
+    <div id="wobbly-egg">
+        <svg viewBox="0 0 240 240" :class="[loadEggcontainer, {noanimate: noAnimate}]" width="240" height="240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <radialGradient r="0.5" cy="0.4" cx="0.4" id="load_yolkgradient" spreadMethod="pad">
+                    <stop stop-color="#fed" offset="0.3"/>
+                    <stop stop-color="#fb0" offset="0.32"/>
+                    <stop stop-color="#fa0" offset="1"/>
+                </radialGradient>
+            
+                <filter id="load_eggshadow" :class="{noanimate: noAnimate}" x="-30%" y="-30%" width="160%" height="160%" >
+                    <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#124" flood-opacity="0.3" />
+                </filter>
+            </defs>
+            <g>
+                <path filter="url(#load_eggshadow)" :class="[loadEggwhite, {noanimate: noAnimate}]" stroke="#000" id="svg_eggwhite" d="m190.13055,40.86621c30.25552,23.71378 -12.26575,57.24017 0,81.77167c12.26575,24.5315 4.9063,80.13624 -33.52639,82.58939c-38.43269,2.45315 -55.60474,-26.16693 -94.03742,-17.98977c-38.43269,8.17717 -11.44803,-30.25552 -17.98977,-44.97442c-6.54173,-14.7189 -24.5315,-46.60985 -4.9063,-71.14135c9.8126,-12.26575 22.07835,-14.92333 34.95739,-15.02554c12.87904,-0.10221 19.01191,-15.63883 31.27766,-17.68312c12.26575,-2.04429 21.46506,17.58091 33.83303,11.2436c12.36797,-6.3373 35.26403,-20.64735 50.39179,-8.79045z" stroke-width="0" fill="#fff" />
+            </g>
+            <g>
+                <ellipse :class="[loadEggyolk, {noanimate: noAnimate}]" ry="38" rx="38" id="svg_eggyolk" cy="120" cx="120" stroke-width="0" fill="url(#load_yolkgradient)"/>
+            </g>
+        </svg>
+    </div>
+</script>
+<script>
+    var comp_wobbly_egg = {
+        template: '#wobble-egg-template',
+        props: ['noAnimate'],
+        
+        data: function () {
+            return {
+                loadEggyolk: 'load_eggyolk',
+                loadEggwhite: 'load_eggwhite',
+                loadEggcontainer: 'load_eggcontainer'
+            }
+        }
+    };
+</script>
+<script>
+var comp_spinner_overlay = {
+	template: '#spinner-overlay-template',
+	components: {
+		'wobbly-egg': comp_wobbly_egg
+	},
+	props: ['loc', 'adblockerbanner', 'hideAds'],
+	
+	data: function () {
+		return {
+			isShowing: false,
+			header: '',
+			footer: '',
+			adIsShowing: false,
+		}
+	},
+
+	methods: {
+		show: function (headerLocKey, footerLocKey) {
+			this.header = this.loc[headerLocKey];
+			this.footer = this.loc[footerLocKey];
+			this.isShowing = true;
+		},
+
+		showSpinnerLoadProgress: function (percent) {
+			var msg = this.loc['ui_game_loading'];
+			this.header = this.loc['building_map'];
+			this.footer = '{0}... {1}%'.format(msg, percent);
+			this.isShowing = true;
+		},
+
+		hide: function () {
+			this.isShowing = false;
+			this.$emit('close-display-ad');
+		},
+
+		hideDisplayAd() {
+			this.adIsShowing = false;
+			console.log('do it');
+		},
+		showDisplayAd() {
+			this.adIsShowing = true;
+		},
+		toggleDisplayAd() {
+			return this.adIsShowing = this.adIsShowing ? false : true;
+		}
+	},
+};
+</script><script id="small-popup-template" type="text/x-template">
+	<transition name="fade">
+		<div v-show="isShowing" class="popup_window popup_sm roundme_lg centered">
+			<div>
+				<button v-show="!hideClose" @click="onXClick" class="popup_close roundme_sm clickme"></button>
+				<h3 id="popup_title" v-show="!hideHeader" class="roundme_sm shadow_blue4 nospace">
+					<slot name="header"></slot>
+				</h3>
+			</div>
+			<div v-show="!hideContent" class="popup_sm_content"><slot name="content"></slot></div>
+			<div id="btn_horizontal" class="f_center">
+				<button class="ss_button btn_red bevel_red width_sm" v-show="!hideCancel" @click="cancelClick"><slot name="cancel"></slot></button>
+				<button class="ss_button btn_green bevel_green width_sm" v-show="!hideConfirm" @click="confirmClick"><slot name="confirm"></slot></button>
+			</div>
+		</div>
+	</transition>
+</script>
+
+<script id="large-popup-template" type="text/x-template">
+	<transition name="fade">
+		<div id="popupPause" v-show="isShowing" class="popup_window popup_lg centered roundme_lg">
+			<button @click="onXClick" v-show="!hideClose" class="popup_close clickme roundme_sm"></button>
+			<slot name="content"></slot>
+		</div>
+	</transition>
+</script>
+
+<script>
+// Register popup components globally
+Vue.component('small-popup', createPopupComponent('#small-popup-template'));
+Vue.component('large-popup', createPopupComponent('#large-popup-template'));
+
+function createPopupComponent(templateId) {
+	return { 
+		template: templateId,
+		props: ['hideHeader', 'hideContent', 'hideClose', 'hideCancel', 'hideConfirm', 'overlayType', 'overlayClass', 'popupModel', 'uiModel', 'stopKeyCapture', 'overlayClose'],
+		data: function () {
+			return {
+				isShowing: false,
+				overlays: vueData.ui.overlayType,
+				popupId: '',
+				removeOverlayClick: ''
+			}
+		},
+
+		created() {
+			this.popupId = this.$attrs && this.$attrs.id;
+		},
+
+		destroyed: function() {
+			document.removeEventListener('keyup', this.escapeKeyClose);
+		},
+
+		methods: {
+			setVisible: function (visible) {
+
+				this.isShowing = visible;
+
+				if (this.stopKeyCapture && extern.inGame) {
+					if (this.isShowing) {
+						extern.releaseKeys();	
+					} else {
+						extern.captureKeys();
+					 }
+				}
+
+				if (this.isShowing && this.popupModel && this.popupModel.reset) {
+					this.popupModel.reset();
+				}
+
+				if (!this.isShowing || this.overlayType === this.overlays.none) {
+					vueApp.setDarkOverlay(false);
+					vueApp.setLightOverlay(false);
+				} else {
+					vueApp.setDarkOverlay(this.overlayType === undefined || this.overlayType === this.overlays.dark, this.overlayClass);
+				}
+
+				if (!this.isShowing) {
+					console.log('Closed: ' + this.popupId);
+					this.$emit('popup-closed');
+					vueApp.gameUiRemoveClassForNoScroll();
+					this.cancelEventOverLayClickEscapeClose();
+				} else {
+					console.log('Opened: ' + this.popupId);
+					this.$emit('popup-opened');
+					vueApp.scrollToTop();
+					vueApp.gameUiAddClassForNoScroll();
+					this.outsideClickClose();
+				}
+
+				if (!extern.inGame) {
+					vueApp.toggleTitleScreenAd();
+				}
+
+			},
+
+			toggle: function () {
+				this.isShowing = !this.isShowing;
+
+				this.setVisible(this.isShowing);
+			},
+			
+			show: function () {
+				this.setVisible(true);
+			},
+
+			hide: function () {
+				this.setVisible(false);
+			},
+
+			close: function () {
+				this.setVisible(false);
+				console.log('Closing');
+			},
+
+			onCloseClick: function () {
+				this.close();
+				BAWK.play('ui_popupclose');
+			},
+
+			onXClick: function () {
+				this.$emit('popup-x');
+				this.close();
+				BAWK.play('ui_popupclose');
+			},
+
+			cancelClick: function () {
+				this.close();
+				this.$emit('popup-cancel');
+				BAWK.play('ui_popupclose');
+			},
+
+			confirmClick: function () {
+				if (this.popupModel && this.popupModel.validate && !this.popupModel.validate()) {
+					return;
+				}
+				this.close();
+				this.$emit('popup-confirm');
+				BAWK.play('ui_playconfirm');
+			},
+
+			outsideClickClose: function() {
+				if (this.overlayClose === false) {
+					return;
+				}
+				this.removeOverlayClick = this.handleOutsideClick;
+				document.addEventListener('click', this.removeOverlayClick);
+				document.addEventListener('keyup', this.escapeKeyClose);
+				
+			},
+
+			escapeKeyClose: function(e) {
+				e.stopPropagation();
+				if (e.keyCode === 27 && this.isShowing && this.overlayClose !== false) {
+					this.onCloseClick();
+				}
+			},
+
+			handleOutsideClick: function(e) {
+				e.stopPropagation();
+				if ( e.target.id.includes('Overlay') ) {
+					this.onCloseClick();
+				}
+			},
+
+			cancelEventOverLayClickEscapeClose: function() {
+				if (this.overlayClose === false) {
+					return;
+				}
+				document.removeEventListener('click', this.removeOverlayClick);
+				document.removeEventListener('keyup', this.escapeKeyClose);
+			}
+		},
+	}
+}
+</script>
+<template id="house-display-ad"></template>
+
+<script>
+    function createHouseAd() {
+        return {
+            template: '#house-display-ad',
+            props: ['isshowing', 'data'],
+            data() {
+                return {
+                    count: 0
+                }
+            },
+            methods: {
+                adClicked() {
+                    if ('link' in this.data) {
+                        this.data.link = this.data.link + '/?utm_source=shell_shockers&utm_medium=referral&utm_campaign=house-ads';
+                    }
+                    extern.clickedHouseLink(this.data);
+                }
+            },
+            computed: {
+                src() {
+                    return dynamicContentPrefix + `data/img/promo/${this.data.id}${this.data.imageExt}`;
+                },
+                alt() {
+                    return `${this.data.label} banner image!`;
+                },
+                link() {
+                    return `${this.data.link}/?utm_source=shell_shockers&utm_medium=referral&utm_campaign=house-ads`;
+                },
+                title() {
+                    return `Play ${this.data.label} now!`;
+                }
+
+            }
+        }
+    }
+
+    Vue.component('house-ad', createHouseAd());
+
+</script><script id="display-ad-template" type="text/x-template">
+    <div>
+        <div v-if="!hidden" v-show="isAdShowing" :id="id" class="display-ad-container" :class="theClass"></div>
+        <house-ad :data="houseAdData" :isshowing="isAdShowing && houseAdData && adBlocker"></house-ad>
+    </div>
+</script>
+
+<script>
+// Register popup components globally
+Vue.component('display-ad', createDisplayAdComponent('#display-ad-template'));
+
+function createDisplayAdComponent(templateId) {
+	return { 
+		template: templateId,
+        props: {
+            id: String,
+            hidden: Boolean,
+            adUnit: String,
+            isHidden: Boolean,
+            poki: Boolean,
+            adSize: String,
+            override: Boolean,
+            houseAd: Boolean,
+            ignoreSize: Boolean,
+        },
+		data: function () {
+			return {
+                isAdShowing: false,
+                hideAds: false,
+                theAd: '',
+                adRefreshCheck: false,
+                houseAdData: '',
+                adBlocker: false,
+			}
+		},
+        mounted() {
+            this.$nextTick(() => {
+                this.getTheAd();
+            });
+            this.override = this.override || false;
+        },
+		methods: {
+            getTheAd() {
+                this.theAd = document.getElementById(this.adUnit);
+                if (pokiActive || extern.productBlockAds) {
+                    return;
+                }
+                const wrap = document.getElementById(this.id);
+                wrap.appendChild(this.theAd);
+                if (this.houseAd && !crazyGamesActive && !pokiActive) {
+                    googletag.cmd.push(function() { googletag.display('ShellShockers_LoadingScreen_HouseAds') });
+                }
+            },
+			setVisible(visible) {
+
+                if (vueData.isUpgraded) {
+                    console.log('Upgrade hides ads');
+                    this.isAdShowing = false;
+                    return;
+                }
+				if (extern.productBlockAds) {
+                    console.log('Closure hides ads');
+                    this.isAdShowing = false;
+                    return;
+                };
+
+                this.isAdShowing = visible;
+
+				if (!this.isAdShowing) {
+                    window.removeEventListener('resize', this.hideAdBasedOnscreenSize);
+                    // this.adVisibility();
+                    if (pokiActive && this.adSize) PokiSDK.destroyAd(this.$el);
+                    return;
+				} else {
+                    this.triggerAd();
+                    setTimeout(() => this.hideAdBasedOnscreenSize(), 500);
+                    // this.adVisibility();
+                    window.addEventListener('resize', this.hideAdBasedOnscreenSize);
+                    return;
+                }
+
+            },
+			show() {
+                if (extern.productBlockAds) return;
+                console.log(`display ad ${this.id} showing`);
+                this.setVisible(true);
+            },
+			hide() {
+                this.setVisible(false);
+                console.log(`display ad ${this.id} hiding`);
+            },
+            crazyGamesAd(id, size) {
+                if (this.adRefreshCheck) return;
+
+                this.adRefreshCheck = true;
+
+                setTimeout(() => this.adRefreshCheck = false, 60000);
+
+                crazysdk.requestBanner([{
+                    containerId: id,
+                    size: size
+                }]);
+
+            },
+            triggerAd() {
+                this.adBlocker = extern.adBlocker;
+
+                if (this.adBlocker) {
+                    this.adblockerSetup();
+                    return;
+                }
+
+                if (!pokiActive && !crazyGamesActive && !testCrazy) {
+
+                    if (this.houseAd) {
+                        gtagInHouseLoadingBanner();
+                        return;
+                    }
+
+                    aiptag.cmd.display.push(() => aipDisplayTag.display(this.adUnit));
+                    
+
+                    return;
+
+                } else if (crazyGamesActive || testCrazy) {
+
+                    // since crazy games requires an array for multiple ads on screen will cancel the respawn
+                    // ad calls and call them elsewhere
+                    if (this.id === 'shellshockers_respawn_banner_ad' ||
+                    this.id === 'shellshockers_respawn_banner_2_ad') return;
+
+
+                    this.crazyGamesAd(this.id, this.adSize);
+                    return;
+
+                } else if (pokiActive && this.adSize) {
+                       PokiSDK.displayAd(this.$el, this.adSize);
+                    return;
+                }
+            },
+            toggleAd() {
+                if (extern.productBlockAds) {
+                    this.isAdShowing = false;
+                    return;
+                };
+                this.$nextTick(() => {
+                    if (this.isAdShowing) {
+                        return this.isAdShowing = false;
+                    }
+                    return this.isAdShowing = true;
+                });
+
+            },
+            adblockerSetup() {
+                switch(this.id) {
+                    case 'div-gpt-ad-shellshockers-loading-houseads-wrap':
+                    case 'shellshockers_respawn_banner_ad':
+                        this.houseAdData = extern.getHouseAd('bigBanner');
+                        break;
+                    case 'shellshockers_respawn_banner_2_ad':
+                    case 'shellshockers_titlescreen_wrap':
+                        this.houseAdData = extern.getHouseAd('small');
+                    break;
+                    default:
+                        console.log('House ads say, huh?');
+                }
+
+            },
+            hideAdBasedOnscreenSize() {
+                let adWidth = this.$el.offsetWidth;
+                let intViewportWidth = window.innerWidth;
+
+                if (vueApp.displayAdObject && vueApp.displayAdObject > 1 ) {
+                    if (vueApp.displayAdObject < 970) {
+                        return;
+                    }
+
+                    if (vueApp.displayAdObject > intViewportWidth ) {
+                        this.hide();
+                    }
+                } else {
+                    if (adWidth < 970) {
+                        return;
+                    }
+
+                    if (adWidth > intViewportWidth ) {
+                        this.hide();
+                    }
+                }
+            },
+            adVisibility() {
+                if (this.ignoreSize) return;
+                googletag.pubads().addEventListener('slotVisibilityChanged', event => {
+                        if (event.inViewPercentage < 51) {
+                            this.hide();
+                        } else {
+                            this.show();
+                        }
+                    }
+                );
+            }
+        },
+
+        computed: {
+            theClass() {
+                return this.adUnit.toLowerCase().replace(/_/g, "-");
+            }
+        },
+        
+        watch: {
+            isHidden(value) {
+                if (!value) {
+                    this.hide();
+                }
+            },
+        }
+	}
+}
+</script>
+<!-- include_once('./includes/shared_tags/inc_tag_asc_video_player.php'); -->
+<script id="language-selector-template" type="text/x-template">
+    <select id="pickLanguage" v-model="languageCode" @change="onChangeLanguage" class="ss_select ss_marginright_sm">
+        <option v-for="(language, code) in loc.languages" v-bind:value="code">
+            {{ language }}
+        </option>
+    </select>
+
+</script>
+
+<script>
+var comp_language_selector = {
+    template: '#language-selector-template',
+    props: ['languages', 'selectedLanguageCode', 'loc'],
+
+    data: function () {
+        return {
+            languageCode: this.selectedLanguageCode,
+        }
+    },
+
+    methods: {
+        playSound (sound) {
+			BAWK.play(sound);
+        },
+
+		onChangeLanguage: function () {
+            vueApp.changeLanguage(this.languageCode);
+            // Update localStore for selected language.
+            localStore.setItem('languageSelected', this.languageCode);
+            BAWK.play('ui_onchange');
+            ga('send', 'event', {
+                eventCategory: vueData.googleAnalytics.cat.playerStats,
+                eventAction: vueApp.googleAnalytics.action.languageSwitch,
+                eventLabel: this.languageCode,
+            });
+		}
+    },
+
+    watch: {
+        selectedLanguageCode: function (code) {
+            this.languageCode = code;
+        }
+    }
+};
+</script><script id="gdpr-template" type="text/x-template">
+    <transition name="fade">
+    <div v-show="isShowing">
+        <div id="consent" v-show="showingNotification" class="gdpr_banner f_row">
+            <div>{{ loc.gdpr_notification }} <a href="http://www.bluewizard.com/privacypolicy" target="_window">{{ loc.gdpr_link }}</a>
+            </div>
+            <div class="f_row">
+                <button @click="onDisagreeClicked()" class="ss_button btn_red bevel_red ss_marginright ss_marginleft">{{ loc.gdpr_disagree }}</button>
+                <button @click="onAgreeClicked()" class="ss_button btn_green bevel_green">{{ loc.gdpr_agree }}</button>
+            </div>
+        </div>
+
+        <div id="doConsent" v-show="showingConsent" class="gdpr_banner f_row">
+            <div>{{ loc.gdpr_consent }}</div>
+            <div>
+                <button @click="close()" class="ss_button btn_green bevel_green btn_md">{{ loc.ok }}</button>
+            </div>
+        </div>
+
+        <div id="noConsent"v-show="showingNoConsent" class="gdpr_banner f_row">
+            <div>{{ loc.gdpr_noConsent }}</div>
+            <div>
+                <button @click="close()" class="ss_button btn_green bevel_green btn_md">{{ loc.ok }}</button>
+            </div>
+        </div>
+    </div>
+    </transition>
+</script>
+
+<script>
+var comp_gdpr = {
+	template: '#gdpr-template',
+	props: ['loc'],
+
+    data: function () {
+        return {
+            isShowing: false,
+            showingNotification: false,
+            showingConsent: false,
+            showingNoConsent: false
+        }
+    },
+
+	methods: {
+        show: function () {
+            this.isShowing = true;
+            this.showingNotification = true;
+            this.showingConsent = false;
+            this.showingNoConsent = false;
+        },
+
+        close: function () {
+            this.isShowing = false;
+            BAWK.play('ui_playconfirm');
+        },
+
+        onAgreeClicked: function () {
+            this.showingConsent = true;
+            this.showingNotification = false;
+            extern.doConsent();
+            BAWK.play('ui_onchange');
+        },
+
+        onDisagreeClicked: function () {
+            this.showingNoConsent = true;
+            this.showingNotification = false;
+            extern.doNotConsent();
+            BAWK.play('ui_onchange');
+        }
+    }
+};
+</script>
+<script id="settings-template" type="text/x-template">
+  <div>
+  	<h1 class="roundme_sm">{{ loc.p_settings_title }}</h1>
+
+	<div id="horizontalTabs">
+        <button id="keyboard_button" @click="selectTab" class="ss_bigtab bevel_blue ss_marginright" :class="(showKeyboardTab ? 'selected' : '')"><img src="img/ico_keyboard.svg" class="ss_bigtab_icon"> <img src="img/ico_mouse.svg" class="ss_bigtab_icon"></button>
+
+        <button id="controller_button" @click="selectTab" class="ss_bigtab bevel_blue ss_marginright" :class="(showControllerTab ? 'selected' : '')"><img src="img/ico_gamepad.svg" class="ss_bigtab_icon"></button>
+
+        <button id="misc_button" @click="selectTab" class="ss_bigtab bevel_blue" :class="(showMiscTab ? 'selected' : '')"><img src="img/ico_monitor.svg" class="ss_bigtab_icon"> <img src="img/ico_speaker.svg" class="ss_bigtab_icon"> <img src="img/ico_privacy.svg" class="ss_bigtab_icon"></button>
+    </div>
+
+    <div id="popupInnards" class="roundme_sm fullwidth f_col ss_margintop_sm ss_marginbottom_xl">
+		<div id="settings_keyboard" v-show="showKeyboardTab">
+			<h3 class="nospace">{{ loc.p_settings_keybindings }}</h3>
+			
+			<div class="f_row ss_margintop">
+				<div class="f_col">
+					<div v-for="c in settingsUi.controls.keyboard.game" v-if="c.side == 'left'" class="nowrap">
+						<settings-control-binder :loc="loc" :control-id="c.id" :control-value="c.value" @control-captured="onGameControlCaptured"></settings-control-binder>
+						<div class="label">{{ loc[c.locKey] }}</div>
+					</div>
+
+					<div class="ss_margintop_xl">
+						<div v-for="c in settingsUi.controls.keyboard.spectate" class="nowrap">
+							<settings-control-binder :loc="loc" :control-id="c.id" :control-value="c.value" @control-captured="onSpectateControlCaptured"></settings-control-binder>
+							<div class="label">{{ loc[c.locKey] }}</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="f_col ss_marginleft_xl">
+					<div v-for="c in settingsUi.controls.keyboard.game" v-if="c.side == 'right'" class="nowrap">
+						<settings-control-binder :loc="loc" :control-id="c.id" :control-value="c.value" @control-captured="onGameControlCaptured"></settings-control-binder>
+						<div class="label">{{ loc[c.locKey] }}</div>
+					</div>
+
+					<div class="ss_margintop">
+						<div v-for="t in settingsUi.adjusters.mouse" class="nowrap">
+							<settings-adjuster :loc="loc" :loc-key="t.locKey" :control-id="t.id" :control-value="t.value" :min="t.min" :max="t.max" :step="t.step" :multiplier="t.multiplier" @setting-adjusted="onSettingAdjusted"></settings-adjuster>
+						</div>
+
+						<div v-for="t in settingsUi.togglers.mouse" class="nowrap">
+							<settings-toggler v-if="(t.id === 'shadowsEnabled' || t.id === 'highRes') ? showDetailSettings : true" :loc="loc" :loc-key="t.locKey" :control-id="t.id" :control-value="t.value" @setting-toggled="onSettingToggled"></settings-toggler>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		
+		<div id="settings_controller" v-show="showControllerTab">
+			<h3 class="nospace">{{ loc.p_settings_gamepadbindings }}</h3>
+			
+			<div class="f_row ss_margintop">
+				<div class="f_col">
+					<div v-for="c in settingsUi.controls.gamepad.game" class="nowrap">
+						<settings-gamepad-binder :loc="loc" :control-id="c.id" :control-value="c.value" @control-captured="onGamepadGameControlCaptured" :controller-type="controllerType"></settings-gamepad-binder>
+						<div class="label">{{ loc[c.locKey] }}</div>
+					</div>
+				</div>
+
+				<div class="f_col ss_marginleft_xl">
+					<div class="ss_marginbottom_xl">
+						<div v-for="c in settingsUi.controls.gamepad.spectate" class="nowrap">
+							<settings-gamepad-binder :loc="loc" :control-id="c.id" :control-value="c.value" @control-captured="onGamepadSpectateControlCaptured" :controller-type="controllerType"></settings-gamepad-binder>
+							<div class="label">{{ loc[c.locKey] }}</div>
+						</div>
+					</div>
+
+					<div v-for="t in settingsUi.adjusters.gamepad" class="nowrap">
+						<settings-adjuster :loc="loc" :loc-key="t.locKey" :control-id="t.id" :control-value="t.value" :min="t.min" :max="t.max" :step="t.step" :multiplier="t.multiplier" :precision="t.precision" @setting-adjusted="onSettingAdjusted"></settings-adjuster>
+					</div>
+
+					<div v-for="t in settingsUi.togglers.gamepad" class="nowrap">
+						<settings-toggler v-if="(t.id === 'shadowsEnabled' || t.id === 'highRes') ? showDetailSettings : true" :loc="loc" :loc-key="t.locKey" :control-id="t.id" :control-value="t.value" @setting-toggled="onSettingToggled"></settings-toggler>
+					</div>
+				</div>
+			</div>
+
+			<p>{{ controllerId }}</p>
+			<p>{{ loc.p_settings_controllerhelp }} <a target="_blank" href="https://html5gamepad.com">html5gamepad.com</a></p>
+		</div>
+
+		<div id="settings_misc" v-show="showMiscTab">
+			<div class="f_row">
+				<div class="f_col">
+					<header>
+						<h2>{{loc.p_settings_volume_controls}}</h2>
+					</header>
+					<div v-for="t in settingsUi.adjusters.misc" class="nowrap">
+						<settings-adjuster :loc="loc" :loc-key="t.locKey" :control-id="t.id" :control-value="t.value" :min="t.min" :max="t.max" :step="t.step" :multiplier="t.multiplier" @setting-adjusted="onSettingAdjusted"></settings-adjuster>
+					</div>
+					<div v-for="t in settingsUi.adjusters.music" class="nowrap">
+						<settings-adjuster :loc="loc" :loc-key="t.locKey" :control-id="t.id" :control-value="t.value" :min="t.min" :max="t.max" :step="t.step" :multiplier="t.multiplier" @setting-adjusted="onSettingAdjusted"></settings-adjuster>
+					</div>
+
+					<h3 class="nospace ss_margintop">{{ loc.p_settings_language }}</h3>
+					<language-selector :languages="languages" :loc="loc" :selectedLanguageCode="currentLanguageCode" class="ss_select"></language-selector>
+
+					<button v-if="showPrivacyOptions" @click="onPrivacyOptionsClicked" class="ss_button btn_blue bevel_blue btn_md ss_margintop_xl">{{ loc.p_settings_privacy }}</button>
+				</div>
+
+				<div class="f_col ss_marginleft_xl">
+					<div v-for="t in settingsUi.togglers.misc" class="nowrap">
+						<settings-toggler v-if="(t.id === 'shadowsEnabled' || t.id === 'highRes') ? showDetailSettings : true" :loc="loc" :loc-key="t.locKey" :control-id="t.id" :control-value="t.value" @setting-toggled="onSettingToggled"></settings-toggler>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="btn_horizontal" class="f_center">
+		<button @click="onCloseClick()" class="ss_button btn_red bevel_red btn_sm">{{ loc.cancel }}</button>
+		<button @click="onResetClick" class="ss_button btn_yolk bevel_yolk btn_sm">{{ loc.p_settings_reset }}</button>
+		<button @click="onSaveClick()" class="ss_button btn_green bevel_green btn_sm">{{ loc.confirm }}</button>
+	</div>
+
+  </div>
+</script>
+
+<script id="settings-control-binder-template" type="text/x-template">
+	<input ref="controlInput" @change="BAWK.play('ui_onchange')" type="text" v-model="currentValue" :placeholder="loc.press_key" class="ss_keybind clickme" :class="(currentValue === 'undefined' ? 'ss_keybind_undefined' : '')"
+		v-on:mousedown="onMouseDown($event)"
+		v-on:keydown="onKeyDown($event)" 
+		v-on:keyup="onKeyUp($event)" 
+		v-on:wheel="onWheel($event)"
+		v-on:focusout="onFocusOut($event)">
+</script>
+
+<script>
+var comp_settings_control_binder = {
+	template: '#settings-control-binder-template',
+	props: ['loc', 'controlId', 'controlValue'],
+	
+	data: function () {
+		return {
+			currentValue: this.controlValue,
+			isCapturing: false
+		}
+	},
+
+	methods: {
+		playSound (sound) {
+			BAWK.play(sound);
+		},
+		
+		reset: function () {
+			this.currentValue = (this.controlValue === null) ? 'undefined' : this.controlValue;
+			this.isCapturing = false;
+			this.$refs.controlInput.blur();
+		},
+
+		capture: function (value) {
+			this.isCapturing = false;
+			this.$refs.controlInput.blur();
+			this.$emit('control-captured', this.controlId, value);
+		},
+
+		onMouseDown: function (event) {
+			if (!this.isCapturing) {
+				this.currentValue = '';
+				this.isCapturing = true;
+			} else {
+				BAWK.play('ui_onchange')
+				this.capture('MOUSE ' + event.button);
+			}
+		},
+
+		onKeyDown: function (event) {
+			this.currentValue = '';
+			event.stopPropagation();
+		},
+
+		onKeyUp: function (event) {
+			event.stopPropagation();
+			var key = event.key;
+
+			if (key == 'Escape' || key == 'Tab' || key == 'Enter') {
+				return;
+			}
+
+			if (key == ' ') {
+				key = 'space';
+				event.preventDefault();
+			}
+			
+			this.capture(key);
+		},
+
+		onWheel: function (event) {
+			if (this.isCapturing) {
+				BAWK.play('ui_onchange')
+				if (event.deltaY > 0) {
+					this.capture('WHEEL DOWN');
+				} else if (event.deltaY < 0) {
+					this.capture('WHEEL UP');
+				}
+			}
+		},
+
+		onFocusOut: function (event) {
+			this.reset();
+		}
+	},
+
+	watch: {
+		// The value prop gets updated by the parent control; watch for changes and update the backing field of the textbox
+		controlValue: function (newValue) {
+			this.currentValue = (newValue === null) ? 'undefined' : newValue;
+		}
+	}
+};
+</script><script id="settings-gamepad-binder-template" type="text/x-template">
+	<button ref="gamepadInput" class="ss_keybind clickme" :class="(currentValue === 'undefined' ? 'ss_keybind_undefined' : '')"
+		v-on:mousedown="onMouseDown($event)"
+		v-on:keydown="onKeyDown($event)" 
+		v-on:keyup="onKeyUp($event)" 
+		v-on:focusout="onFocusOut($event)"
+		:key="controllerType">
+		<span v-html="currentValue"></span></button>
+</script>
+
+<script>
+var comp_settings_gamepad_binder = {
+	template: '#settings-gamepad-binder-template',
+	props: ['loc', 'controlId', 'controlValue', 'controllerType'],
+	
+	data: function () {
+		return {
+			currentValue: (this.controlValue === null) ? 'undefined' : vueData.controllerButtonIcons[this.controllerType][this.controlValue],
+			isCapturing: false
+		}
+	},
+
+	beforeUpdate: function () {
+		if (!this.isCapturing) {
+			this.setIcon(this.controlValue);
+		}
+	},
+
+	methods: {
+		playSound (sound) {
+			BAWK.play(sound);
+		},
+		
+		reset: function () {
+			this.setIcon(this.controlValue);
+			this.isCapturing = false;
+
+			removeEventListener('gamepadbuttondown', this.onButtonDown);
+			removeEventListener('gamepadbuttonup', this.onButtonUp);
+		},
+
+		capture: function (value) {
+			this.isCapturing = false;
+			this.$refs.gamepadInput.blur();
+			this.$emit('control-captured', this.controlId, value);
+			this.reset();
+		},
+
+		onMouseDown: function (event) {
+			if (!this.isCapturing) {
+				this.currentValue = this.loc.press_button;
+				this.isCapturing = true;
+
+				addEventListener('gamepadbuttondown', this.onButtonDown);
+				addEventListener('gamepadbuttonup', this.onButtonUp);
+			}
+		},
+
+		onKeyDown: function (event) {
+			event.stopPropagation();
+		},
+
+		onKeyUp: function (event) {
+			event.stopPropagation();
+		},
+
+		onButtonDown: function (event) {
+			if (event.detail == 8 || event.detail == 9) return;
+			BAWK.play('ui_onchange')
+			this.capture(event.detail);
+		},
+
+		onFocusOut: function (event) {
+			this.reset();
+		},
+
+		setIcon: function (value) {
+			this.currentValue = (value === null) ? 'undefined' : vueData.controllerButtonIcons[this.controllerType][value];
+		}
+	},
+
+	watch: {
+		// The value prop gets updated by the parent control; watch for changes and update the backing field of the textbox
+		controlValue: function (newValue) {
+			this.setIcon(newValue);
+		}
+	}
+};
+</script><script id="settings-adjuster-template" type="text/x-template">
+	<div>
+		<h3 class="nospace">{{ loc[locKey] }}</h3>
+
+		<div class="f_row">
+			<input class="ss_slider" type="range" :min="min" :max="max" :step="step" v-model="currentValue" @change="onChange">
+			<label class="ss_slider label">{{ getCurrentValue() }}</label>
+		</div>
+	</div>
+</script>
+
+<script>
+var comp_settings_adjuster = {
+	template: '#settings-adjuster-template',
+	props: ['loc', 'locKey', 'controlId', 'controlValue', 'min', 'max', 'step', 'multiplier', 'precision'],
+
+	data: function () {
+		return {
+			currentValue: this.controlValue
+		}
+	},
+
+	methods: {
+		onChange: function (event) {
+			this.$emit('setting-adjusted', this.controlId, this.currentValue);
+			BAWK.play('ui_onchange');
+		},
+
+		getCurrentValue: function () {
+			if (this.precision) {
+				return Number.parseFloat(this.currentValue).toFixed(this.precision);
+			}
+			else {
+				return Math.floor(this.currentValue * (this.multiplier || 1));
+			}
+		}
+	},
+
+	watch: {
+		// controlValue prop could change when player X's out or clicks Cancel
+		controlValue: function (newValue) {
+			if (this.currentValue !== newValue) {
+				this.currentValue = newValue;
+			}
+		}
+	}
+};
+</script><script id="settings-toggler-template" type="text/x-template">
+	<label class="ss_checkbox label"> {{ loc[locKey] }}
+		<input type="checkbox" v-model="currentValue" @change="onChange($event)">
+		<span class="checkmark"></span>
+	</label>
+</script>
+
+<script>
+var comp_settings_toggler = {
+	template: '#settings-toggler-template',
+	props: ['loc', 'locKey', 'controlId', 'controlValue'],
+
+	data: function () {
+		return {
+			currentValue: this.controlValue
+		}
+	},
+
+	methods: {
+		onChange: function (event) {
+			this.$emit('setting-toggled', this.controlId, this.currentValue);
+			BAWK.play('ui_onchange');
+		}
+	},
+
+	watch: {
+		// controlValue prop could change when player X's out or clicks Cancel
+		controlValue: function (newValue) {
+			if (this.currentValue !== newValue) {
+				this.currentValue = newValue;
+			}
+		}
+	}
+};
+</script>
+<script>
+var comp_settings = {
+	template: '#settings-template',
+	components: {
+		'settings-control-binder': comp_settings_control_binder,
+		'settings-gamepad-binder': comp_settings_gamepad_binder,
+		'language-selector': comp_language_selector,
+		'settings-adjuster': comp_settings_adjuster,
+		'settings-toggler': comp_settings_toggler
+	},
+	props: ['loc', 'settingsUi', 'languages', 'currentLanguageCode', 'showPrivacyOptions', 'controllerId', 'isFromEU', 'controllerType'],
+
+	data: function () {
+		return {
+			showKeyboardTab: true,
+			showControllerTab: false,
+			showMiscTab: false,
+
+			originalSettings: {},
+			showDetailSettings: false,
+			originalLanguage: '',
+			originalMusicVolume: '',
+			musicStatChg: ''
+		}
+	},
+	
+	methods: {
+		selectTab: function (e) {
+			return this.switchTab(e.target.id)
+		},
+		
+		switchTab(tab) {
+
+			this.showKeyboardTab = false;
+			this.showControllerTab = false;
+			this.showMiscTab = false;
+
+			switch (tab) {
+				case 'keyboard_button':
+					this.showKeyboardTab = true;
+					break;
+
+				case 'controller_button':
+					this.showControllerTab = true;
+					break;
+
+				case 'misc_button':
+					this.showMiscTab = true;
+					break;
+			}
+
+			BAWK.play('ui_toggletab');
+		},
+
+		captureOriginalSettings: function () {
+			this.originalSettings = deepClone(vueData.settingsUi);
+			this.originalLanguage = this.currentLanguageCode;
+			// this.originalMusicVolume = this.originalSettings.adjusters.music[0].value;
+		},
+
+		applyOriginalSettings: function () {
+			vueData.settingsUi = this.originalSettings;
+			this.showDetailSettings = !vueData.settingsUi.togglers.misc.find( a => { return a.id === 'autoDetail'; }).value;
+
+			console.log('applying original settings: ' + JSON.stringify(vueData.settingsUi));
+		},
+
+		onGameControlCaptured: function (id, value) {
+			this.onControlCaptured(this.settingsUi.controls.keyboard.game, id, value)
+		},
+
+		onSpectateControlCaptured: function (id, value) {
+			this.onControlCaptured(this.settingsUi.controls.keyboard.spectate, id, value)
+		},
+
+		onGamepadGameControlCaptured: function (id, value) {
+			this.onControlCaptured(this.settingsUi.controls.gamepad.game, id, value)
+		},
+
+		onGamepadSpectateControlCaptured: function (id, value) {
+			this.onControlCaptured(this.settingsUi.controls.gamepad.spectate, id, value)
+		},
+
+		onControlCaptured: function (controls, id, value) {
+			value = value.toLocaleUpperCase();
+
+			controls
+				.forEach( (c) => {
+					if (c.id === id) {
+						c.value = value;
+					} else {
+						if (c.value === value) {
+							c.value = null;
+						}
+					}
+			});
+		},
+
+		onSettingToggled: function (id, value) {
+			console.log('value: ' + value);
+
+			Object.values(this.settingsUi.togglers).forEach(v => {
+				var toggler = v.find(t => { return t.id === id; });
+				if (toggler) toggler.value = value;
+			})
+
+			if (id === 'autoDetail') {
+				this.showDetailSettings = !value;
+			}
+
+			if (id === 'safeNames') {
+				extern.setSafeNames(value);
+			}
+
+			// if (id === 'musicStatus') {
+			// 	extern.setMusicStatus(value);
+			// 	this.musicStatChg = true;
+
+			// 	if (extern.inGame) {
+			// 		vueApp.toggleMusic();
+			// 	}
+			// }
+		},
+
+		onSettingAdjusted: function (id, value) {
+			Object.values(this.settingsUi.adjusters).forEach(v => {
+				var adjuster = v.find( (a) => { return a.id === id; });
+				if (adjuster) adjuster.value = value;
+			})
+
+			if (id === 'volume') {
+				extern.setVolume(value);
+			}
+
+			if (id === 'mouseSpeed') {
+				extern.setMouseSpeed(value);
+			}
+
+			if (id === 'sensitivity') {
+				extern.setControllerSpeed(value);
+			}
+
+			if (id === 'deadzone') {
+				extern.setDeadzone(value);
+			}
+
+			if (id === 'musicVolume') {
+				extern.setMusicVolume(value);
+			}
+
+		},
+
+		onVolumeChange: function () {
+			extern.setVolume(this.settingsUi.volume);
+		},
+
+		onPrivacyOptionsClicked: function () {
+			this.$emit('privacy-options-opened');
+			BAWK.play('ui_popupopen');
+		},
+		
+		onCancelClick: function () {
+			this.applyOriginalSettings();
+			//extern.setMusicVolume(this.originalMusicVolume);
+			this.cancelLanguageSelect();
+			if (this.musicStatChg) {
+				if (extern.inGame) { 
+					vueApp.toggleMusic();
+				}
+			};
+			this.$parent.close();
+		},
+
+		onCloseClick: function () {
+			this.applyOriginalSettings();
+			//extern.setMusicVolume(this.originalMusicVolume);
+			this.cancelLanguageSelect();
+			if (this.musicStatChg) {
+				if (extern.inGame) {
+					vueApp.toggleMusic();
+				}
+			};
+			this.$parent.close();
+			BAWK.play('ui_popupclose');
+		},
+
+		quickSave() {
+			extern.applyUiSettings(this.settingsUi, this.originalSettings);
+			this.resetOriginalLanguage();		
+		},
+		
+		onSaveClick: function () {
+			// if (vueApp.music.serverTracks.title) {
+			// 	this.gaMusicVol();
+			// }
+			// this.gaMusicVol();
+			extern.applyUiSettings(this.settingsUi, this.originalSettings);
+			this.resetOriginalLanguage();
+			this.$parent.toggle();
+			BAWK.play('ui_playconfirm');
+		},
+
+		gaMusicVol() {
+			let newVol = Number(this.settingsUi.adjusters.music[0].value);
+			if (newVol === Number(this.originalMusicVolume)) return;
+			if ((Math.round(newVol*100)) <= 1) {
+				ga('send', 'event', 'music', 'mute', vueApp.music.serverTracks.title);
+			}
+		},
+		onResetClick: function () {
+			extern.resetSettings();
+			BAWK.play('ui_reset');
+		},
+		cancelLanguageSelect: function() {
+			this.originalLanguage === vueApp.$data.currentLanguageCode ?
+				vueApp.changeLanguage(vueApp.$data.currentLanguageCode) : vueApp.changeLanguage(this.originalLanguage);
+			// Revert localStore for language
+			localStore.setItem('languageSelected', this.originalLanguage);
+			this.resetOriginalLanguage();
+		},
+		resetOriginalLanguage: function() {
+			this.originalLanguage = '';
+		},
+		setSettings: function (settings) {
+			var getSettingById = (list, id) => {
+				return list.filter( o => {
+						return o.id == id;
+				})[0];
+			};
+
+			// Keyboard
+
+			getSettingById(this.settingsUi.controls.keyboard.game, 'up').value = settings.controls.keyboard.game.up;
+			getSettingById(this.settingsUi.controls.keyboard.game, 'down').value = settings.controls.keyboard.game.down;
+			getSettingById(this.settingsUi.controls.keyboard.game, 'left').value = settings.controls.keyboard.game.left;
+			getSettingById(this.settingsUi.controls.keyboard.game, 'right').value = settings.controls.keyboard.game.right;
+			getSettingById(this.settingsUi.controls.keyboard.game, 'jump').value = settings.controls.keyboard.game.jump;
+			getSettingById(this.settingsUi.controls.keyboard.game, 'fire').value = settings.controls.keyboard.game.fire;
+			getSettingById(this.settingsUi.controls.keyboard.game, 'scope').value = settings.controls.keyboard.game.scope;
+			getSettingById(this.settingsUi.controls.keyboard.game, 'reload').value = settings.controls.keyboard.game.reload;
+			getSettingById(this.settingsUi.controls.keyboard.game, 'swap_weapon').value = settings.controls.keyboard.game.swap_weapon;
+			getSettingById(this.settingsUi.controls.keyboard.game, 'grenade').value = settings.controls.keyboard.game.grenade;
+			getSettingById(this.settingsUi.controls.keyboard.spectate, 'ascend').value = settings.controls.keyboard.spectate.ascend;
+			getSettingById(this.settingsUi.controls.keyboard.spectate, 'descend').value = settings.controls.keyboard.spectate.descend;
+			
+			// Gamepad
+
+			getSettingById(this.settingsUi.controls.gamepad.game, 'jump').value = settings.controls.gamepad.game.jump;
+			getSettingById(this.settingsUi.controls.gamepad.game, 'fire').value = settings.controls.gamepad.game.fire;
+			getSettingById(this.settingsUi.controls.gamepad.game, 'scope').value = settings.controls.gamepad.game.scope;
+			getSettingById(this.settingsUi.controls.gamepad.game, 'reload').value = settings.controls.gamepad.game.reload;
+			getSettingById(this.settingsUi.controls.gamepad.game, 'swap_weapon').value = settings.controls.gamepad.game.swap_weapon;
+			getSettingById(this.settingsUi.controls.gamepad.game, 'grenade').value = settings.controls.gamepad.game.grenade;
+			getSettingById(this.settingsUi.controls.gamepad.spectate, 'ascend').value = settings.controls.gamepad.spectate.ascend;
+			getSettingById(this.settingsUi.controls.gamepad.spectate, 'descend').value = settings.controls.gamepad.spectate.descend;
+
+			// Misc
+
+			getSettingById(this.settingsUi.adjusters.misc, 'volume').value = settings.volume;
+			// getSettingById(this.settingsUi.adjusters.music, 'musicVolume').value = settings.musicVolume;
+			getSettingById(this.settingsUi.adjusters.mouse, 'mouseSpeed').value = settings.mouseSpeed;
+			getSettingById(this.settingsUi.adjusters.gamepad, 'sensitivity').value = settings.controllerSpeed;
+			getSettingById(this.settingsUi.adjusters.gamepad, 'deadzone').value = settings.deadzone;
+
+			getSettingById(this.settingsUi.togglers.mouse, 'mouseInvert').value = (settings.mouseInvert !== 1);
+			getSettingById(this.settingsUi.togglers.mouse, 'fastPollMouse').value = settings.fastPollMouse;
+			getSettingById(this.settingsUi.togglers.gamepad, 'controllerInvert').value = (settings.controllerInvert !== 1);
+			getSettingById(this.settingsUi.togglers.misc, 'holdToAim').value = settings.holdToAim;
+			getSettingById(this.settingsUi.togglers.misc, 'enableChat').value = settings.enableChat;
+			getSettingById(this.settingsUi.togglers.misc, 'safeNames').value = settings.safeNames;
+			getSettingById(this.settingsUi.togglers.misc, 'autoDetail').value = settings.autoDetail;
+			getSettingById(this.settingsUi.togglers.misc, 'shadowsEnabled').value = settings.shadowsEnabled;
+			getSettingById(this.settingsUi.togglers.misc, 'highRes').value = settings.highRes;
+			// getSettingById(this.settingsUi.togglers.misc, 'musicStatus').value = settings.musicStatus;
+
+			console.log('auto detail: ' + settings.autoDetail);
+			this.showDetailSettings = !settings.autoDetail;
+		}
+	}
+};
+</script><script id="help-template" type="text/x-template">
+    <div>
+       <div id="horizontalTabs">
+            <button id="faq_button" @click="toggleTabs" class="ss_bigtab bevel_blue ss_marginright" :class="(showTab1 ? 'selected' : '')">{{ loc.faq }}</button>
+            <button id="fb_button" @click="toggleTabs" class="ss_bigtab bevel_blue" :class="(!showTab1 ? 'selected' : '')">{{ loc.feedback }}</button>
+        </div>
+        <div v-show="showTab1">
+            
+            <div id="feedback_panel">      
+
+                <h1>{{ loc.faq_title }}</h1>
+
+                <div v-for="qa in loc.faqItems">
+                    <a :name="qa.anchor"></a>
+                    <h3>{{ qa.q }}</h3>
+                    <span v-html="qa.a"></span>
+                </div>
+                
+                <hr>
+                <div id="btn_horizontal" class="f_center">
+	            	<button @click="onBackClick" class="ss_button btn_md btn_red bevel_red ss_marginright">{{ loc.cancel }}</button>
+                </div>
+                
+            </div>            
+        </div>
+
+        <div v-show="!showTab1">
+	        
+	        <div id="feedback_panel">
+	            <h1>{{ loc.fb_feedback_title }}</h1>
+	            
+	            <p>{{ loc.fb_feedback_intro }}</p>
+
+				<div id="btn_horizontal" class="f_center">
+	                <select v-model="selectedType" class="ss_field ss_marginright" @click="BAWK.play('ui_click')" @change="BAWK.play('ui_onchange')">
+	                    <option v-for="type in feedbackType" :value="type.id">{{ loc[type.locKey] }}</option>
+	                </select>
+	            
+	                <input id="feedbackEmail" v-model="email" :placeholder="loc.fb_email_ph" class="ss_field" v-on:keyup="validateEmail">
+				</div>
+				
+				<div>
+	                <textarea id="feedbackText" class="ss_field" v-model="feedback" :placeholder="loc.fb_feedback_ph" v-on:keyup="validateMessage"></textarea>
+				</div>
+				
+				<div class="f_center f_col">
+					<span v-show="emailInvalid" class="ss_marginright error_text">{{ loc.fb_bad_email }}</span>
+					<span v-show="messageInvalid" class="ss_marginright error_text">{{ loc.fb_no_comment }}</span>
+				</div>
+				
+	            <div id="btn_horizontal" class="f_center">
+	            	<button @click="onBackClick" class="ss_button btn_md btn_red bevel_red ss_marginright">{{ loc.cancel }}</button>
+	                <button @click="onSendClick" class="ss_button btn_md btn_green bevel_green">{{ loc.fb_send }}</button>
+	            </div>
+            </div>
+
+        </div>
+    </div>
+</script>
+
+<script>
+var comp_help = {
+    template: '#help-template',
+    props: ['loc'],
+    data: function () {
+        return {
+            showTab1: true,
+            feedbackType: [
+                { id: 0, locKey: 'fb_type_commquest' },
+                { id: 1, locKey: 'fb_type_request' },
+                { id: 2, locKey: 'fb_type_bug' },
+                { id: 3, locKey: 'fb_type_purchase' },
+                { id: 4, locKey: 'fb_type_account' },
+                { id: 5, locKey: 'fb_type_abuse' },
+                { id: 6, locKey: 'fb_type_other' }
+            ],
+            selectedType: 0,
+            email: '',
+            feedback: '',
+            doValidation: false,
+            emailInvalid: false,
+            messageInvalid: false,
+
+        }
+    },
+    feedbackValidateTimeout: 0,
+    methods: {
+		playSound (sound) {
+			BAWK.play(sound);
+        },
+        
+        validateEmail: function () {
+            if (!this.doValidation) {
+                return;
+            }
+            // Insane e-mail-validating regex
+            var re = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
+            
+            this.emailInvalid = (this.email === '' || !re.test(this.email));
+            return !this.emailInvalid;
+        },
+
+        validateMessage: function () {
+            if (!this.doValidation) {
+                return;
+            }
+            this.messageInvalid = this.feedback === '';
+            return !this.messageInvalid;
+        },
+
+        toggleTabs: function () {
+            this.showTab1 = !this.showTab1;
+            BAWK.play('ui_toggletab');
+            ! this.showTab1 && ga('send', 'event', 'feedback opened');
+        },
+        
+        onBackClick: function () {
+            vueApp.$refs.helpPopup.toggle();
+            BAWK.play('ui_popupclose');
+        },
+
+        onSendClick: function () {
+            this.doValidation = true;
+            if (!this.validateEmail() || !this.validateMessage()) {
+                return;
+            }
+            BAWK.play('ui_playconfirm');
+
+            // Send that shit out
+            extern.api_feedback(this.selectedType, this.email, this.feedback);
+            setTimeout(() => {
+                this.$parent.toggle();
+                this.selectedType = 0;
+                this.feedback = null;
+                this.email = null;
+            }, 900);
+
+        }
+    }
+};
+</script><script id="vip-help-template" type="text/x-template">
+    <div>
+        <div id="feedback_panel">      
+            <h1>{{ loc.vipHelptitle }}</h1>
+            <small class="text_red"><i class="fas fa-exclamation-triangle"></i> {{loc.vipHelpDesc2}}</small>
+            <p>{{loc.vipHelpDesc}}</p>
+
+            <div v-for="qa in loc.vipFaqItems">
+                <a :name="qa.anchor"></a>
+                <h3>{{ qa.q }}</h3>
+                <p v-for="p in qa.a">
+                   {{p}}
+                </p>
+                <ul v-if="qa.li">
+                    <li v-for="li in qa.li">{{li}}</li>
+                </ul>
+            </div>
+
+            <hr>
+            <div id="btn_horizontal" class="f_center">
+                <button @click="openVipStore" class="ss_button btn_md btn_green bevel_green ss_marginright">{{ subButtonTxt }}</button>
+                <button @click="onBackClick" class="ss_button btn_md btn_red bevel_red ss_marginright">{{ loc.cancel }}</button>
+            </div>
+
+        </div>
+    </div>
+</script>
+
+<script>
+var vip_help = {
+    template: '#vip-help-template',
+    props: ['loc', 'isVip'],
+    data: function () {
+        return {
+
+        }
+    },
+    methods: {
+        onBackClick() {
+            BAWK.play('ui_popupclose');
+            this.$parent.hide();
+        },
+        openVipStore() {
+            this.$parent.hide();
+            vueApp.showSubStorePopup();
+        }
+    },
+    computed: {
+        subButtonTxt() {
+            return this.isVip ? 'Manage VIP' : 'Become a VIP';
+        }
+    }
+};
+</script><script id="egg-store-template" type="text/x-template">
+    <div class="fullwidth">
+        <h1 class="roundme_sm">{{ loc.p_egg_shop_title }}</h1>
+        <div class="display-grid grid-column-4-eq grid-gap-space-lg">
+            <egg-store-item v-for="item in products" :key="item.sku" :item="item" :loc="loc" inStore="true" :account-set="accountSettled" :isUpgraded="isUpgraded" :isSaleEvent="saleEvent"></egg-store-item>
+        </div>
+    </div>
+</script>
+
+<template id="comp-store-item"></template>
+<script>
+    const comp_store_item = {
+        template: '#comp-store-item',
+        props: ['loc', 'item', 'inStore', 'accountSet', 'isUpgraded', 'isSaleEvent'],
+        data() {
+            return {
+                purchased: false,
+                attempt: 0,
+            };
+        },
+        methods: {
+            onItemClicked() {
+                if (!this.accountSet || !vueApp.accountSettled) {
+                    vueApp.hideEggStorePopup();
+                    setTimeout(() => {
+                        if (this.attempt < 5) {
+                            this.onItemClicked(this.item.sku);
+                            this.attempt++;
+                        } else {
+                            vueApp.showGenericPopup('uh_oh', 'error', 'ok');
+                        }
+                    }, 300);
+                    vueApp.pleaseWaitPopup();
+                    return;
+                }
+
+                if (this.$parent.$el.id === 'help') {
+                    this.$parent.$parent.hide();
+                } else {
+                    this.$parent.hide();
+                }
+
+                if (this.purchased) {
+                    console.log('Item is owned so lets go see it.');
+	                vueApp.showItemOnEquipScreen(extern.catalog.findItemById(this.item.itemId.id));
+                    return;
+                }
+
+                extern.buyProductForMoney(this.item.sku);
+                ga('send', 'event', vueApp.googleAnalytics.cat.purchases, vueApp.googleAnalytics.action.eggShackProductClick, this.item.sku);
+            },
+            isPurchased() {
+                if (this.item.itemId) {
+                    return this.purchased = extern.isItemOwned(this.item.itemId);
+                }
+            },
+            onVipClick() {
+                this.$parent.$parent.hide();
+                vueApp.showSubStorePopup();
+            }
+        },
+        computed: {
+            title() {
+                return `${this.item.sku}_title`;
+            },
+            description() {
+                return `${this.item.sku}_desc`;
+            },
+            img() {
+                if (this.item.type === 'item') {
+                    return `img/store/items/${this.item.sku}.gif`;
+                }
+				const path = !this.isSaleEvent ? '' : 'store-black-friday/';
+                return `img/${path}${this.item.sku}.png`;
+            },
+            itemType() {
+                return 'single-egg-store-item-is-' + this.item.type;
+            },
+            buyBtnText() {
+                if (this.purchased) {
+                    return this.loc.p_egg_shop_see_item;
+                }
+                return this.loc.p_buy_item_confirm;
+            },
+            showItem() {
+                if (this.inStore) return this.item.inStore;
+                this.isPurchased();
+                return true;
+            },
+            flagTxt() {
+                if (this.item.salePrice) {
+                    return 'fa-tag';
+                }
+                return 'fa-gem'
+            },
+			showSubtitle() {
+				if (this.item.type === 'item') return true;
+				if (this.isSaleEvent) {
+					return false;
+				}
+				return true;
+			}
+        },
+        watch: {
+            accountSet(val) {
+				if (val) {
+					this.isPurchased();
+                }
+            },
+			isUpgraded(val) {
+				if (val) {
+					this.isPurchased();
+                }
+			}
+        }
+    };
+</script>
+<script>
+var comp_egg_store = {
+    template: '#egg-store-template',
+    components: {
+        'egg-store-item': comp_store_item,
+    },
+    data() {
+        return vueData;
+    },
+    props: ['loc', 'products', 'saleEvent'],
+    
+    methods: {
+        onItemClicked: function (sku) {
+            if (!this.accountSettled) {
+                console.log(this.$parent.hide());
+                setTimeout(() => {
+                    this.onItemClicked(sku)
+                }, 300);
+                vueApp.pleaseWaitPopup();
+                return;
+            }
+            if (vueApp.$refs.genericPopup.isShowing === true) vueApp.$refs.genericPopup.close();
+            this.$parent.hide();
+            extern.buyProductForMoney(sku);
+            ga('send', 'event', this.googleAnalytics.cat.purchases, this.googleAnalytics.action.eggShackProductClick, sku);
+        }
+    },
+};
+</script><script id="house-ad-big-template" type="text/x-template">
+    <div v-show="(useAd !== null)">
+        <button @click="onCloseClicked" class="popup_close splash_ad_close ad_close"></button>
+        <img :src="adImageUrl" @click="onClicked" class="splash_ad_image centered roundme_md">
+    </div>
+</script>
+
+<script>
+var comp_house_ad_big = {
+    template: '#house-ad-big-template',
+    data: function() {
+        return {
+            removeOverlayClick: '',
+        }
+    },
+    
+    props: ['useAd'],
+
+    bigAdTimeout: null,
+
+    methods: {
+        onCloseClicked: function () {
+            console.log('big ad closed');
+            this.close();
+        },
+
+        onClicked: function () {
+            this.close();
+            BAWK.play('ui_click');
+            extern.clickedHouseAdBig(this.useAd);
+        },
+
+        close: function () {
+            if (this.useAd === null) return;
+            vueApp.toggleTitleScreenAd();
+            BAWK.play('ui_popupclose');
+            this.$emit('big-house-ad-closed');
+        },
+
+        outsideClickClose: function() {
+            const showingId = document.getElementById('house-ad-big-template', true);
+            this.removeOverlayClick = this.handleOutsideClick;
+            document.addEventListener('click', this.removeOverlayClick);
+        },
+        
+        handleOutsideClick: function(e) {
+            // Stop bubbling
+            e.stopPropagation();
+            // If the target does NOT include the class splash_ad_image use the onCloseClicked method and remove the eventListener
+            if ( ! e.target.id.includes('splash_ad_image') ) {
+                this.onCloseClicked();
+                document.removeEventListener('click', this.removeOverlayClick);
+            }
+        },
+    },
+
+    computed: {
+        adImageUrl: function () {
+            if (!hasValue(this.useAd)) {
+                return;
+            }
+
+            return dynamicContentPrefix + 'data/img/promo/{0}{1}'.format(this.useAd.id, this.useAd.imageExt);
+        }
+    },
+
+    watch: {
+        useAd: function (bigAd) {
+            if (hasValue(bigAd)) {
+                this.$options.bigAdTimeout = setTimeout(function () {
+                    vueApp.ui.houseAds.big = null;
+                    vueApp.toggleTitleScreenAd();
+                }, 15000);
+                // Close with outside click
+                this.outsideClickClose();
+            }
+        }
+    }
+};
+</script><script id="house-ad-small-template" type="text/x-template">
+    <img v-show="(useAd !== null)" :src="adImageUrl" @click="onClicked" class="news_banner roundme_md">
+</script>
+
+<script>
+var comp_house_ad_small = {
+    template: '#house-ad-small-template',
+    
+    props: ['useAd'],
+
+    methods: {
+        onClicked: function () {
+            BAWK.play('ui_click');
+            extern.clickedHouseAdSmall(this.useAd);
+        }
+    },
+
+    computed: {
+        adImageUrl: function () {
+            if (!hasValue(this.useAd)) {
+                return;
+            }
+            ga('send', 'event', {
+				eventCategory: 'House banner ad',
+				eventAction: 'show',
+				eventLabel: this.useAd.label
+			});
+
+            return dynamicContentPrefix + 'data/img/promo/{0}{1}'.format(this.useAd.id, this.useAd.imageExt);
+        }
+    }
+};
+</script>
+<script id="item-template" type="text/x-template">
+	<div v-if="active" class="store_item roundme_lg clickme" ref="eggItemInvetory" :class="highlightSelected()" @click="onClick">
+		<div v-if="isPremium" class="store_item-premium" :class="{'is-vip-item': isVipItem}">
+			{{itemBannerText}}
+		</div>
+		<div v-if="showPrice" class="equip_smallprice">
+			<svg v-if="!isPremium" class="equip_egg eggIcon"><use xlink:href="#icon-egg"></use></svg>
+			<i v-if="isPremium" class="fas fa-dollar-sign equip_egg eggIcon"></i>
+			<div class="equip_cost"> {{ item.price }}</div>
+		</div>
+		<canvas ref="itemCanvas" class="equip_icon" width="250" height="250"></canvas>
+	</div>
+</script>
+
+<script>
+var comp_item = {
+	template: '#item-template',
+	props: ['loc', 'item', 'showItemOnly', 'isSelected', 'equippedSlot'],
+
+	data: function () {
+		return {
+			itemOnly: hasValue(this.showItemOnly) ? this.showItemOnly : false,
+			active: true,
+		}
+	},
+
+	mounted() {
+		this.prepareItem();
+		this.itemHightlightedOrder();
+	},
+
+	methods: {
+
+		isItemSellable: function () {
+			return !this.itemOnly && vueData.equip.mode == vueData.equip.equipModes.shop;
+		},
+
+		isPremItem() {
+			if (this.isPremium && this.isItemSellable()) {
+				const ITEM = vueData.premiumShopItems.find(i => i.itemId.id === this.item.id);
+				if (ITEM !== undefined && ITEM.isActive) {
+					this.item.sku = ITEM.sku;
+					this.item.price = ITEM.salePrice ? ITEM.salePrice : ITEM.price;
+				} else {
+					this.active = false;
+				}
+			}
+
+			this.isMerch();
+		},
+
+		isMerch() {
+			if (this.showPhysicalMerch && vueData.equip.mode === vueData.equip.equipModes.shop) {
+				this.item.active = false;
+			}
+
+			this.isEquippedSlot();
+		},
+
+		isEquippedSlot() {
+
+			if (this.equippedSlot) {
+				this.active = true;
+			}
+
+			this.renderItem();
+		},
+
+		prepareItem: function () {
+			this.isPremItem();
+		},
+
+		renderItem() {
+			extern.renderItemToCanvas(this.item, this.$refs.itemCanvas);
+		},
+
+		highlightSelected: function () {
+			return this.isSelected ? 'highlight' : '';
+		},
+
+		onClick: function () {
+			this.$emit('item-selected', this.item);
+		},
+
+		itemHightlightedOrder: function() {
+			if (this.showPhysicalMerch && vueData.equip.mode == vueData.equip.equipModes.shop) return;
+			return this.$refs.eggItemInvetory.classList.contains('highlight') ? this.$refs.eggItemInvetory.style.order='-1' : null;
+		},
+
+	},
+
+	computed: {
+		showPrice () {
+			return this.isItemSellable() && this.item.price > 0;
+		},
+
+		showPhysicalMerch () {
+			return this.isItemSellable() && this.item.unlock === 'physical';
+		},
+
+		isPremium() {
+			return this.item.unlock === 'premium';
+		},
+
+		isVipItem() {
+			if ('tags' in this.item.item_data ) {
+				if (this.item.item_data.tags.includes('vipItem')) {
+					return true;
+				}
+			}
+		},
+
+		itemBannerText() {
+			return this.isVipItem ? 'VIP' : 'Premium';
+		}
+
+	},
+
+	watch: {
+		item: function (val) {
+			this.prepareItem();
+		}
+	}
+};
+</script><script id="gold-chicken-template" type="text/x-template">
+    <div>
+    <div class="f_row fullwidth">
+
+        <div v-if="showGoldenChicken" id="popupInnards" class="box_blue3 roundme_sm f_col text-center f_justify_start ss_marginright_lg">
+            <h2 class="text_white shadow_blue4 nospace margintop_xl">{{ loc.p_chicken_goldchicken }}</h2>
+            <p class="nospace"><strong>{{ loc.p_chicken_goldchicken_price }}</strong></p>
+            <p align="center"><img src="img/chicken_shadow.png" class="chicken_popup_image"></p>
+            <div class="box_light roundme_sm fullwidth">
+                <ul>
+                    <li> {{ loc.p_chicken_goldfeature1 }} </li>
+                    <li> {{ loc.p_chicken_goldfeature2 }} </li>
+                    <li v-html="loc.p_chicken_goldfeature3"></li>
+                    <li> {{ loc.p_chicken_goldfeature4 }} </li>
+                </ul>
+            </div>
+            <button class="ss_button btn_green bevel_green btn_sm center_h" @click="onChickenClick">{{ loc.p_chicken_goldbutton }}</button>
+        </div>
+        
+        <div v-if="showNugget" id="popupInnards" class="box_blue3 roundme_sm f_col text-center f_justify_start">
+            <h2 class="text_white shadow_blue4 nospace margintop_xl">{{ loc.p_chicken_nugget }}</h2>
+            <p class="nospace"><strong>{{ loc.p_chicken_nugget_price }}</strong></p>
+            <p align="center"><img src="./img/nugget_shadow.png" class="chicken_popup_image"></p>
+            <div class="box_light roundme_sm fullwidth">
+                <ul>
+                    <li>{{ loc.p_chicken_nuggetfeature1 }}</li>
+                    <li> {{ loc.p_chicken_nuggetfeature2 }} </li>
+                    <li v-html="loc.p_chicken_nuggetfeature3"></li>
+                    <li> {{ loc.p_chicken_nuggetfeature4 }} </li>
+                </ul>
+            </div>
+            
+            <button class="ss_button btn_green bevel_green btn_sm center_h" @click="onNuggetClick">{{ loc.p_chicken_nuggetbutton }}</button>
+        </div>
+    </div>
+    <div id="btn_horizontal" class="f_center">
+		<button @click="onCloseClick()" class="ss_button btn_red bevel_red btn_sm">{{ loc.cancel }}</button>
+    </div>
+    </div>
+</script>
+
+<script>
+var comp_gold_chicken_popup = {
+    template: '#gold-chicken-template',
+	data: function () {
+		return vueData;
+    },
+    props: ['loc'],
+    methods: {
+		onCloseClick: function () {
+            this.$parent.close();
+            BAWK.play('ui_popupclose');
+        },
+        onChickenClick: function () {
+            document.exitPointerLock();
+            window.onkeydown = null;
+            window.onkeyup = null;
+            this.$parent.toggle();
+            extern.buyGoldenChicken();
+            BAWK.play('ui_playconfirm');
+
+            ga('send', 'event', this.googleAnalytics.cat.purchases, this.googleAnalytics.action.goldenChickenProductClick, `Get It Now`);
+        },
+
+        onNuggetClick: function () {
+
+			if (!vueData.firebaseId) {
+                this.$parent.hide();
+				vueApp.showGenericPopup('p_redeem_error_no_player_title', 'p_redeem_error_no_player_content', 'ok');
+				return;
+            }
+
+            if (!this.accountSettled) {
+                setTimeout(() => {
+                    this.onNuggetClick();
+                }, 300);
+                this.$parent.hide();
+                vueApp.pleaseWaitPopup();
+                return;
+            }
+            this.$parent.hide();
+            extern.startChickenNugget();
+            BAWK.play('ui_playconfirm');
+            ga('send', 'event', this.googleAnalytics.cat.purchases, this.googleAnalytics.action.goldenChickenNuggetClick, `Try It Out`);
+        }
+    }
+};
+</script>
+<script id="home-screen-template" type="text/x-template">
+	<div>
+		<house-ad-big id="big-house-ad" ref="bigHouseAd" :useAd="ui.houseAds.big" @big-house-ad-closed="onBigHouseAdClosed"></house-ad-big>
+		
+		<div id="mainHead">
+			<account-panel id="account_panel" ref="accountPanelHome" :loc="loc" :selected-language-code="currentLanguageCode" :eggs="eggs" :languages="languages" :show-corner-buttons="ui.showCornerButtons" :show-bottom="true" :photo-url="photoUrl" :is-anonymous="isAnonymous" :is-of-age="isOfAge" :show-targeted-ads="showTargetedAds" :ui="ui" :isEggStoreSale="isEggStoreSaleItem" :is-subscriber="isSubscriber" @sign-in-clicked="onSignInClicked" @sign-out-clicked="onSignOutClicked"></account-panel>
+			<!-- <pwa-button :show="ui.showCornerButtons"></pwa-button> -->
+			<!-- <streamer-panel id="youtube_panel" :streams="youtubeStreams" :title="loc.youtube_title" :viewers="loc.youtube_viewers" icon="ico_youtube"></streamer-panel> -->
+		</div>
+
+		<div id="mainLayout">
+			
+			<div id="logo">
+				<a href="https://www.shellshock.io" @click="BAWK.play('ui_click')"><img src="img/logo.svg"></a>
+			</div>
+			<div class="main-content">
+				<div id="panel_front_play">
+					<event-panel :show-soon="true" :show-ui="true"></event-panel>
+					<play-panel id="play_game" ref="playPanel" :loc="loc" :player-name="playerName" :game-types="gameTypes" :current-game-type="currentGameType" :is-game-ready='accountSettled' :server-list="serverList" :current-server-id="currentServerId" :home="home" @playerNameChanged="onPlayerNameChanged"></play-panel>
+					<vip-club-cta :loc="loc" :upgrade-name="upgradeName" :is-upgraded="isUpgraded" :is-subscriber="isSubscriber" :has-mobile-reward="hasMobileReward" :is-black-fryday="isSale"></vip-club-cta>
+				</div>
+				
+				<div id="panel_front_egg">
+					<div id="paper_doll_container"
+					 class="paper-doll--click-container" @click="clickEggToPlay"></div>
+					<stats-panel id="stats_panel" :loc="loc" :kills="kills" :deaths="deaths" :kdr="kdr" :streak="streak"></stats-panel>
+					<weapon-select-panel id="weapon_select" :loc="loc" :current-class="classIdx"></weapon-select-panel>
+					<button class="ss_button btn_md btn_yolk bevel_yolk" @click="onEquipClicked">{{ loc.eq_equipment }}</button>
+				</div>
+				<div id="panel_front_news">
+					<media-tabs ref="mediaTabs"  :loc="loc" :newsfeedItems="newsfeedItems" :twitchStreams="twitchStreams" :youtubeStreams="youtubeStreams"></media-tabs>
+					<!-- <house-ad-small id="banner-ad" :useAd="ui.houseAds.small"></house-ad-small> -->
+					<display-ad id="shellshockers_titlescreen_wrap" :hidden="hideAds" ref="titleScreenDisplayAd" class="house-small" :ignoreSize="true" :adUnit="adUnits.display.home" adSize="300x250"></display-ad>
+				</div>
+
+				<!-- <house-ad-small id="banner-ad" :useAd="ui.houseAds.small"></house-ad-small> -->
+
+			</div>
+			<!-- .main-content -->
+		</div>
+
+		<div id="mainFooter">
+			<!-- <chicken-panel ref="chickenPanel" id="chicken_panel" :local="loc" :do-upgraded="isUpgraded"></chicken-panel> -->
+			<footer-links-panel id="footer_links_panel" :loc="loc"></footer-links-panel>
+		</div>
+
+		<div id="gameDescription">
+			<h1 align="center">{{ loc.home_desc_about }}</h1>
+
+			<p align="center">{{ loc.home_desc_pick }}
+			<svg class="eggIcon"><use xlink:href="#icon-egg"></use></svg>
+			{{ loc.home_desc_loadout }}
+			<svg class="eggIcon"><use xlink:href="#icon-egg"></use></svg>
+			{{ loc.home_desc_madeof }}</p>
+
+			<div style="width: 48%; float: left; margin-right: 2em; ">
+				<p>Alt URL: geometry.best. {{ loc.home_desc_p1 }}</p>
+
+				<p><img src="img/eggPose05.png" style="width: 350px; float: left; margin-right: 1em; shape-outside: polygon(0% 0%, 100% 0%, 100% 41%, 84% 48%, 80% 63%, 59% 74%, 46% 100%, 0% 99%);">{{ loc.home_desc_p2 }}</p>
+			</div>
+
+			<div style="width: 48%; float: left;">
+				<p>{{ loc.home_desc_p3 }}
+				
+				<img src="img/eggPose01.png" style="float: right; margin-left: 1em; margin-top: 1em; shape-outside: polygon(1% 0%, 100% 1%, 100% 99%, 50% 100%, 28% 86%, 16% 68%, 14% 51%, 0 35%);">
+				
+				{{ loc.home_desc_p4 }}</p>
+
+				<p>{{ loc.home_desc_p5 }}</p>
+
+				<p>{{ loc.home_desc_p6 }}</p>
+			</div>
+
+			<h1 align="center" style="clear: both;">{{ loc.home_desc_controls }}</h1>
+
+			<p>{{ loc.home_desc_standard }}</p>
+
+			<ul>
+				<li> {{ loc.home_desc_control1 }}</li>
+				<li> {{ loc.home_desc_control2 }}</li>
+				<li> {{ loc.home_desc_control3 }}</li>
+				<li> {{ loc.home_desc_control4 }}</li>
+				<li> {{ loc.home_desc_control5 }}</li>
+				<li> {{ loc.home_desc_control6 }}</li>
+			</ul>
+
+			<p align="center"><button class="ss_button btn_yolk bevel_yolk" @click="vueApp.scrollToTop()">{{ loc.home_backtotop }}</button></p>
+
+		</div>
+
+		<!-- Popup: Check Email -->
+		<small-popup id="checkEmailPopup" ref="checkEmailPopup" :hide-cancel="true">
+			<template slot="header">{{ loc.p_check_email_title }}</template>
+			<template slot="content">
+				<p>{{ loc.p_check_email_text1 }}:</p>
+				<h5 class="nospace text-center">{{ maskedEmail }}</h5>
+				<p class="ss_marginbottom">{{ loc.p_check_email_text2 }}</p>
+			</template>
+			<template slot="confirm">{{ loc.ok }}</template>
+		</small-popup>
+
+		<!-- Popup: Resend Email -->
+		<small-popup id="resendEmailPopup" ref="resendEmailPopup" @popup-confirm="onResendEmailClicked">
+			<template slot="header">{{ loc.p_resend_email_title }}</template>
+			<template slot="content">
+				<p>{{ loc.p_resend_email_text1 }}:</p>
+				<h5 class="nospace text-center">{{ maskedEmail }}</h5>
+				<p class="ss_marginbottom">{{ loc.p_resend_email_text2 }}</p>
+			</template>
+			<template slot="cancel">{{ loc.ok }}</template>
+			<template slot="confirm">{{ loc.p_resend_email_resend }}</template>
+		</small-popup>
+		
+	</div>
+</script>
+
+<script id="create-private-game-template" type="text/x-template">
+    <div>
+        <h1 class="roundme_sm">{{ loc.p_privatematch_title }}</h1>
+    
+        <div class="box_blue2 roundme_sm fullwidth">
+            <div id="popupInnards" class="fullwidth f_row f_spaced">
+	            
+                <div id="private_left" class="f_col f_start">
+                    <h3 class="text-center fullwidth">{{ loc.p_privatematch_gametype }}</h3>
+                    <select name="gameType" v-model="pickedGameType" class="ss_select fullwidth" @click="BAWK.play('ui_click')" @change="BAWK.play('ui_onchange')">
+                        <option v-for="g in gameTypes" v-bind:value="g.value">{{ loc[g.locKey] }}</option>
+                    </select>
+                    <button class="ss_button button_blue bevel_blue fullwidth" @click="onServerClick">{{ loc.server }}: {{ loc[serverLocKey] }}</button>
+                    
+                    <button name="play" @click="onPlayClick" class="ss_button btn_big fullwidth btn_green bevel_green btn_sm"><i class="fa fa-play fa-sm"></i> {{ loc.p_privatematch_create }}</button>
+                    <!-- Player limit is not in place yet 
+                        <h3 class="nospace">{{ loc.p_privatematch_players }}</h3>
+                    
+                    <div id="player_selector">
+                        <img src="./img/ico_arrowLeft.png" class="numberArrow">
+                        <input type="text" v-model class="ss_field fld_number">
+                        <img src="./img/ico_arrowRight.png" class="numberArrow">
+                    </div> -->
+                </div>
+                
+                <div class="f_col j_start">
+                    <h3 class="ss_marginleft_lg text-center">{{ loc.p_privatematch_selectmap }}</h3>
+                    
+                    <div id="private_maps" class="ss_marginleft_lg roundme_md">
+	                    <img :src="mapImgPath" id="mapThumb" class="roundme_sm">
+	                    <div id="mapNav">
+	                    	<button id="mapLeft" @click="onMapChange(-1)" class="clickme"> </button>
+		                    <h5 id="mapText">
+                                {{ vueData.maps[mapIdx].name }}
+                                <span class="map_playercount shadow_grey roundme_sm">
+                                    <img src="img/ico_eggColour_normal.png">
+                                    <span class="ss_marginbottom_xs ss_marginright_xs">x</span>
+                                    <span>{{vueData.maps[mapIdx].numPlayers}}</span>
+                                </span>
+                            </h5>
+                            
+							<button id="mapRight" @click="onMapChange(1)" class="clickme"> </button>
+	                    </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div id="btn_horizontal" class="f_center nospace">
+		        <button @click="onCloseClick()" class="ss_button btn_red bevel_red btn_sm">{{ loc.cancel }}</button>
+	        </div>
+        </div>
+    </div>
+</script>
+
+<script>
+var comp_create_private_game_popup = {
+    template: '#create-private-game-template',
+    props: ['loc', 'serverLocKey', 'mapImgBasePath', 'isGameReady'],
+    
+    data: function () {
+        let mapIdx = Math.randomInt(0, vueData.maps.length);
+        let map = vueData.maps[mapIdx];
+ 
+        return {
+            showingServerList: false,
+            pickedGameType: 0,
+            gameTypes: vueData.gameTypes,
+            mapIdx: mapIdx,
+            mapImgPath: this.mapImgBasePath + map.filename + '.png?' + map.hash,
+            mapLocKey: map.locKey,
+            playClickedBeforeReady: false,
+            vueData,
+        }
+    },
+
+    methods: {
+        playSound (sound) {
+			BAWK.play(sound);
+        },
+        
+		onCloseClick: function () {
+            this.$parent.close();
+            BAWK.play('ui_popupclose');
+        },
+        
+        onServerClick: function () {
+            this.showingServerList = true;
+            this.$parent.toggle();
+            vueApp.$refs.homeScreen.$refs.playPanel.$refs.pickServerPopup.toggle();
+            BAWK.play('ui_click');
+        },
+
+        onMapChange: function(dir) {
+            this.mapIdx = ((this.mapIdx + dir) + vueData.maps.length) % vueData.maps.length;
+            this.mapImgPath = this.mapImgBasePath + vueData.maps[this.mapIdx].filename + '.png?' + vueData.maps[this.mapIdx].hash;
+            this.mapLocKey = vueData.maps[this.mapIdx].locKey;
+
+            BAWK.play('ui_onchange');
+        },
+		onPlayTypeWhenSignInComplete() {
+			return this.playClickFunction();
+		},
+		onPlaySentBeforeSignIn() {
+			this.gameClickedBeforeReady = true;
+			vueApp.showSpinner('signin_auth_title', 'signin_auth_msg');
+		},
+        onPlayClick: function () {
+            this.$parent.close();
+            if (!this.isGameReady) {
+                this.onPlaySentBeforeSignIn();
+                return;
+            }
+            vueApp.externPlayObject(vueData.playTypes.createPrivate, this.pickedGameType, this.vueData.playerName, this.mapIdx, '');
+            BAWK.play('ui_playconfirm');
+        }
+    },
+    watch: {
+        isGameReady(val) {
+            if (this.gameClickedBeforeReady && val) {
+                setTimeout(() => this.onPlayClick(), 700);
+            }
+        }
+	}   
+};
+</script><script id="account-panel-template" type="text/x-template">
+	<div>
+		<div id="account_top">
+			<eggstore-notify ref="shirtStore" :show="showCornerButtons" :loc="loc" :sku="sku" icon="fa-tshirt" :text-hide="true" text="p_egg_shop_sale_notify" title="account_threadless" color="blue" url="https://bluewizard.threadless.com/" analytics="threadless"></eggstore-notify>
+			<eggstore-notify ref="eggStoreSaleNotify" :text-hide="!hideNewItemNotify" :show="showCornerButtons" :loc="loc" :sku="sku" title="account_premium_item" icon="fa-gem" text="p_egg_shop_sale_notify" analytics="diamond"></eggstore-notify>
+			<button v-if="showVipButton" @click="onVipClick" class="ss_button btn_yolk bevel_yolk btn_vip" :title="loc['account_vip']" :class="{'has-sub' : isVipLive}"><img src="img/vip-club/vip-club-emblem-sm.png" alt="VIP Emblem"> {{vipButtonText}}</button>
+
+			<div class="account_eggs roundme_sm clickme" @click="onEggStoreClick" v-bind:title="loc['account_title_eggshop']">
+				<button v-if="isAnonymous" type="image" src="img/attention_indicator.png" v-show="showCornerButtons" @click="onAnonWarningClick" class="ss_button btn_yolk bevel_yolk attention_btn" v-bind:title="loc['account_title_shop']"><i class="fas fa-exclamation"></i></button>
+				<img src="img/ico_goldenEgg.png" class="egg_icon">
+				<span class="egg_count shadow_blue2_micro">{{ eggBalance }}</span>
+			</div>
+			<!-- <input type="image" src="img/ico_nav_leaderboards.png" class="account_icon roundme_sm"> -->
+			<div id="corner-buttons" v-show="showCornerButtons">
+				<input type="image" src="img/ico_nav_shop.png" @click="itemStoreClick" class="account_icon roundme_sm" v-bind:title="loc['account_title_shop']">
+				<input type="image" src="img/ico_nav_help.png" @click="onHelpClick" class="account_icon roundme_sm" v-bind:title="loc['account_title_faq']">
+				<input type="image" src="img/ico_nav_share.png" v-show="showShareLinkButton" @click="onShareLinkClick" class="account_icon roundme_sm" v-bind:title="loc['account_title_invite']">
+				<input type="image" src="img/ico_nav_settings.png" @click="onSettingsClick" class="account_icon roundme_sm" v-bind:title="loc['account_title_settings']">
+				<input type="image" src="img/ico_nav_fullscreen.png" v-if="!vueData.isPoki" @click="onFullscreenClick" class="account_icon roundme_sm" v-bind:title="loc['account_title_fullscreen']">
+			</div>
+		</div>
+		
+		<div id="account_bottom" v-show="showBottom">
+			<language-selector :languages="languages" :loc="loc" :selectedLanguageCode="selectedLanguageCode"></language-selector>
+			<button id="signInButton" v-show="(isAnonymous && showSignIn)" @click="onSignInClicked" class="ss_button btn_yolk bevel_yolk">{{ loc.sign_in }}</button>
+			<button id="signOutButton" v-show="!isAnonymous" @click="onSignOutClicked" class="ss_button btn_yolk bevel_yolk">{{ loc.sign_out }}</button>
+			<div id="player_photo" v-show="photoUrl !== null && photoUrl !== undefined && photoUrl !== '' && ! isAnonymous">
+				<img :src="photoUrl" class="roundme_sm bevel_blue"/>
+			</div>
+		</div>
+	</div>
+
+</script>
+<template id="egg-store-notify"></template>
+<script>
+    const compEggStoreSaleNotify = {
+        template: '#egg-store-notify',
+        props: ['loc', 'show', 'sku', 'textHide', 'text', 'icon', 'color', 'url', 'title', 'analytics'],
+        methods: {
+            notifyClick() {
+                if (this.analytics) ga('send', 'event', 'header-buttons', 'click', this.analytics);
+                if (this.url) {
+                    window.open(this.url, '_window');
+                    return;
+                }
+
+                if (!vueData.firebaseId) {
+				    vueApp.showGenericPopup('p_redeem_error_no_player_title', 'p_redeem_error_no_player_content', 'ok');
+				    return;
+                }
+
+                vueApp.eggStoreReferral = 'Sale notify ref';
+
+                if (this.sku) {
+                    return vueApp.showPopupEggStoreSingle(this.sku)
+                }
+
+                return vueApp.showEggStorePopup();
+            }
+        },
+        computed: {
+            getTitle() {
+                if (!this.title) return null;
+                return this.loc[this.title];
+            }
+        }
+    };
+</script><script>
+var comp_account_panel = {
+	template: '#account-panel-template',
+	components: {
+		'language-selector': comp_language_selector,
+		'eggstore-notify': compEggStoreSaleNotify,
+	},
+	props: ['loc', 'eggs', 'languages', 'selectedLanguageCode', 'showBottom', 'photoUrl', 'isAnonymous', 'isOfAge', 'showTargetedAds', 'showCornerButtons', 'ui', 'isEggStoreSale', 'sku', 'isSubscriber'],
+	
+	data: function () {
+		return {
+			languageCode: this.selectedLanguageCode,
+			eggBalance: 0,
+			vueData,
+		}
+	},
+
+	created() {
+		this.getEggsLocalStorage();
+	},
+	methods: {
+		getEggsLocalStorage() {
+			const raw = localStore.getItem('localLoadOut');
+			if (!raw) {
+				return;
+			}
+			const storage = JSON.parse(raw);
+			if (!'balance' in storage) {
+				return;
+			}
+			return this.eggBalance = storage.balance;
+
+		},
+		onEggStoreClick: function () {
+			if (!vueData.firebaseId) {
+				vueApp.showGenericPopup('p_redeem_error_no_player_title', 'p_redeem_error_no_player_content', 'ok');
+				return;
+			}
+			vueApp.showEggStorePopup();
+			BAWK.play('ui_popupopen');
+			this.gaSend('shoppingCart');
+		},
+		itemStoreClick: function() {
+			this.gaSend('openItemShop');
+			vueApp.switchToEquipUi();
+			vueApp.$refs.equipScreen.switchToShop();
+			BAWK.play('ui_popupopen');
+		},
+		onHelpClick: function () {
+			vueApp.showHelpPopup();
+			this.gaSend('openHelp');
+			BAWK.play('ui_popupopen');
+		},
+
+		onSettingsClick: function () {
+			this.gaSend('openSettings');
+			vueApp.showSettingsPopup();
+			BAWK.play('ui_popupopen');
+		},
+
+		onFullscreenClick: function () {
+			extern.toggleFullscreen();
+			BAWK.play('ui_click');
+		},
+
+		onSignInClicked: function () {
+			vueApp.setDarkOverlay(true);
+			this.$emit('sign-in-clicked');
+			BAWK.play('ui_playconfirm');
+		},
+
+		onSignOutClicked: function () {
+			vueApp.setDarkOverlay(true);
+			this.$emit('sign-out-clicked');
+			BAWK.play('ui_reset');
+		},
+
+		onShareLinkClick: function () {
+			this.gaSend('openShareLink');
+            extern.inviteFriends();
+		},
+
+		onAnonWarningClick: function() {
+			ga('send', 'event', vueApp.googleAnalytics.cat.playerStats, vueApp.googleAnalytics.action.anonymousPopupOpen);
+			vueApp.showAttentionPopup();
+		},
+
+		onVipClick() {
+			this.gaSend('openVipPopup');
+			vueApp.showSubStorePopup();
+		},
+		gaSend(label) {
+			if (!label) return;
+            ga('send', 'event', 'header-buttons', 'click', label);
+		}
+	},
+
+	computed: {
+		showSignIn: function () {
+			if (!isFromEU) {
+				return true;
+			}
+
+			return isFromEU && this.isOfAge && this.showTargetedAds;
+		},
+
+		showShareLinkButton: function () {
+			return this.showCornerButtons && (this.ui.showScreen === this.ui.screens.game);
+		},
+
+		hideNewItemNotify() {
+			if (!ssChangelogDate) return false;
+			if (!this.showCornerButtons) return false;
+			const lapsed = Date.now() - ssChangelogDate.valueOf(),
+				  days = Math.floor((lapsed / (60*60*24*1000)));
+
+			if (days <= 5 ) return true;
+			return false;
+		},
+
+		vipButtonText() {
+			return this.isSubscriber && !extern.account.upgradeIsExpired ? '' : this.loc['s-btn-txt-subscribe'];
+		},
+		showVipButton() {
+			return this.ui.showScreen === this.ui.screens.home || this.ui.showScreen === this.ui.screens.equip;
+		},
+		isVipLive() {
+			return this.isSubscriber && !extern.account.upgradeIsExpired;
+		}
+	},
+	watch: {
+		eggs() {
+			this.eggBalance = this.eggs;
+		}
+	}
+};
+</script>
+<template id="stats_panel_template" type="text/x-template"></template>
+
+
+
+<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","446896919250308");fbq("track","PageView");</script>
+
+<noscript>
+
+<img height="1" width="1" src="https://www.facebook.com/tr?id=446896919250308&amp;ev=PageView
+
+&amp;noscript=1">
+
+</noscript>
+
+<script>
+var comp_stats_panel = {
+	template: '#stats_panel_template',
+	props: ['loc', 'kills', 'deaths', 'kdr', 'streak'],
+	data: () => {
+		return {
+			localLoadOut : Object,
+			lKills: 0,
+			lDeaths: 0,
+			lKdr: 0,
+			lStreak: 0,
+		}
+	},
+	created() {
+		this.getStatsLocalStorage();
+	},
+	methods: {
+		getStatsLocalStorage() {
+			const raw = localStore.getItem('localLoadOut');
+			if (!raw) {
+				return;
+			}
+			const storage = JSON.parse(raw);
+			const {kills, deaths, kdr, streak} = storage;
+			this.lKills = kills;
+			this.lDeaths = deaths;
+			this.lKdr = kdr;
+			this.lStreak = streak;
+		},
+	},
+	watch: {
+		kills() {
+			this.lKills = this.kills;
+			this.lDeaths = this.deaths;
+			this.lKdr = this.kdr;
+			this.lStreak = this.streak;
+		}
+	}
+
+};
+
+</script>
+
+<script id="play-panel-template" type="text/x-template">
+	<div>
+		<div class="front_panel roundme_md">
+
+			<input name="name" :value="playerName" v-bind:placeholder="loc.play_enter_name" @change="onNameChange($event)" v-on:keyup="onPlayerNameKeyUp($event)" class="ss_field fullwidth"><br>
+			<select name="gameType" v-model="pickedGameType" class="ss_select fullwidth" @change="onGameTypeChange($event)">
+				<option v-for="g in gameTypes" v-bind:value="g.value">{{ loc[g.locKey] }}</option>
+			</select><br>
+			<button name="server" @click="onPickServerButtonClick" :disabled="isButtonDisabled" class="ss_button btn_blue bevel_blue fullwidth">{{ loc.server }}: {{ loc[serverLocKey] }}</button><br>
+			<button name="play" @click="onPlayButtonClick" class="ss_button btn_big btn_yolk bevel_yolk fullwidth nospace play-button"><i class="fa fa-play fa-sm"></i> {{ loc.home_play }}</button>
+			
+			<h3>{{ loc.home_privategames }}</h3>
+			
+			<div id="btn_horizontal" class="nospace">
+				<button name="create" @click="onCreatePrivateGameClick" class="ss_button btn_sm btn_blue bevel_blue">{{ loc.home_create }}</button>&nbsp;
+				<button name="join" @click="onJoinPrivateGameClick" class="ss_button btn_sm btn_blue bevel_blue">{{ loc.home_join }}</button>
+			</div>
+			
+		</div>
+
+		<!-- Popup: Pick Server -->
+		<large-popup id="pickServerPopup" ref="pickServerPopup" @popup-closed="onPickServerPopupClosed">
+			<template slot="header">{{ loc.server }}</template>
+			<template slot="content">
+				<server-list-popup id="server_list_popup" ref="serverListPopup" v-if="(serverList.length > 0)" :loc="loc" :servers="serverList" :picked-server-id="currentServerId" @server-picked="onServerPicked"></server-list-popup>
+			</template>
+		</large-popup>
+
+		<!-- Popup: Create Private Game -->
+		<large-popup id="createPrivateGamePopup" ref="createPrivateGamePopup">
+			<template slot="content">
+				<create-private-game-popup id="createPrivateGame" ref="createPrivateGame" :loc="loc" :server-loc-key="serverLocKey" :is-game-ready="isGameReady" map-img-base-path="maps/"></create-private-game-popup>
+			</template>
+		</large-popup>
+
+		<!-- Popup: Join Private Game -->
+		<small-popup id="joinPrivateGamePopup" ref="joinPrivateGamePopup" :popup-model="home.joinPrivateGamePopup" @popup-confirm="onJoinConfirmed">
+			<template slot="header">{{ loc.p_game_code_title }}</template>
+			<template slot="content">
+				<div class="error_text shadow_red" v-show="home.joinPrivateGamePopup.showInvalidCodeMsg">{{ loc.p_game_code_blank }}</div>
+				<p><input type="text" class="ss_field ss_margintop ss_marginbottom fullwidth text-center" v-model="home.joinPrivateGamePopup.code" v-bind:placeholder="loc.p_game_code_enter" v-on:keyup.enter="onJoinConfirmed"></p>
+			</template>
+			<template slot="cancel">{{ loc.cancel }}</template>
+			<template slot="confirm">{{ loc.confirm }}</template>
+		</small-popup>
+	</div>
+</script>
+
+<script id="server-list-template" type="text/x-template">
+    <div>
+        <h1 class="roundme_sm">{{ loc.p_servers_title }}</h1>
+        <div v-for="s in servers" :key="s.id">
+            <div id="server_list_item">
+                <input type="radio" :id="('rb_' + s.id)" name="pickServer" v-bind:value="s.id" v-model="serverId" @click="BAWK.play('ui_onchange')">
+                <label :for="('rb_' + s.id)" class="serverName">{{ loc[s.locKey] }} </label>
+                <label :for="('rb_' + s.id)" class="serverPingWrap roundme_sm">
+                    <span class="pingBar" :class="barColorClass(s)" :style="barStyle(s)"></span>
+                </label>
+                <label :for="('rb_' + s.id)" class="serverPingNumber ss_marginleft_lg"> {{ s.ping }}ms</label>
+            </div>
+        </div>
+        <div id="btn_horizontal" class="f_center">
+			<button @click="onCancelClick()" class="ss_button btn_red bevel_red btn_sm">{{ loc.cancel }}</button>
+			<button @click="onConfirmClick()" class="ss_button btn_green bevel_green btn_sm">{{ loc.ok }}</button>
+		</div>
+    </div>
+</script>
+
+<script>
+var comp_server_list_popup = {
+    template: '#server-list-template',
+    props: ['loc', 'servers', 'pickedServerId'],
+
+    data: function () {
+        return {
+            colorClasses: ['greenPing', 'yellowPing','orangePing', 'redPing'],
+            serverId: this.pickedServerId
+        }
+    },
+
+    methods: {
+		playSound (sound) {
+			BAWK.play(sound);
+        },
+        
+        barColorClass: function (server) {
+            var colorIdx = Math.min(3, Math.floor(server.ping / 100));
+            return this.colorClasses[colorIdx];
+        },
+
+        barStyle: function (server) {
+            return {
+                width: Math.min(10, Math.max(0, server.ping / 100)) + 0.1 + 'em'
+            }
+        },
+
+        onCancelClick: function () {
+            this.serverId = this.pickedServerId;
+            this.$parent.close();
+            BAWK.play('ui_popupclose');
+        },
+
+        onConfirmClick: function () {
+            this.$emit('server-picked', this.serverId);
+            this.$parent.close();
+            BAWK.play('ui_playconfirm');
+        }
+    }
+};
+</script>
+<script>
+var comp_play_panel = {
+	template: '#play-panel-template',
+	components: {
+		'create-private-game-popup': comp_create_private_game_popup,
+		'server-list-popup': comp_server_list_popup
+	},
+
+	props: ['loc', 'playerName', 'gameTypes', 'currentGameType', 'serverList', 'currentServerId', 'home', 'isGameReady'],
+	data: function() {
+		return {
+			pickedServerId: null,
+			pickedGameType: this.currentGameType,
+			isButtonDisabled: true,
+			playClickedBeforeReady: false,
+			playClickFunction: Function,
+		}
+	},
+			
+	methods: {
+		onPickServerButtonClick: function () {
+			this.$refs.pickServerPopup.toggle();
+			BAWK.play('ui_popupopen');
+		},
+		
+		onServerPicked: function (serverId) {
+			if (vueData.currentServerId === serverId) { return; }
+			
+			vueData.currentServerId = serverId;
+			extern.selectServer(vueData.currentServerId);
+			BAWK.play('ui_onchange');
+		},
+
+		onPickServerPopupClosed: function () {
+			if (this.$refs.createPrivateGame.showingServerList) {
+				this.$refs.createPrivateGame.showingServerList = false;
+				this.$refs.createPrivateGamePopup.toggle();
+			}
+		},
+
+		onNameChange: function (event) {
+			console.log('name changed to: ' + event.target.value);
+			this.$emit('playerNameChanged', event.target.value);
+		},
+
+		onPlayerNameKeyUp: function (event) {
+			event.target.value = extern.filterUnicode(event.target.value);
+			event.target.value = extern.fixStringWidth(event.target.value);
+			event.target.value = event.target.value.substring(0, 128);
+
+			// Send username to server to start the game!
+			if (event.code == "Enter" || event.keyCode == 13) {
+				if (vueData.playerName.length > 0) {
+					extern.play({
+						playType: vueData.playTypes.joinPublic,
+						playerName: vueData.playerName
+					});
+				}
+			}
+		},
+		onGameTypeChange: function (event) {
+			extern.selectGameType(event.target.value);
+			BAWK.play('ui_onchange');
+		},
+		onPlayTypeWhenSignInComplete() {
+			return this.playClickFunction();
+		},
+		onPlaySentBeforeSignIn(callback) {
+			this.gameClickedBeforeReady = true;
+			vueApp.showSpinner('signin_auth_title', 'signin_auth_msg');
+			this.playClickFunction = callback;
+		},
+		hasValidPlayerNameCheck() {
+			console.log('invalid player name');
+			vueApp.showGenericPopup('play_pu_name_title', 'play_pu_name_content', 'ok');
+			vueApp.hideSpinner();
+			return;
+		},
+		onPlayButtonClick: function () {
+			if (!hasValue(this.playerName)) {
+				this.hasValidPlayerNameCheck();
+				return;
+			}
+			if (!this.isGameReady) {
+				this.onPlaySentBeforeSignIn(this.onPlayButtonClick);
+				return;
+			}
+
+			vueApp.disablePlayButton(true);
+
+			vueApp.game.respawnTime = 0;
+			vueApp.externPlayObject(vueData.playTypes.joinPublic, this.pickedGameType, this.playerName, -1, '');
+			BAWK.play('ui_playconfirm');
+		},
+
+		onCreatePrivateGameClick: function () {
+			this.$refs.createPrivateGamePopup.toggle();
+			BAWK.play('ui_popupopen');
+		},
+
+		onJoinPrivateGameClick: function () {
+			this.showJoinPrivateGamePopup(vueData.home.joinPrivateGamePopup.code);
+			BAWK.play('ui_popupopen');
+		},
+
+		showJoinPrivateGamePopup: function (showCode) {
+			// The popup must be active before it will update; set code after showing
+			this.$refs.joinPrivateGamePopup.show();
+			vueData.home.joinPrivateGamePopup.code = showCode;
+		},
+
+		onJoinConfirmed: function () {
+			if (!hasValue(this.playerName)) {
+				this.hasValidPlayerNameCheck();
+				return;
+			}
+			if (!this.isGameReady) {
+				this.onPlaySentBeforeSignIn(this.onJoinConfirmed)
+				return;
+			}
+			
+			let match = vueData.home.joinPrivateGamePopup.code.match(/\#\w+/);
+
+			if (match) {
+				vueData.home.joinPrivateGamePopup.code = match[0];
+			}
+
+			this.$refs.joinPrivateGamePopup.hide();
+			vueApp.externPlayObject(vueData.playTypes.joinPrivate, '', this.playerName, '', vueData.home.joinPrivateGamePopup.code);
+		},
+	},
+
+	computed: {
+		serverLocKey: function () {
+			if (!hasValue(this.serverList) || this.serverList.length === 0) {
+				return '';
+			}
+
+			var server = this.serverList.find(s => {
+				return s.id == vueData.currentServerId;
+			});
+
+			return hasValue(server) ? server.locKey : '';
+		},
+
+	},
+	watch: {
+		currentGameType: function (val) {
+			this.pickedGameType = val;
+		},
+		isGameReady(val) {
+			this.isButtonDisabled = val ? false : true;
+			if (this.gameClickedBeforeReady && val) {
+				this.onPlayTypeWhenSignInComplete()
+			}
+		}
+	}
+};
+</script><template id="weaponselect_panel_template" type="text/x-template"></template>
+
+<script>
+var comp_weapon_select_panel = {
+	template: '#weaponselect_panel_template',
+	props: ['currentClass', 'loc'],
+
+	data: function () {
+		return {
+			charClass: CharClass,
+			vueData,
+		}
+	},
+
+	methods: {
+		selectClass: function (classIdx) {
+			if (!vueData.accountSettled){
+				return;
+			}
+			extern.changeClass(classIdx);
+			this.$emit('changed-class', classIdx);
+			BAWK.play('ui_click');
+		},
+
+		addSelectedCssClass: function (classIdx) {
+			return (this.currentClass === classIdx)
+				? 'weapon_selected'
+				: '';
+		},
+	}
+
+
+	// watch: {
+	// 	accountSettled(val) {
+
+	// 	}
+	// }
+};
+</script>
+<script id="newsfeed-panel-template" type="text/x-template">
+	<section class="v_scroll">
+		<article v-if="items" v-for="item in activeItems" :key="item.id" @click="onItemThatIsClicked(item)" class="news_item roundme_md clickme">
+			<img :src="imageSrc(item)" class="news_img roundme_sm">
+			<p>{{ item.content }}</p>
+		</article>
+	</section>
+</script>
+
+<script>
+var comp_newsfeed_panel = {
+	template: '#newsfeed-panel-template',
+	props: ['items'],
+
+	data: function () {
+		return vueData;
+	},
+
+	// mounted: function () {
+	// 	// this.fetchWebData();
+	// 	this.checklocalForNewsData();
+	// },
+
+	methods: {
+		imageSrc(item) {
+			return dynamicContentPrefix + 'data/img/newsItems/' + item.id + item.imageExt;
+		},
+		onItemThatIsClicked(item) {
+			console.log(item);
+			extern.clickedWebFeedItem(item);
+			BAWK.play('ui_click');
+		},
+	},
+	computed: {
+		activeItems() {
+			return this.items.filter(item => item.active);
+		}
+	}
+};
+</script><script id="chicken-panel-template" type="text/x-template">
+	<div id="showBuyPassDialogButton" class="new">
+		<div class="chicken-panel--upgraded" v-show="doUpgraded && !isSubscriber">
+			<div class="tool-tip tool-tip--right">
+				<span v-if="nugCounter" id="nugget-countdown">{{nugCounter}} Minutes remaining.</span>
+				<img class="upgraded-nugget" src="img/chicken-nugget/goldenNugget_static.png">
+				<!-- <div id="nugget-timer" class="nugget-timer--wrapper">
+					<div class="timer-background"></div>
+					<div class="timer spinner"></div>
+					<div class="timer filler"></div>
+					<div class="mask"></div>
+				</div> -->
+			</div>
+		</div>
+		
+		<div class="chicken-panel--no-upgraded" v-show="!doUpgraded">
+			<img src="img/chicken-nugget/starburst.png" @click="onChickenClick" class="clickme starburst">
+			<img src="img/chicken-nugget/goldenNuggetGIFWIP.gif" @click="onChickenClick" class="clickme nugget-chick">
+		
+			<div id="buyPassChickenSpeech">
+				<img src="img/speechtail.png" class="buyPassChickenSpeechTail">
+				<span v-html="loc.chicken_cta"></span>
+			</div>
+		</div>
+	</div>
+</script>
+
+<script>
+var comp_chicken_panel = {
+	template: '#chicken-panel-template',
+	props: ['local', 'doUpgraded'],
+	data: function () {
+		return vueData;
+    },
+	methods: {
+		onChickenClick: function () {
+			BAWK.play('ui_chicken');
+			vueApp.showGoldChickenPopup();
+			ga('send', 'event', this.googleAnalytics.cat.purchases, 'Golden Chicken Click');
+		},
+	},
+};
+</script><script id="footer-links-panel-template" type="text/x-template">
+	<footer class="main-footer display-grid grid-column-1-2">
+		<div class="social-icons">
+			<social-panel id="social_panel"></social-panel>
+		</div>
+		<nav class="footer-nav text-left">
+			<a @click="onChangelogClicked" class="clickme">{{ version }}</a> | 
+			<!-- <a href="https://shell-shockers.myshopify.com/collections/all" target="_blank" @click="BAWK.play('ui_click')">{{ loc.footer_merchandise }}</a> |  -->
+			<a href="https://www.bluewizard.com/privacypolicy" target="_blank" @click="playSound">{{ loc.footer_privacypolicy }}</a> | 
+			<a href="https://bluewizard.com/terms/" target="_blank" @click="playSound">{{ loc.footer_termsofservice }}</a> | 
+			<a href="https://www.bluewizard.com" target="_blank" @click="playSound">&copy; 2021 <img class="main-footer--logo-blue-wiz-mini" src="img/blue-wizard-logo-tiny-min.png" :alt="loc.footer_bluewizard + ' logo'"><span class="hideme">{{ loc.footer_bluewizard }}</span></a>
+		</nav>
+	</footer>
+</script>
+
+<script id="social-panel-template" type="text/x-template">
+	<div class="social_icons roundme_sm">
+		<a href="http://eepurl.com/dFPPwb" target="_blank" class="f_col f_center ss_marginright bg_blue4" @click="playSound('newYolker')">
+			<div class="icon-wrap bg_blue3 roundme_sm">
+				<span class="sr-only">Get the Shell Shocker's Newsletter: The New Yolker</span>
+				<i aria-hidden="true" class="text_blue1 fas fa-envelope-open-text"></i>
+			</div>
+		</a>
+
+		<a href="https://www.facebook.com/bluewizarddigital" class="f_col f_center ss_marginright bg_blue4" @click="onClickReward('Facebook')" target="_blank">
+			<div class="icon-wrap bg_blue3 roundme_sm">
+				<span class="sr-only">Vist Blue Wizard's Facebook page</span>
+				<i aria-hidden="true" class="text_blue1 fab fab fa-facebook"></i>
+			</div>
+		</a>
+		
+			<!-- <img src="img/ico_social_facebook.png" class="social_icon" @click="playSound"></a> -->
+		<a href="https://twitter.com/bluewizardgames" target="_blank" class="f_col f_center ss_marginright bg_blue4" @click="onClickReward('Twitter')">
+			<div class="icon-wrap bg_blue3 roundme_sm">
+				<span class="sr-only">Vist Shell Shocker's Twitter page</span>
+				<i aria-hidden="true" class="text_blue1 fab fa-twitter"></i>
+			</div>
+		</a>
+			<!-- <img src="img/ico_social_twitter.png" class="social_icon" @click="playSound"></a> -->
+
+		<!-- <a href="https://www.instagram.com/bluewizardgames/" class="f_col f_center ss_marginright bg_blue4" @click="onClickReward('Instagram')" target="_blank">
+			<div class="icon-wrap bg_blue3 roundme_sm">
+				<span class="sr-only">Vist Blue Wizard's Instagram page</span>
+				<i aria-hidden="true" class="text_blue1 fab fab fa-instagram"></i>
+			</div>
+		</a> -->
+
+		<!-- ['name', 'reward', 'url', 'img', 'icon'] -->
+		<social-promo name="Instagram" reward="Instagram" url="https://www.instagram.com/bluewizardgames/" img="instagram-hat-single-min.png" icon="fa-instagram"></social-promo>
+
+		<a href="https://www.tiktok.com/@bluewizarddigital" class="f_col f_center ss_marginright bg_blue4" @click="onClickReward('tiktok')" target="_blank">
+			<div class="icon-wrap bg_blue3 roundme_sm">
+				<span class="sr-only">Vist Shell Shocker's TikTok page</span>
+				<i aria-hidden="true" class="text_blue1 fab fab fa-tiktok"></i>
+			</div>
+		</a>
+
+		<a href="https://discord.gg/bluewizard" class="f_col f_center ss_marginright bg_blue4" @click="onClickReward('discord')" target="_blank">
+			<div class="icon-wrap bg_blue3 roundme_sm">
+				<span class="sr-only">Vist Shell Shocker's Discord page</span>
+				<i aria-hidden="true" class="text_blue1 fab fa-discord"></i>
+			</div>
+		</a>
+
+		<a href="https://store.steampowered.com/publisher/bluewizard" class="f_col f_center ss_marginright bg_blue4" @click="onClickReward('Steam')" target="_blank">
+			<div class="icon-wrap bg_blue3 roundme_sm">
+				<span class="sr-only">Vist Shell Shocker's Steam page</span>
+				<i aria-hidden="true" class="text_blue1 fab fa-steam-symbol"></i>
+			</div>
+		</a>
+	</div>
+</script>
+<script id="social-promo-template" type="text/x-template">
+	<div class="tool-tip" :class="{'active' : isBubbleActive}">
+		<a :href="url" target="_blank" :title="urlTitle" class="f_col f_center ss_marginright bg_blue4"  @click="onClickReward()">
+			<div class="icon-wrap bg_blue3 roundme_sm">
+				<span class="sr-only">Vist Shell Shocker's Instagram page</span>
+				<i aria-hidden="true" class="text_blue1 fab" :class="icon"></i>
+			</div>
+		</a>
+		<div class="tool-tip--bubble" v-if="!itemRedeemed && bubbleHover">
+			<div class="tool-tip--group display-grid grid-column-1-2">
+				<div class=tool-tip--image>
+					<img class="discord-bubble-img" :src="imgSrc" :alt="imgAlt">
+				</div>
+				<div class="tool-tip--text text-left">
+					<strong><i>Join us<br /> on {{name}}</i></strong> <br /> for a free Hat!
+				</div>
+			</div>
+			<!-- .tool-tip--group -->
+		</div>
+			<!-- .tool-tip--bubble -->
+	</div>
+	<!-- .tool-tip -->
+</script>
+
+
+<script>
+var COMPSOCIALPROMO = {
+	template: '#social-promo-template',
+	props: ['name', 'reward', 'url', 'img', 'icon'],
+	data: function () {
+		return {
+			isBubbleActive: true,
+			bubbleRepeat : '',
+			bubbleHover: true,
+		}
+	},
+	created() {
+		this.discordBubbleTimer();
+	},
+	methods: {
+		playSound (label) {
+			BAWK.play('ui_click');
+            this.gaSend(label);
+		},
+		discordBubbleTimer() {
+
+			if (this.itemRedeemed) {
+				this.isBubbleActive = false;
+				this.bubbleHover = false;
+				return;
+			}
+
+			this.bubbleRepeat = setInterval(() => {
+				this.isBubbleActive = this.isBubbleActive ? false : true;
+			}, 3000);
+		},
+		onClickReward() {
+			this.gaSend(this.reward);
+			console.log('onClickReward', this.reward);
+			const rewardGiven = localStore.getItem(`${this.reward}Rewarded`);
+			if (!hasValue(rewardGiven)) {
+				extern.socialReward(this.reward);
+			}
+			this.playSound();
+			this.isBubbleActive = false;
+			this.bubbleHover = false;
+			if (this.bubbleRepeat) {
+				clearInterval(this.bubbleRepeat);
+			}
+		},
+		gaSend(label) {
+			if (!label) return;
+            ga('send', 'event', 'social-buttons', 'click', label);
+		}
+	},
+	computed: {
+		itemRedeemed() {
+			return localStore.getItem(this.reward + 'Rewarded');
+		},
+		urlTitle() {
+			return `Blue Wizard ${this.name} page`;
+		},
+		imgAlt() {
+			return `Join Blue Wizard's ${this.name} page`;
+		},
+		imgSrc() {
+			return `img/promotions/${this.img}`;
+		}
+	}
+};
+</script><script>
+var comp_social_panel = {
+	template: '#social-panel-template',
+	components: {
+		'social-promo': COMPSOCIALPROMO
+	},
+	data: function () {
+		return {
+			isBubbleActive: true,
+			bubbleRepeat : '',
+			bubbleHover: true,
+			rewardName: 'Instagram'
+		}
+	},
+	created() {
+		this.discordBubbleTimer();
+	},
+	methods: {
+		playSound (label) {
+			BAWK.play('ui_click');
+            this.gaSend(label);
+		},
+		discordBubbleTimer() {
+
+			if (this.itemRedeemed) {
+				this.isBubbleActive = false;
+				this.bubbleHover = false;
+				return;
+			}
+
+			this.bubbleRepeat = setInterval(() => {
+				this.isBubbleActive = this.isBubbleActive ? false : true;
+			}, 3000);
+		},
+		onClickReward(type) {
+			this.gaSend(type);
+			console.log('onClickReward', type);
+			const rewardGiven = localStore.getItem(`${type}Rewarded`);
+			if (!hasValue(rewardGiven)) {
+				extern.socialReward(type);
+			}
+			this.playSound();
+			this.isBubbleActive = false;
+			this.bubbleHover = false;
+			if (this.bubbleRepeat) {
+				clearInterval(this.bubbleRepeat);
+			}
+		},
+		gaSend(label) {
+			if (!label) return;
+            ga('send', 'event', 'social-buttons', 'click', label);
+		}
+	},
+	computed: {
+		itemRedeemed() {
+			return localStore.getItem(this.rewardName + 'Rewarded');
+		},
+	}
+};
+</script>
+<script>
+var comp_footer_links_panel = {
+	template: '#footer-links-panel-template',
+	components: {
+		'social-panel': comp_social_panel,
+	},
+	props: ['loc'],
+
+	data: function () {
+		return {
+			version: version
+		}
+	},
+
+	methods: {
+		onChangelogClicked: function () {
+			vueApp.showChangelogPopup();
+			BAWK.play('ui_popupopen');
+		},
+		playSound() {
+			BAWK.play('ui_click');
+		}
+	}
+};
+</script>
+<template id="comp-vip-cta"></template>
+
+<script>
+    const compVipCta = {
+        template: '#comp-vip-cta',
+        props: ['loc', 'upgradeName', 'isUpgraded', 'isSubscriber', 'hasMobileReward', 'isBlackFryday'],
+        data() {
+            return {
+                subName: '',
+            };
+        },
+        methods: {
+            onClicked() {
+
+				if (this.isBlackFryday) {
+					vueApp.showEggStorePopup();
+					return;
+				}
+
+                if (this.hasMobileReward) {
+                    vueApp.showSubStorePopup();
+                    return;
+                }
+                vueApp.showGetMobilePopup();
+            },
+        },
+        watch: {
+            upgradeName(val) {
+                if (!hasValue(val)) {
+                    return;
+                }
+                this.subName = `s-${val.replace(' ', '-').toLowerCase().replace(' ', '-')}-title`;
+            }
+        }
+    };
+</script><script id="media-tabs-template" type="text/x-template">
+  <div class="media-tabs-container">
+	<div id="horizontalTabs" class="media-tab-container">
+        <button id="news-tab" @click="selectTab" class="media-tab ss_smtab ss_marginright" :class="(showNewsTab ? 'selected' : '')"><i class="fas fa-bullhorn"></i></button>
+        <button id="twitch-tab" @click="selectTab" class="media-tab ss_smtab ss_marginright" :class="(showTwitchTab ? 'selected' : '')"><i class="fab fa-twitch"></i></button>
+        <button id="video-tab" v-if="youtubeStreams.length > 0" @click="selectTab" class="media-tab ss_smtab" :class="(showVideoTab ? 'selected' : '')"><i class="fab fa-youtube"></i></button>
+    </div>
+
+    <div class="front_panel media-tabs-content roundme_sm f_col" :class="{'tab-news-active' : showNewsTab}">
+		<div id="news-tab" v-show="showNewsTab">
+			<h3 class="nospace  shadow_blue4 text_white">{{ loc.home_latestnews }}</h3>
+			<div class="news-container f_row ss_margintop">
+                <div class="news_mask"></div>
+                <newsfeed-panel id="news_scroll" class="home-tab-scroll" ref="newsScroll" :items="newsfeedItems"></newsfeed-panel>
+			</div>
+		</div>
+        <!-- #news-tab -->
+		
+		<div id="twitch-tab" v-show="showTwitchTab">
+            <h3 class="nospace shadow_blue4 text_white">
+                Twitch <button id="tab-twitch-btn" @click="onApplyNowClick" class="ss_button btn_md btn_yolk btn-media bevel_yolk">{{loc.home_media_apply_now}}</button>
+            </h3>            
+			
+			<div class="f_row ss_margintop">
+                <streamer-panel id="twitch_panel" :loc="loc" :streams="twitchStreams" :title="loc.twitch_title" :viewers="loc.twitch_viewers" icon="ico_twitch"></streamer-panel>
+			</div>
+		</div>
+        <!-- #twitch-tab -->
+
+		<div id="video-tab" v-show="showVideoTab">
+            <h3 class="nospace  shadow_blue4 text_white">
+                YouTube <button id="tab-youtube-btn" @click="onApplyNowClick" class="ss_button btn_md btn_yolk btn-media bevel_yolk">{{loc.home_media_apply_now}}</button>
+            </h3>
+			
+			<div class="news-container f_row ss_margintop">
+                <div class="news_mask"></div>
+                <div id="yTube-scroll" class="home-tab-scroll v_scroll">
+                    <div v-for="item in youtubeStreams" :key="item.id" v-if="item.active" @click="onVideoClick(item)" class="news_item ytube-item roundme_md clickme">
+                        <div class="image-wrap news_img roundme_sm">
+                            <img :src="item.externalImg" alt="" class="news_img roundme_sm" />
+                        </div>
+                        <div class="content-wrap f_col f_space_between">
+                            <p><strong>{{ item.title }}</strong></p>
+                            <p v-if="item.desc">{{ item.desc }}</p>
+                            <p class="text-right">{{ item.author }}</p>
+                        </div>
+                    </div>
+                </div>
+
+			</div>
+		</div>
+	</div>
+    <!-- .media-tabs-content -->
+  </div>
+  <!-- .media-tabs-container -->
+</script>
+
+<script id="streamer-panel-template" type="text/x-template">
+	<div class="panel_streamer noscroll">
+		<div v-if="show" id="stream_mask"></div>
+		<div id="stream_scroll" class="home-tab-scroll v_scroll" v-show="show">
+			<div class="stream_item roundme_sm clickme" v-for="s in streams">
+				<a :href="s.link" target="_blank" @click="BAWK.play('ui_click')" class="display-grid grid-column-1-2">
+					<img :src="s.image" class="stream_img roundme_sm">
+					<span>
+						<p class="stream_name">{{ s.name }}</p>
+						<p class="stream_viewers">{{ s.viewers }} {{ viewers }}</p>
+					</span>
+				</a>
+			</div>
+		</div>
+		<div class="no-stream roundme_sm" v-if="!show">
+		 <p v-html="loc.twitch_no_steam"></p>
+		</div>
+	</div>
+</script>
+
+<script>
+var comp_streamer_panel = {
+	template: '#streamer-panel-template',
+	props: ['streams', 'title', 'viewers', 'icon', 'loc'],
+	methods: {
+		playSound (sound) {
+			BAWK.play(sound);
+		}
+	},
+	computed: {
+		show: function() {
+			if (!this.streams) {
+				return false;
+			}
+
+			return this.streams.length > 0;
+		}
+	}
+};
+</script>
+<script>
+    const MEDIATABS = {
+        template: '#media-tabs-template',
+        components: {
+            'newsfeed-panel': comp_newsfeed_panel,
+            'streamer-panel': comp_streamer_panel,
+        },
+        props: ['loc', 'newsfeedItems', 'twitchStreams', 'youtubeStreams'],
+
+        created() {
+            this.$nextTick(() => {
+                this.randomTabSelect();
+            });
+        },
+
+        mounted() {
+            // VUE!!!!!!!!!!!
+            setTimeout(() => this.getAllTabs(), 500);
+        },
+
+        data: function () {
+            return {
+                mediaTabs: [],
+                mediaTabsCount: 0,
+                rotateTimeout: '',
+                showNewsTab: false,
+                showTwitchTab: false,
+                showVideoTab: false,
+                currentTab: ''
+            }
+        },
+        
+        methods: {
+            getAllTabs() {
+                this.$nextTick(() => {
+                    let ids = [],
+                        tabs = Array.from(document.querySelectorAll('.media-tab')).forEach(tab => ids.push(tab.id));
+                    this.mediaTabs = ids;
+                    this.mediaTabsCount = this.mediaTabs.length - 1;
+                    this.autoRotateTabs();
+                });
+            },
+
+            selectTab: function (e) {
+                ga('send', 'event', 'media-tabs', 'click', e.currentTarget.id);
+                return this.switchTab(e.currentTarget.id, true, true)
+            },
+
+            autoRotateTabs() {
+                let nextIdx = this.mediaTabs.indexOf(this.currentTab) + 1;
+
+                if (nextIdx > this.mediaTabsCount) nextIdx = 0;
+
+                this.rotateTimeout = setTimeout(() => {
+                    this.switchTab(this.mediaTabs[nextIdx], false, false);
+                    this.autoRotateTabs();
+                }, 10000);
+            },
+
+            randomTabSelect() {
+                let n = Math.floor(Math.random() * 9);
+                if (n >= 0 && n <= 2) {
+                    this.showNewsTab = true;
+                    this.currentTab = 'news-tab';
+                } else if (n >= 3 && n <= 5) {
+                    this.showTwitchTab = true;
+                    this.currentTab = 'twitch-tab';
+                } else {
+                    this.showVideoTab = true;
+                    this.currentTab = 'video-tab';
+                }
+            },
+
+            onVideoClick(item) {
+                ga('send', 'creator', 'videoClick', item.title);
+                window.open(item.link, '_window');
+            },
+
+            onApplyNowClick(e) {
+                ga('send', 'creator', 'applyNow', e.target.id);
+                window.open('https://shellcreators.bluewizard.com', '_window');
+            },
+            
+            switchTab(tab, sound, click) {
+                this.showNewsTab = false;
+                this.showTwitchTab = false;
+                this.showVideoTab = false;
+
+                switch (tab) {
+                    case 'news-tab':
+                        this.currentTab = 'news-tab';
+                        this.showNewsTab = true;
+                        break;
+
+                    case 'twitch-tab':
+                        this.currentTab = 'twitch-tab';
+                        this.showTwitchTab = true;
+                        break;
+
+                    case 'video-tab':
+                        this.currentTab = 'video-tab';
+                        this.showVideoTab = true;
+                        break;
+                }
+
+                if (sound) {
+                    BAWK.play('ui_toggletab');
+                }
+
+                if (click) {
+                    ga('send', 'creator', 'tabClick', this.currentTab);
+                    this.cancelRotate(false);
+                }
+            },
+
+            cancelRotate(stop) {
+                clearTimeout(this.rotateTimeout);
+                this.rotateTimeout = '';
+                if (!stop) {
+                    this.autoRotateTabs();
+                }
+            }
+        }
+    };
+</script><template id="music-widget"></template>
+
+
+<div id="progress-container" style="position: fixed; top: 0px; left: 0px; height: 100vh; width: 100vw; z-index: 2000; background-image: var(--ss-lightoverlay);"><div id="progress-wrapper" class="load_screen" style="position: absolute; left: 50%; top: -6em; transform: translateX(-50%); background-image: none;"><img src="./Shell Shockers _ Alt URL_ geometry.best._files/logo.svg" id="logo-svg" style="height: 16em;"><div id="progress-outer" style="position: relative; background: rgb(100, 50, 25); border-radius: 2em; height: 3.3em; width: 24em; margin-top: 2em;"><div style="width: 23em; height: 2.2em; background: white; padding: 0.5em; border-radius: 2em; margin: 0.3em 0.5em 0px;"><span id="progressBar" style="display: block; width: 20%; height: 100%; background: orange; border-radius: 2em; margin: 0px 0.3em 0.5em 0%; opacity: 1;"></span></div></div></div><img src="./Shell Shockers _ Alt URL_ geometry.best._files/BlueWizard-Logo-min.png" style="width: 16em; display: block; margin: 5em auto 0px; z-index: 2000; position: absolute; left: 50%; bottom: 8em; transform: translateX(-50%);"></div></body></html>
