@@ -1,0 +1,302 @@
+  *
+  {
+    margin:  0;
+    padding: 0;
+  }  
+  /*
+  nav a   
+  { 
+    text-decoration: none ;
+  }
+  
+  nav a:link
+  {
+    color:#FFFF00;
+  }  
+  
+  nav a:visited
+  {
+    color:#FFFFFF;
+  }
+  
+  nav a:hover
+  {
+    color:#FFFF00;
+  } 
+  
+  nav a:active
+  {
+    color:#FFFF00;
+  } 
+  */  
+  header
+  {
+    text-align : right;
+    width      : 120px; /*100%*/;
+    height     : 20px;
+    top        : 10px;
+    left       : 0px;     
+    background : #5B859A;
+    position   : fixed;
+    cursor     : pointer;
+  }
+  
+  .menu-icon
+  {
+    position         : fixed;
+    font-size        : 1.2em;
+    font-weight      : bold;
+    padding          : 5px;
+    width            : 120px;
+    height           : 10px
+    text-align       : center;
+  /*background-color : #5B859A;*/
+    color            : #C0C0FF;
+    cursor           : pointer;
+    transition       : all.4s;
+    left             : 0px;
+    top              : 0;
+    z-index          : 107
+  }
+  
+  .menu-icon:hover
+  {
+  /*background-color : #FFC0C0;*/
+    color            : #5B859A;
+  }
+  
+  #chk
+  {
+    display          : none;
+  }
+   
+  .menu
+  {
+    height           : 100%;
+    position         : fixed;
+    background-color : #222222;
+    top              : 0;
+    overflow         : hidden;
+    overflow-y       : auto;
+    transition       : all.2s;
+  }
+
+  .menu_links
+  {
+    left       : 10px;  
+    position   : relative;    
+  }
+  
+  #principal   
+  {
+    top               : 0px;
+    width             : 210px;
+    left              : -210px;    
+    background        : transparent; /* url(/imagens/fundo_vm.gif) fixed left repeat-y; */
+    background-image  : url(/imagens/fundo_vm.gif);
+    background-repeat : repeat-y;
+    z-index           : 102;
+    text-align        : center;
+  }
+   
+  ul
+  {
+    list-style : none;
+  }
+  
+  ul li a
+  {
+    width           : 80%;
+    display         : block;
+    font-size       : 1em;
+    font-family     : 'Arial';
+    padding         : 4px;
+ /* border-bottom   : solid 1px #000000; */
+    color           : #CCCCCC;
+    text-decoration : none;
+    transition      : all.2s;
+  }
+   
+  ul li span
+  {
+    float         : right;
+    padding-right : 10px;
+  }
+  
+  .menu_links a:link{color:#FFFF00}  
+  .menu_links a:visited{color:#FFFFFF}
+  .menu_links a:hover{color:#FFFF00} 
+  .menu_links a:active{color:#FFFF00}
+  
+  
+  ul li a:hover
+  {
+    background-color : #5B859A; 
+  }
+  
+  .voltar
+  {
+    margin-top       : 60px;
+    background-color : #111111;
+    border-left      : solid 5px #444444;
+  }
+  
+  .first
+  {
+    margin-top       : 20px;
+  }
+  
+  .fundo
+  {
+    width            : 100%;
+    height           : 100%;
+    left             : 0;
+    top              : 0;
+    position         : fixed;
+    background-color : #0000FF; /*rgba(0,0,0,.6);*/
+    display          : none;
+    z-index          : 100;
+  }
+   
+  #chk:checked ~.fundo
+  {
+    display: block;
+  }
+  
+  #chk:checked ~ #principal
+  {
+    transform: translateX(210px);
+  }
+  
+  #chk:checked ~ .div_barra_amarela
+  {   
+    width:100%;
+    transition: all.4s
+  }
+  
+  #chk:checked ~ .div_title_card
+  {   
+    width:100%;
+    transition: all.4s
+  }
+   
+  .div_titulo_link
+  {
+    width  : 40;
+    height : 40;
+    left   : 50%;
+    top    : 50%;
+    position : fixed;
+   /* center : 0; */
+  }
+  
+  .div_barra_amarela
+  {    
+    width            : 0px;
+    height           : 20%;
+    bottom           : 0px;  
+    right            : 0px;
+    position         : fixed;
+    background-color : #FFFF00;
+    display          : block;
+    color            : #000000;
+    font-size        : 20px;
+    font-weight      : bold;
+    z-index          : 101;
+  }
+  
+  .div_autor
+  {
+    position : relative;
+    left     : 240px;
+    overflow : hidden;
+    z-index  : 105;        
+  }
+ 
+  .div_title_card
+  {
+    font-size        : 40px;
+    left             : 220px;
+    top              : 50%;
+    width            : 0;
+    height           : 200;
+    z-index          : 106;
+   /* background-color : #0000FF; */
+    position         : fixed;
+    display          : block;    
+    overflow         : hidden; 
+  } 
+  
+ .div_title_card:hover
+  {
+    z-index : 4;
+   /* background-color : #FFFF00;*/
+    position : fixed;
+    display : block;
+   /* background-image:url('fonts/a.bmp'); */
+  }
+  
+  .link_sleep:hover .div_title_card
+  {
+  /*  background-image:url('fonts/b.bmp'); */
+  } 
+  
+  body
+  {    
+   /*
+    background:  url(imagens/fundo_vm.gif) fixed left repeat-y,
+                url(imagens/fundo_azul.jpg) fixed repeat;                
+                url(imagens/fundo_2.gif) repeat;*/
+    background-size: auto, 15%, auto;
+    background-color : #202020;
+  }
+  
+  
+  #wrapper 
+  {
+    width       : 100%;
+    position    : relative;
+    top         : 10px; 
+    height      : 20px;
+    line-height : 20px;
+    margin      : 1em auto;
+    overflow    : hidden;
+  }
+
+  div.div_marquee 
+  {
+    color                     : #FFFFFF; 
+    position                  : absolute;     
+    width                     : 640px;
+    text-align                : center;
+    animation-name            : pseudo_marquee;
+    animation-duration        : 11s;
+    animation-timing-function : linear;
+    animation-iteration-count : infinite;
+    animation-direction       : normal;
+  }
+
+  @keyframes pseudo_marquee 
+  {
+  from 
+    {
+      left: 200px;
+    }
+  to 
+    {
+      left: -620px; /*-7em;*/
+    }
+  }
+  
+  hr
+  {
+    float  : center;
+    width  : 190px;
+    height : 2px;
+  }
+  
+  #p_small_0, #p_small_1, #p_small_2, #p_small_3, #p_small_4, #p_small_5, #p_small_6 
+  {
+    font-size : 8px;
+    padding   : 1px;
+  }
