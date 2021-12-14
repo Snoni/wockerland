@@ -93,7 +93,7 @@
     width             : 210px;
     left              : -210px;    
     background        : transparent; /* url(/imagens/fundo_vm.gif) fixed left repeat-y; */
-    background-image  : url(images/yes.gif);
+    background-image  : url(/images/yes.gif);
     background-repeat : repeat-y;
     z-index           : 102;
     text-align        : center;
@@ -158,7 +158,7 @@
     z-index          : 100;
   }
    
-  #chk:checked ~.fundo
+  #chk:checked ~.menuicon
   {
     display: block;
   }
