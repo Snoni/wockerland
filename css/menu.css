@@ -93,7 +93,7 @@
     width             : 210px;
     left              : -210px;    
     background        : transparent; /* url(/imagens/fundo_vm.gif) fixed left repeat-y; */
-    background-image  : url(/imagens/fundo_vm.gif);
+    background-image  : url(/images/fundo_vm.gif);
     background-repeat : repeat-y;
     z-index           : 102;
     text-align        : center;
@@ -190,7 +190,7 @@
    /* center : 0; */
   }
   
-  .div_barra_amarela
+  .div_credit
   {    
     width            : 0px;
     height           : 20%;
@@ -205,7 +205,7 @@
     z-index          : 101;
   }
   
-  .div_autor
+  .div_author
   {
     position : relative;
     left     : 240px;
@@ -263,40 +263,3 @@
     overflow    : hidden;
   }
 
-  div.div_marquee 
-  {
-    color                     : #FFFFFF; 
-    position                  : absolute;     
-    width                     : 640px;
-    text-align                : center;
-    animation-name            : pseudo_marquee;
-    animation-duration        : 11s;
-    animation-timing-function : linear;
-    animation-iteration-count : infinite;
-    animation-direction       : normal;
-  }
-
-  @keyframes pseudo_marquee 
-  {
-  from 
-    {
-      left: 200px;
-    }
-  to 
-    {
-      left: -620px; /*-7em;*/
-    }
-  }
-  
-  hr
-  {
-    float  : center;
-    width  : 190px;
-    height : 2px;
-  }
-  
-  #p_small_0, #p_small_1, #p_small_2, #p_small_3, #p_small_4, #p_small_5, #p_small_6 
-  {
-    font-size : 8px;
-    padding   : 1px;
-  }
