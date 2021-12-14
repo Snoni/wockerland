@@ -8,7 +8,3 @@
     {
       document.getElementById("chk").checked = false;
     }
- 
-  
-
-}
