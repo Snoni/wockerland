@@ -216,8 +216,8 @@
   .div_title_card
   {
     font-size        : 40px;
-    left             : 220px;
-    top              : 50%;
+    left             : 120px;
+    top              : 0;
     width            : 0;
     height           : 200;
     z-index          : 106;
