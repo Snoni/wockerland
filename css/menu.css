@@ -153,7 +153,7 @@
     left             : 0;
     top              : 0;
     position         : fixed;
-    background-color : #0000FF; /*rgba(0,0,0,.6);*/
+    background        : transparent;
     display          : none;
     z-index          : 100;
   }
