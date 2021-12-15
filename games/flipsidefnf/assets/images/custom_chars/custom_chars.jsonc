@@ -1,0 +1,172 @@
+{
+  "template": {
+    "like": "bf",
+    "icons": [0,1,24],
+    "colors": ["#149DFF"]
+  },
+  "bf": {
+    "like": "bf",
+    "icons": [0,1,2,3],
+    "colors": ["#149DFF"]
+  },
+  "bf-car": {
+    "like": "bf-car",
+    "icons": [0,1,2,3],
+    "colors": ["#149DFF"]
+  },
+  "bf-christmas": {
+    "like": "bf-car",
+    "icons": [0,1,2,3],
+    "colors": ["#149DFF"]
+  },
+  "bf-pixel": {
+    "like": "bf-pixel",
+    "icons": [0,1,2],
+    "colors": ["#149DFF"]
+  },
+  "bulb-pixel": {
+    "like": "bf-pixel",
+    "icons": [0,1,2],
+    "colors": ["#F5E642"]
+  },
+  "dad": {
+    "like": "dad",
+    "icons": [0,1,2,3],
+    "colors": ["#A200CA"] 
+  },
+  "gf-car": {
+    "like": "gf-car",
+    "icons": [0,1,2,3],
+    "colors": ["#EE19D9"]
+  },
+  "gf-pixel": {
+    "like": "gf-pixel",
+    "icons": [0,1,2],
+    "colors": ["#EE19D9"]
+  },
+  "gf-christmas": {
+    "like": "gf",
+    "icons": [0,1,2,3],
+    "colors": ["#EE19D9"]
+  },
+  "gf": {
+    "like": "gf",
+    "icons": [0,1,2,3],
+    "colors": ["#EE19D9"]
+  },
+  "gfFlipped": {
+    "like": "gfFlipped",
+    "icons": [0,1,2,3],
+    "colors": ["#EE19D9"]
+  },
+  "gfFlipped-car": {
+    "like": "gfFlipped-car",
+    "icons": [0,1,2,3],
+    "colors": ["#EE19D9"]
+  },
+  "spooky": {
+    "like": "spooky",
+    "icons": [0,1,2,3],
+    "colors": ["#FD9013","#C3C3C3"]
+  },
+  "bf": {
+    "like": "bf",
+    "icons": [0,1,2],
+    "colors": ["#149DFF"]
+  },
+  "bfFlipped": {
+    "like": "bfFlipped",
+    "icons": [0,1,2],
+    "colors": ["#149DFF"]
+  },
+  "bfFlipped-car": {
+    "like": "bfFlipped",
+    "icons": [0,1,2],
+    "colors": ["#149DFF"]
+  },
+  "bf-car": {
+    "like": "bf-car",
+    "icons": [0,1,2],
+    "colors": ["#149DFF"]
+  },
+  "bf-pixel": {
+    "like": "bf-pixel",
+    "icons": [0,1,2],
+    "colors": ["#149DFF"]
+  },
+  "stalker": {
+    "like": "stalker",
+    "icons": [0,1,2,3],
+    "colors": ["#372582"]
+  },
+  "stalkerMad": {
+    "like": "stalkerMad",
+    "icons": [0,1,2,3],
+    "colors": ["#372582"]
+ },
+  "stalkerKitty": {
+    "like": "stalkerKitty",
+    "icons": [0,1,2,3],
+    "colors": ["#372582"]
+  },
+  "roy": {
+    "like": "roy",
+    "icons": [0,1,1],
+    "colors": ["#FD9013"]
+  },
+  "madRoy": {
+    "like": "madRoy",
+    "icons": [0,1,1],
+    "colors": ["#FD9013"]
+  },
+  "pump": {
+    "like": "pump",
+    "icons": [0,1,1],
+    "colors": ["#FD9013"]
+  },
+  "gf": {
+    "like": "gf",
+    "icons": [0,0,1],
+    "colors": ["#EE19D9"]
+  },
+  "cat": {
+    "like": "cat",
+    "icons": [0,0,1],
+    "colors": ["#EE19D9"]
+  },
+  "catEvil": {
+    "like": "catEvil",
+    "icons": [0,0,1],
+    "colors": ["#EE19D9"]
+  },
+  "goober": {
+    "like": "goober",
+    "icons": [0,0,1],
+    "colors": ["#EE19D9"]
+  },
+  "gooberSad": {
+    "like": "goober",
+    "icons": [0,0,1],
+    "colors": ["#EE19D9"]
+  },
+  "gfEmpty": {
+    "like": "gfEmpty",
+    "icons": [0,0,1],
+    "colors": ["#EE19D9"]
+  },
+  "eta": {
+    "like": "eta",
+    "icons": [0,1,2,3],
+    "colors": ["#F2D046"]
+  },
+  "ej": {
+    "like": "ej",
+    "icons": [0,1,2],
+    "colors": ["#F2D046"]
+  },
+  "darnell": {
+    "like": "darnell",
+    "icons": [0,1,2,3],
+    "colors": ["#F2D046"]
+  }
+}

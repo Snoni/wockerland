@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="char.png">
+	<!-- Created with Adobe Animate version 20.0.0.17400 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="CatEvil Dancing Beat0000" x="0" y="0" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0001" x="0" y="0" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0002" x="298" y="0" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0003" x="298" y="0" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0004" x="298" y="0" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0005" x="596" y="0" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0006" x="596" y="0" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0007" x="894" y="0" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0008" x="894" y="0" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0009" x="1192" y="0" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0010" x="1192" y="0" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0011" x="1490" y="0" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0012" x="1490" y="0" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0013" x="0" y="292" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0014" x="0" y="292" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0015" x="298" y="292" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0016" x="298" y="292" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0017" x="596" y="292" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0018" x="596" y="292" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0019" x="894" y="292" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0020" x="894" y="292" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0021" x="894" y="292" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0022" x="1192" y="292" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0023" x="1192" y="292" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0024" x="1490" y="292" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0025" x="1490" y="292" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0026" x="0" y="584" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0027" x="0" y="584" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0028" x="298" y="584" width="298" height="292"/>
+	<SubTexture name="CatEvil Dancing Beat0029" x="298" y="584" width="298" height="292"/>
+</TextureAtlas>

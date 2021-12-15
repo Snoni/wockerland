@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="char.png">
+	<!-- Created with Adobe Animate version 20.0.0.17400 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Cat Dancing Beat0000" x="0" y="0" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0001" x="0" y="0" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0002" x="262" y="0" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0003" x="262" y="0" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0004" x="262" y="0" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0005" x="524" y="0" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0006" x="524" y="0" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0007" x="786" y="0" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0008" x="786" y="0" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0009" x="1048" y="0" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0010" x="1048" y="0" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0011" x="1310" y="0" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0012" x="1310" y="0" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0013" x="1572" y="0" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0014" x="1572" y="0" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0015" x="0" y="267" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0016" x="0" y="267" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0017" x="262" y="267" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0018" x="262" y="267" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0019" x="524" y="267" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0020" x="524" y="267" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0021" x="524" y="267" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0022" x="786" y="267" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0023" x="786" y="267" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0024" x="1048" y="267" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0025" x="1048" y="267" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0026" x="1310" y="267" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0027" x="1310" y="267" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0028" x="1572" y="267" width="262" height="267"/>
+	<SubTexture name="Cat Dancing Beat0029" x="1572" y="267" width="262" height="267"/>
+</TextureAtlas>

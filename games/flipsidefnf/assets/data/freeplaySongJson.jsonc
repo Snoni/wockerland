@@ -1,0 +1,72 @@
+[
+     {
+         "songs" : [
+             {
+                 "week" : 0
+                ,"character" : "gf"
+                ,"name" : "Tutorial"
+            }
+            ,{
+                 "week" : 1
+                ,"character" : "stalker"
+                ,"name" : "Untrue-Love"
+            }
+            ,{
+                 "week" : 1
+                ,"character" : "stalkerMad"
+                ,"name" : "Lolcat"
+            }
+            ,{
+                 "week" : 1
+                ,"character" : "stalkerKitty"
+                ,"name" : "Heartbreak"
+            }
+            ,{
+                 "week" : 2
+                ,"character" : "roy"
+                ,"name" : "Bully"
+            }
+            ,{
+                 "week" : 2
+                ,"character" : "roy"
+                ,"name" : "Trick"
+            }
+            ,{
+                 "week" : 2
+                ,"character" : "roy"
+                ,"name" : "Loner"
+            }
+            ,{
+                 "week" : 2
+                ,"character" : "pump"
+                ,"name" : "Babble"
+            }
+            ,{
+                 "week" : 3
+                ,"character" : "darnell"
+                ,"name" : "Darnell"
+            }
+            ,{
+                 "week" : 3
+                ,"character" : "darnell"
+                ,"name" : "Pyro"
+            }
+            ,{
+                 "week" : 3
+                ,"name" : "boom"
+                ,"character" : "darnell"
+            }
+            ,{
+                 "week" : 0
+                ,"character" : "ej"
+                ,"name" : "Freakish-Neko"
+            }
+            ,{
+                 "week" : 0
+                ,"character" : "chimp"
+                ,"name" : "Chimp-Out"
+            }
+        ]
+        ,"name" : "Base Game"
+    }
+]

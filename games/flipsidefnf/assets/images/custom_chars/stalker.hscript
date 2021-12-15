@@ -1,0 +1,45 @@
+trace(": )");
+// char is a Character
+function init(char) {
+    trace(": )");
+    var tex = FlxAtlasFrames.fromSparrow(hscriptPath + 'char.png', hscriptPath + 'char.xml');
+    trace(": )");
+    char.frames = tex;
+    char.animation.addByPrefix('idle', 'Stalker Idle', 24, false);
+    char.animation.addByPrefix('singUP', 'Stalker Up', 24, false);
+    char.animation.addByPrefix('singLEFT','Stalker Left', 24, false);
+    char.animation.addByPrefix('singRIGHT', 'Stalker Right', 24, false);
+    char.animation.addByPrefix('singDOWN', 'Stalker Down', 24, false);
+    
+
+    char.addOffset('idle',0, -290);
+    char.addOffset('singUP', -60, -220);
+    char.addOffset('singRIGHT',-130, -270);
+    char.addOffset('singLEFT', -25, -252);
+    char.addOffset('singDOWN', -10, -350);
+
+    char.playAnim('idle');
+
+    char.flipX = false;
+
+    char.enemyOffsetX = 0;
+    char.enemyOffsetY = 0;
+    char.playerOffsetX = 0;
+    char.playerOffsetY = 0;
+    char.followCamX = 150;
+    char.followCamY = 200;
+    char.midpointX = 0;
+    char.midpointY = 0;
+}
+portraitOffset = [0, 0];
+dadVar = 4.0;
+isPixel = false;
+function update(elapsed, char) {
+    // do nothing...
+}
+var danced = false;
+function dance(char) {
+    trace(": )");
+    char.playAnim('idle');
+}
+trace("done");

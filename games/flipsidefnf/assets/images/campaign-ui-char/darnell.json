@@ -1,0 +1,7 @@
+{
+  "animation": {
+    "idle": "DarnellIdle"
+  },
+  "scale": 0.60,
+  "offset": [-80,40]
+}

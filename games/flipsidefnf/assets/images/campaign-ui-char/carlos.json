@@ -1,0 +1,7 @@
+{
+  "animation": {
+    "idle": "CarlosIdle"
+  },
+  "scale": 0.55,
+  "offset": [-45,-27]
+}

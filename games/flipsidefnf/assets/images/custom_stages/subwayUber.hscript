@@ -1,0 +1,68 @@
+var train;
+var bg;
+var uber;
+function start(song) {
+	setDefaultZoom(0.5);
+
+    bg = new MetroSprite(-1400,-320, true);
+    bg.frames = FlxAtlasFrames.fromSparrow(hscriptPath + 'bg.png', hscriptPath + 'bg.xml');
+    bg.animation.addByPrefix("idle", "BG Scroll", 24, true);
+    bg.setGraphicSize(Std.int(bg.width * 1.01));
+    addSprite(bg, BEHIND_ALL);
+
+    train = new MetroSprite(-580,650, true);
+    train.frames = FlxAtlasFrames.fromSparrow(hscriptPath + 'train.png', hscriptPath + 'train.xml');
+    train.animation.addByPrefix("idle", "The Train", 24, false);
+    addSprite(train, BEHIND_ALL);
+
+    uber = new MetroSprite(-160,250, true);
+    uber.frames = FlxAtlasFrames.fromSparrow(hscriptPath + 'uber.png', hscriptPath + 'uber.xml');
+    uber.animation.addByPrefix("idle", "Uberkids", 24, false);
+    addSprite(uber, BEHIND_ALL);
+
+
+    boyfriend.x += 550;
+    gf.x += 500;
+
+}
+
+
+function beatHit(beat)
+{
+    train.dance();
+    bg.dance();
+    uber.dance();
+}
+
+function update(elapsed)
+{
+}
+
+function stepHit(step)
+{
+}
+
+function playerTwoTurn()
+{
+}
+
+function playerTwoMiss()
+{
+}
+
+function playerTwoSing()
+{
+}
+
+function playerOneTurn()
+{
+}
+
+function playerOneMiss()
+{
+}
+
+function playerOneSing()
+{
+}
+
