@@ -241,18 +241,7 @@
   /*  background-image:url('fonts/b.bmp'); */
   } 
   
-  body
-  {    
-   /*
-    background:  url(imagens/fundo_vm.gif) fixed left repeat-y,
-                url(imagens/fundo_azul.jpg) fixed repeat;                
-                url(imagens/fundo_2.gif) repeat;*/
-    background-size: auto, 15%, auto;
-    background-color : #202020;
-    font-family: "Comic Sans MS";
-    color: #000000;
-  }
-  
+
   
   #wrapper 
   {
