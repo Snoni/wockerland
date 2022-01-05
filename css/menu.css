@@ -176,7 +176,8 @@
   
   #chk:checked ~ .div_title_card
   {   
-    width:100%;
+    width:50%;
+    height:auto;
     transition: all.4s
   }
    
@@ -218,8 +219,8 @@
     font-size        : 40px;
     left             : 80px;
     top              : 0;
-    width            : 50%;
-    height           : auto;
+    width            : 0;
+    height           : 100%;
     z-index          : 102;
    /* background-color : #0000FF; */
     position         : fixed;
