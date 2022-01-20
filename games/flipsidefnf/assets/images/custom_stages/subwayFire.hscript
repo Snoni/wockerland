@@ -1,0 +1,76 @@
+var train;
+var bg;
+var flames;
+var flamesBehind;
+function start(song) {
+	setDefaultZoom(0.5);
+
+    bg = new MetroSprite(-1400,-320, true);
+    bg.frames = FlxAtlasFrames.fromSparrow(hscriptPath + 'bg.png', hscriptPath + 'bg.xml');
+    bg.animation.addByPrefix("idle", "BG Scroll", 24, true);
+    bg.setGraphicSize(Std.int(bg.width * 1.01));
+    addSprite(bg, BEHIND_ALL);
+
+    flamesBehind = new MetroSprite(-580,150, true);
+    flamesBehind.frames = FlxAtlasFrames.fromSparrow(hscriptPath + 'flamesBehind.png', hscriptPath + 'flamesBehind.xml');
+    flamesBehind.animation.addByPrefix("idle", "Fire Back", 24, false);
+    addSprite(flamesBehind, BEHIND_ALL);
+
+    train = new MetroSprite(-580,550, true);
+    train.frames = FlxAtlasFrames.fromSparrow(hscriptPath + 'train.png', hscriptPath + 'train.xml');
+    train.animation.addByPrefix("idle", "The Train", 24, false);
+    addSprite(train, BEHIND_ALL);
+
+    flames = new MetroSprite(-580,200, true);
+    flames.frames = FlxAtlasFrames.fromSparrow(hscriptPath + 'flames.png', hscriptPath + 'flames.xml');
+    flames.animation.addByPrefix("idle", "Fire Front", 24, false);
+    addSprite(flames, BEHIND_NONE);
+
+
+    boyfriend.x += 550;
+    gf.x += 500;
+    gf.y += 90;
+
+}
+
+
+function beatHit(beat)
+{
+    train.dance();
+    bg.dance();
+    flames.dance();
+    flamesBehind.dance();
+}
+
+function update(elapsed)
+{
+}
+
+function stepHit(step)
+{
+}
+
+function playerTwoTurn()
+{
+}
+
+function playerTwoMiss()
+{
+}
+
+function playerTwoSing()
+{
+}
+
+function playerOneTurn()
+{
+}
+
+function playerOneMiss()
+{
+}
+
+function playerOneSing()
+{
+}
+

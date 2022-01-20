@@ -1,0 +1,13 @@
+[178[ [179[ [223[ [216[ |Lunchbox| *0* =1= #classic#  <0.08< >4> (0.2( )5) {0.83{ }5} `hand_textbox` ~clickText~  <0.08< >4> (0.2( )5) {0.83{ }5} `hand_textbox` ~clickText~
+:roy: !angry! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      QUIT IT! You losers need to stop doing that STUPID DANCE and help me pound these punks!!
+:goons: !rob! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      Uhhh...
+:goons: !ross! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      Dude, you're kinda being a major buzzkill right now.
+:goons: !rob! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      Yeah. I think we're just gonna...
+:goons: !ross! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      Go home.
+:roy: !angry! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      What? Hey, get back here!
+:spooky: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      Everybody's leaving! It's getting late, so we should go as well!
+:roy: !angry! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      You freaks too? What the hell?!
+:bf: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |false| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      Beep bo bap bap
+:roy: !angry! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      Alright, you little creep. My goons might have ditched me, but that doesn't mean I'm not gonna give you a beating into next week.
+:bf: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |false| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      Po po be bep
+:roy: !angry! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      You want another rap battle? Fine. Call that your last meal, loser.

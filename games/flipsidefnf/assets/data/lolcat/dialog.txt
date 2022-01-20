@@ -1,0 +1,12 @@
+[178[ [179[ [223[ [216[ |Lunchbox| *0* =1= #classic#  <0.08< >4> (0.2( )5) {0.83{ }5} `hand_textbox` ~clickText~  <0.08< >4> (0.2( )5) {0.83{ }5} `hand_textbox` ~clickText~
+:stalkerMad: !happy! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      W-wow! You're really great at this singing thing.
+:bf: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |false| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      Skdoo Skbee
+:stalkerMad: !happy! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      Leave??? But we're just getting started! 
+:stalkerMad: !happy! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      Don't you wanna push our relationship further?? :(
+:bf: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |false| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      Beep
+:stalkerMad: !happy! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      How about another song???
+:bf: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |false| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      Bep.
+:stalkerMad: !happy! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF0000! ?#FFD89494? .. ~~      W-w-wait!!!
+:stalkerMad: !happy! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      Oh look, my adorable little kittys come out to play!
+:stalkerMad: !happy! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      You wouldn't say no to a face like that ahaha... Would you? 
+:bf: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |false| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      ...

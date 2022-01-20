@@ -1,0 +1,17 @@
+[178[ [179[ [223[ [216[ |Lunchbox| *0* =1= #classic#  <0.08< >4> (0.2( )5) {0.83{ }5} `hand_textbox` ~clickText~  <0.08< >4> (0.2( )5) {0.83{ }5} `hand_textbox` ~clickText~
+:bf: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |false| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      Bep bop.
+:stalkerKitty: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      ...I don't get it...
+:stalkerKitty: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      Why won't you fall in love with me?
+:bf: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |false| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      Be doo skboo de op bop!
+:stalkerKitty: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      "Girlfriend?"
+:stalkerKitty: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      I see how it is...
+:stalkerKitty: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      I never had a chance from the start.
+:stalkerKitty: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      YOU WERE JUST LEADING ME ON THE WHOLE TIME!!
+:bf: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |false| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      Ehp dap be bo skep!?
+:stalkerKitty: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      ...Well if I can't have you...
+:stalkerKitty: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.20; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      Then no one can.
+:bf: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |false| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      Beebop?
+:stalkerKitty: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      What I'm saying is:
+:stalkerKitty: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.06; |true| #classic# ^pixelText^ !#FF0000! ?#000000? .. ~~      ME AND MY PRECIOUS LITTLE KITTY ARE GONNA MAKE MINCED MEAT OUT OF YOU!!!
+:stalkerKitty: !normal! [VCR OSD Mono[ ]20] *0* =0= +0+ -0- <0< >0> ;0.01; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      (After one more song, of course.)
+:bf: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |false| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      *gulping beep*

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="goons.png">
+	<!-- Created with Adobe Animate version 20.0.0.17400 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="goons0000" x="0" y="0" width="1190" height="534"/>
+	<SubTexture name="goons0001" x="1190" y="0" width="1190" height="534"/>
+	<SubTexture name="goons0002" x="1190" y="0" width="1190" height="534"/>
+	<SubTexture name="goons0003" x="2380" y="0" width="1190" height="534"/>
+	<SubTexture name="goons0004" x="2380" y="0" width="1190" height="534"/>
+	<SubTexture name="goons0005" x="0" y="534" width="1190" height="534"/>
+	<SubTexture name="goons0006" x="0" y="534" width="1190" height="534"/>
+	<SubTexture name="goons0007" x="0" y="534" width="1190" height="534"/>
+	<SubTexture name="goons0008" x="0" y="534" width="1190" height="534"/>
+	<SubTexture name="goons0009" x="0" y="534" width="1190" height="534"/>
+	<SubTexture name="goons0010" x="0" y="534" width="1190" height="534"/>
+	<SubTexture name="goons0011" x="0" y="534" width="1190" height="534"/>
+	<SubTexture name="goons0012" x="0" y="534" width="1190" height="534"/>
+	<SubTexture name="goons0013" x="0" y="534" width="1190" height="534"/>
+</TextureAtlas>

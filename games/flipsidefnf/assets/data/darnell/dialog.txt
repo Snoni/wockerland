@@ -1,0 +1,11 @@
+[178[ [179[ [223[ [216[ |Lunchbox| *0* =1= #classic#  <0.08< >4> (0.2( )5) {0.83{ }5} `hand_textbox` ~clickText~  <0.08< >4> (0.2( )5) {0.83{ }5} `hand_textbox` ~clickText~
+:darnell: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      Ayy! whas good lil' b?
+:bf: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |false| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      skbloop bee!
+:darnell: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      Hehe, i ain't seen you 'round this part of town in a hot minute.
+:darnell: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      You and Pico still kickin' it?
+:bf: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |false| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      boobl pe.......
+:darnell: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      Ah.. gotcha.
+:darnell: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      Well, we've got some catchin' up to do
+:darnell: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      How 'bout we see if you still got it?
+:bf: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |false| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      POB BO BEE!
+:darnell: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      You know what it is!

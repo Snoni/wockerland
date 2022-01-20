@@ -1,0 +1,7 @@
+{
+  "animation": {
+    "idle": "RoyIdle"
+  },
+  "scale": 0.50,
+  "offset": [-60,-14]
+}

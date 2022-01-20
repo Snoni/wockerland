@@ -1,0 +1,6 @@
+[178[ [179[ [223[ [216[ |Lunchbox| *0* =1= #classic#  <0.08< >4> (0.2( )5) {0.83{ }5} `hand_textbox` ~clickText~  <0.08< >4> (0.2( )5) {0.83{ }5} `hand_textbox` ~clickText~
+:darnell: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      You've yet to let me down lil' b.
+:darnell: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      But now that these mofos are here, i got somethin' else at the top of my priority list.
+:darnell: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      You tryna help me take care of 'em?
+:bf: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |false| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      b-beed bopoo!!!
+:darnell: !normal! [VCR OSD Mono[ ]30] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #classic# ^pixelText^ !#FF3F2021! ?#FFD89494? .. ~~      Hell yeah. It's time to turn up the heat!
