@@ -89,12 +89,8 @@
   
   #principal   
   {
-    top               : 0px;
-    width             : 210px;
-    left              : -210px;    
     background        : transparent; /* url(/imagens/fundo_vm.gif) fixed left repeat-y; */
-    background-image  : url(../images/yes.gif);
-    background-repeat : repeat-y;
+    background-image  : url(../images/tile.png);
     z-index           : 103;
     text-align        : center;
   }
@@ -123,10 +119,10 @@
     padding-right : 10px;
   }
   
-  .menu_links a:link{color:#FFFF00}  
-  .menu_links a:visited{color:#FFFFFF}
-  .menu_links a:hover{color:#FFFF00} 
-  .menu_links a:active{color:#FFFF00}
+  .menu_links a:link{color:#6d00e9}  
+  .menu_links a:visited{color:#0e080f}
+  .menu_links a:hover{color:#160174} 
+  .menu_links a:active{color:#0e0250}
   
   
   ul li a:hover
