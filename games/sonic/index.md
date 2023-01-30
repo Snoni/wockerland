@@ -12,4 +12,4 @@
             EJS_pathtodata = "https://rawcdn.githack.com/EmulatorJS/EmulatorJS/main/data/";
             EJS_gameUrl = "https://files.wockrland.me/sonic1.bin";
 </script>
-        <script src="https://rawcdn.githack.com/EmulatorJS/EmulatorJS/main/data/loader.js"></script>
+<script src="https://rawcdn.githack.com/EmulatorJS/EmulatorJS/main/data/loader.js"></script>
