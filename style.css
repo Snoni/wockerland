@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "GG Sans";
+  src: url("assets/ggsans.woff2") format("woff2");
+}
+body {
+  font: "GG Sans";
+  background: rgb(34,0,98);
+  background: linear-gradient(0deg, rgba(34,0,98,1) 0%, rgba(165,165,255,1) 44%, rgba(197,162,255,1) 63%, rgba(0,0,224,1) 100%);
+}
