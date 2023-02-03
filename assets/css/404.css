@@ -1,0 +1,15 @@
+@font-face {
+font-family: gsansb;
+src: url(/assets/fonts/gbold.ttf);
+}
+
+body {
+
+  background-color: #000;
+  color: #6633ff;
+  font-family: gsansb;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 0 auto;
+}

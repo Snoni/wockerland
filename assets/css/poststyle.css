@@ -1,0 +1,38 @@
+@font-face {
+  font-family: gsans;
+  src: url(/assets/fonts/gbold.ttf);
+}
+body {
+  background-color: #131313;
+  color: #FFFFFF;
+  
+  
+  
+}
+
+img {
+  max-width: 50%;
+  max-height:50%;
+}
+
+h1 {
+  color: #6633FF;
+  font-family: gsans;
+  text-align: center;
+}
+
+img {
+  margin-left: auto;
+  text-align: left;
+}
+
+.container {
+  margin: 0 auto; /* center element horizontally */
+  font-family: gsans;
+  font-size: 24px;
+  word-wrap: break-word;
+  width:50%;
+  position:absolute;
+  right:0;
+  text-align: right;
+}
