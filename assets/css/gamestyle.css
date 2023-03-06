@@ -19,6 +19,7 @@ body {
 h1 {
   color: #6633FF;
   font-family: gsansb;
+  text-align: center;
 } 
 
 p {
@@ -26,18 +27,6 @@ p {
   font-size: 18px;
 }
 
-img {
-  max-width: 20%;
-  max-height:20%;
-}
-
-.blog
-{
-  font-family: gsans;
-  font-size: 24px;
-  word-wrap: break-word;
-  width: 48%;
-  position:absolute;
-  right:0;
-  text-align: right;
+.game{
+  margin: 0 auto;
 }

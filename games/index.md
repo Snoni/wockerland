@@ -1,13 +1,10 @@
 ---
-title: Home
+title: Subjects
 layout: default
---- 
-<h1>THIS SITE</h1>
-Is Ass!
-come back later when its  good
+---
+# GAMES
 
-
-
+[![sonic the hedgehog](/assets/images/s1title.png)](sonic/)
 
 
 
