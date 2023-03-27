@@ -19,11 +19,13 @@ body {
 h1 {
   color: #6633FF;
   font-family: gsansb;
+  text-align: center;
 } 
 
 p {
   font-family: gsans;
   font-size: 18px;
+  text-align: center;
 }
 
 img {
