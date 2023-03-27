@@ -22,7 +22,7 @@ onbeforeunload=function() {
 print("﷽﷽﷽﷽﷽ so on") } 
 let newTab = window.open(); 
 newTab.location.href = "https://wockerland.tk/cbsploit/";" 
-class="btn btn-dark"></button>
+class="btn btn-dark">THE BOOKMARKLET</button>
 
 <!-- count particles -->
 <div class="count-particles">
