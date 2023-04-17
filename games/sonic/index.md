@@ -14,6 +14,6 @@ layout: game
             EJS_color = "#0064ff";
             EJS_startOnLoaded = true;
             EJS_pathtodata = "https://rawcdn.githack.com/EmulatorJS/EmulatorJS/main/data/";
-            EJS_gameUrl = "https://files.wockrland.me/games/sonic1.bin";
+            EJS_gameUrl = "https://files.wockrland.me/game/sonic1.md";
 </script>
 <script src="https://rawcdn.githack.com/EmulatorJS/EmulatorJS/main/data/loader.js"></script>
