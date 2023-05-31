@@ -3,7 +3,7 @@
   src: url(/assets/fonts/gbold.ttf);
 }
 body {
-  background-color: #131313;
+  background-color: #050014;
   color: #FFFFFF;
   
   
@@ -16,7 +16,7 @@ img {
 }
 
 h1 {
-  color: #6633FF;
+  color: #FFFFFF;
   font-family: gsans;
   text-align: center;
 }
