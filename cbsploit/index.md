@@ -17,7 +17,7 @@ you should unblock your chromebook
 
 <a href='javascript: fetch("https://raw.githubusercontent.com/Snoni/wockrland/main/assets/js/cbsploit.js").then(r => r.text()).then(r => eval(r))'>
       <button class="btn btn-dark">
-        Get Answers
+        THE BOOKMARKLET
       </button>
     </a>
 

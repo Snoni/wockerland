@@ -43,3 +43,12 @@ img {
   right:0;
   text-align: right;
 }
+
+/* Deep-purple Dark scheme (Forced) */
+/* Enabled if forced with data-theme="dark" */
+[data-theme="dark"] {
+  --primary: #3c3c7e;
+  --primary-hover: #3c3c7e;
+  --primary-focus: #1e1e3f;
+  --primary-inverse: #FFF;
+}
