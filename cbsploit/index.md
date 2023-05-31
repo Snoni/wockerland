@@ -7,7 +7,7 @@ layout: default
 <div id="particles-js"></div>
 <!-- scripts -->
 <script src="js/particles.js"></script>
-<script src="js/app.js"></script
+<script src="js/app.js"></script>
 
 # CBSPLOIT
 
