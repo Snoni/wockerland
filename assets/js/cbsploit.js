@@ -5,6 +5,5 @@ onbeforeunload=function() {
     };
     setTimeout(function() {
       while (1) location.reload(1)
-    }, 1000)  
-print("﷽﷽﷽﷽﷽ so on")
+    }, 1000);
 }
